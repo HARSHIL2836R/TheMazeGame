@@ -18,6 +18,8 @@ def run_game():
     screen = pygame.display.set_mode((mg_settings.screen_width, mg_settings.screen_height))
     pygame.display.set_caption("The Maze Game")
     
+    
+
     #Intanciate the player
     player = Player(screen)
 
