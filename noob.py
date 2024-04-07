@@ -8,6 +8,7 @@ import pygame
 from modules.settings import Settings
 from modules.player import Player
 import modules.game_functions as gf
+import modules.menu as menu
 
 def run_game():
     # Initialize game and create a screen object.
@@ -17,9 +18,9 @@ def run_game():
     #set screen dimensions and title
     screen = pygame.display.set_mode((mg_settings.screen_width, mg_settings.screen_height))
     pygame.display.set_caption("The Maze Game")
-    
-    
 
+    menu.show(screen)
+    
     #Intanciate the player
     player = Player(screen)
 
