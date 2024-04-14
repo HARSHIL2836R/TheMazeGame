@@ -1,5 +1,3 @@
-import sys
-
 import pygame
 #In Pygame, the origin (0, 0) is at the top-left corner of the screen, and coordinates increase as you go down and to the right
 

@@ -2,7 +2,7 @@
 
 ## Basic Game Plan/Structure
 
-### 6th April
+### 6th April (Start Planning)
 ```
 README.md
 game.py
@@ -13,6 +13,7 @@ game.py
 |--settings.py
 |--menu.py
 |--maze.py
+|-button.py
 |
 \-images/
 |--player.bmp
@@ -23,3 +24,10 @@ game.py
 |--report.tex
 |--refs.bib
 ```
+
+### 14th April
+#### Menu design:
+- The Maze Game (title, text) (2/6) (from top)
+- Select Level (text) (4/6)
+- Levels (1,2,3) (button) (4/6)
+- Press ESC to Quit (5/6)
