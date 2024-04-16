@@ -32,8 +32,8 @@ def show(screen: pygame.Surface):
         mouse = pygame.mouse.get_pos()
 
         for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                return None
+            if event.type == pygame.QUIT or (event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE):
+                return "exit"
 
         for button in {lvl1_button,lvl2_button,lvl3_button}:
             button.draw_button()

@@ -12,7 +12,7 @@ def check_events() -> None:
         None
     """
     for event in pygame.event.get():
-        if event.type == pygame.QUIT:
+        if event.type == pygame.QUIT or (event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE):
             sys.exit()
 
 def update_screen(mg_settings, screen, player):
