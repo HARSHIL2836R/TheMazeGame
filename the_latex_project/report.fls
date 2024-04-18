@@ -1,7 +1,7 @@
 PWD c:\Users\Dell\Documents\IIT_academics\Sem 2\CS108\TheMazeGame\the_latex_project
 INPUT C:\Users\Dell\AppData\Local\MiKTeX\miktex\data\le\pdftex\pdflatex.fmt
-INPUT c:\Users\Dell\Documents\IIT_academics\Sem 2\CS108\TheMazeGame\the_latex_project\presentation.tex
-OUTPUT presentation.log
+INPUT c:\Users\Dell\Documents\IIT_academics\Sem 2\CS108\TheMazeGame\the_latex_project\report.tex
+OUTPUT report.log
 INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex\latex\base\article.cls
 INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex\latex\base\article.cls
 INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex\latex\base\size10.clo
@@ -70,12 +70,14 @@ INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex\latex\rerunfilecheck\rerun
 INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex\latex\rerunfilecheck\rerunfilecheck.sty
 INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex\generic\uniquecounter\uniquecounter.sty
 INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex\generic\uniquecounter\uniquecounter.sty
+INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex\latex\tools\enumerate.sty
+INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex\latex\tools\enumerate.sty
 INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
 INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
-INPUT .\presentation.aux
-INPUT .\presentation.aux
-INPUT presentation.aux
-OUTPUT presentation.aux
+INPUT .\report.aux
+INPUT .\report.aux
+INPUT report.aux
+OUTPUT report.aux
 INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex\latex\graphics\color.sty
 INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex\latex\graphics\color.sty
 INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex\latex\graphics-cfg\color.cfg
@@ -90,14 +92,14 @@ INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex\context\base\mkii\supp-pdf
 INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex\latex\graphics\mathcolor.ltx
 INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex\latex\graphics\mathcolor.ltx
 INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex\latex\graphics\mathcolor.ltx
-INPUT .\presentation.out
-INPUT .\presentation.out
-INPUT presentation.out
-INPUT presentation.out
-INPUT .\presentation.out
-INPUT .\presentation.out
-OUTPUT presentation.out
-OUTPUT presentation.pdf
+INPUT .\report.out
+INPUT .\report.out
+INPUT report.out
+INPUT report.out
+OUTPUT report.pdf
+INPUT .\report.out
+INPUT .\report.out
+OUTPUT report.out
 INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr17.tfm
 INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr12.tfm
 INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr8.tfm
@@ -110,14 +112,19 @@ INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmsy8.tfm
 INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmsy6.tfm
 INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr12.tfm
 INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx12.tfm
-INPUT .\presentation.toc
-INPUT .\presentation.toc
-INPUT presentation.toc
-OUTPUT presentation.toc
+INPUT .\report.toc
+INPUT .\report.toc
+INPUT report.toc
+INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx10.tfm
+OUTPUT report.toc
 INPUT C:\Users\Dell\AppData\Local\MiKTeX\fonts\map\pdftex\pdftex.map
-INPUT presentation.aux
-INPUT .\presentation.out
-INPUT .\presentation.out
+INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx12.tfm
+INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmti10.tfm
+INPUT report.aux
+INPUT .\report.out
+INPUT .\report.out
+INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx10.pfb
+INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx10.pfb
 INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx12.pfb
 INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx12.pfb
 INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr10.pfb
@@ -126,3 +133,5 @@ INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm
 INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr12.pfb
 INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr17.pfb
 INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr17.pfb
+INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmti10.pfb
+INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmti10.pfb

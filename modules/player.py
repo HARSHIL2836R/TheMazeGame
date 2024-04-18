@@ -16,7 +16,7 @@ class Player():
         print("self.screen_rect", self.screen_rect)
 
         #Start player at center of left edge
-        self.rect.midleft = self.screen_rect.midleft
+        self.rect.topleft = self.screen_rect.topleft
     
     def bltime(self):
         """Draws the player at it's current position"""
