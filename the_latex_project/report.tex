@@ -2,6 +2,8 @@
 \usepackage{fancyhdr}
 \usepackage{hyperref}
 \usepackage{enumerate}
+\usepackage[backend=biber]{biblatex}
+\addbibresource{references.bib}
 
 %Metadata
 \hypersetup{
@@ -23,7 +25,7 @@
 \title{
 The\\
 Maze\\
-Game
+Game\\
 }
 \author{Harshil Solanki}
 \date{}
@@ -31,10 +33,14 @@ Game
 \tableofcontents
 \clearpage
 
+
+\section{Lorem}
+See~\cite{thebook}
+
 %%%%%%ALGORITHMS STUDIED%%%%%%
 \section{Maze Generation Algorithms}
 \subsection{Krsukal's Algorithm}
-%https://weblog.jamisbuck.org/2011/1/3/maze-generation-kruskal-s-algorithm
+\href{https://weblog.jamisbuck.org/2011/1/3/maze-generation-kruskal-s-algorithm}{Source}\\
 Kruskal's algorithm is a method for producing a minimal spanning tree from a weighted graph. It works something like this:
 
 \begin{enumerate}
@@ -129,5 +135,7 @@ Like the recursive backtracking algorithm, here's the “mile-high” overview o
     \item Repeat until the last row is reached.
     \item For the last row, join all adjacent cells that do not share a set, and omit the vertical connections, and you're done!
 \end{enumerate}
+
+\printbibliography
 
 \end{document}
