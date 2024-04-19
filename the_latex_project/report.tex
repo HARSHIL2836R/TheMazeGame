@@ -40,7 +40,7 @@ See~\cite{thebook}
 %%%%%%ALGORITHMS STUDIED%%%%%%
 \section{Maze Generation Algorithms}
 \subsection{Krsukal's Algorithm}
-\href{https://weblog.jamisbuck.org/2011/1/3/maze-generation-kruskal-s-algorithm}{Source}\\
+[\href{https://weblog.jamisbuck.org/2011/1/3/maze-generation-kruskal-s-algorithm}{Source}]\\
 Kruskal's algorithm is a method for producing a minimal spanning tree from a weighted graph. It works something like this:
 
 \begin{enumerate}
@@ -127,13 +127,23 @@ It does this by building the maze one row at a time, using sets to keep track of
 
 Like the recursive backtracking algorithm, here's the “mile-high” overview of Eller's algorithm:
 \begin{enumerate}
-    \item 
     \item Initialize the cells of the first row to each exist in their own set.
     \item Now, randomly join adjacent cells, but only if they are not in the same set. When joining adjacent cells, merge the cells of both sets into a single set, indicating that all cells in both sets are now connected (there is a path that connects any two cells in the set).
     \item For each set, randomly create vertical connections downward to the next row. Each remaining set must have at least one vertical connection. The cells in the next row thus connected must share the set of the cell above them.
     \item Flesh out the next row by putting any remaining cells into their own sets.
     \item Repeat until the last row is reached.
     \item For the last row, join all adjacent cells that do not share a set, and omit the vertical connections, and you're done!
+\end{enumerate}
+
+\section*{My Algorithm}
+Taking inspiration from the previous algorithms, I'm going to implement my algorithm in this way:
+
+\begin{enumerate}
+    \item Make a random path from start-point to the end-point.
+    \item Choose two arbitrary points in this path and block the initial path we made between them and generate another random path.
+    \item Repeat the previous step according to the complexity of maze.
+    \item Use Recursive Backtracing from a random cell in the solution path to cover the whole maze.
+    \item Use Hunt and Kill algorithm  to verify no cell is univisited.
 \end{enumerate}
 
 \printbibliography
