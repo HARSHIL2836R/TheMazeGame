@@ -1,4 +1,4 @@
-import copy
+import time
 import random
 import matplotlib.pyplot as plt
 import numpy as np
@@ -31,9 +31,9 @@ def generate_random_walk(start_coord, end_coord, dimx=None, dimy=None,maze_=None
         pass
 
     if dimx == None:
-        dimx=maze_.mazrix.shape[0]/2
+        dimx=maze_.mazrix.shape[0]
     if dimy==None:
-        dimy=maze_.mazrix.shape[1]/2
+        dimy=maze_.mazrix.shape[1]
     
     global the_maze
     the_maze = None
@@ -50,7 +50,7 @@ def generate_random_walk(start_coord, end_coord, dimx=None, dimy=None,maze_=None
         total_steps=0
         directions = []
 
-        while curr_coord != end_coord:
+        while (curr_coord != end_coord) and (total_steps < threshold):
             possible_moves = [(0, 2), (0, -2), (2, 0), (-2, 0)]
             match_moves = {(0,2):'D',(0,-2):'U',(2,0):'R',(-2,0):'L'}
             match_wall = {'D':(0,-1),'U':(0,1),'R':(-1,0),'L':(1,0)}
@@ -61,8 +61,8 @@ def generate_random_walk(start_coord, end_coord, dimx=None, dimy=None,maze_=None
             next_move = random.choice(possible_moves)
             new_coord = (curr_coord[0] + next_move[0], curr_coord[1] + next_move[1])
             
-            if (0 <= new_coord[0] < dimx*2 and
-                0 <= new_coord[1] < dimy*2):
+            if (0 <= new_coord[0] < dimx and
+                0 <= new_coord[1] < dimy):
                 curr_coord = new_coord
                 walk.append(new_coord) # add coord to walk
 
@@ -101,16 +101,17 @@ def check_working()->None:
     [-1., -1., -1., -1., -1., -1.],
     [-1., -1., -1., -1., -1., -1.]])
     maze.mazrix = mazrix
-    start_coord = (2, 0)
-    end_coord = (0, 2)
+    start_coord = (0, 0)
+    end_coord = (2, 2)
+    start_time = time.time()
     random_walk = generate_random_walk(start_coord, end_coord,maze_=maze).solution_.walk
+    end_time = time.time()
+    print("Time taken:", end_time-start_time)
 
     # Separate x and y coordinates for plotting
     x_data = [step[0] for step in random_walk]
     y_data = [-step[1] for step in random_walk]
 
-    for step in random_walk:
-        print(step)
 
     plt.plot(x_data, y_data)  # Plot using x and y coordinates separately
     plt.show()
