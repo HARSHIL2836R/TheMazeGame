@@ -1,125 +1,84 @@
+import random
+import matplotlib.pyplot as plt
 import numpy as np
+from maze import Maze
 
-class Move_functions():
-    def up(pointer,vmaze)->list:
-        try:
-            if vmaze[pointer[0],pointer[1]-1] == -1:
-                #update pointer only if next cell is in the maze and is univisited
-                pointer[1] -= 1
-                return pointer
-            else:
-                return pointer
-        except IndexError:
-            return pointer
-    def down(pointer,vmaze)->list:
-        try:
-            if vmaze[pointer[0],pointer[1]+1] == -1:
-                #update pointer only if next cell is in the maze and is univisited
-                pointer[1] += 1
-                return pointer
-            else:
-                return pointer
-        except IndexError:
-            return pointer
-    def left(pointer,vmaze)->list:
-        try:
-            if vmaze[pointer[0]-1,pointer[1]] == -1:
-                #update pointer only if next cell is in the maze and is univisited
-                pointer[0] -= 1
-                return pointer
-            else:
-                return pointer
-        except IndexError:
-            return pointer
-    def right(pointer,vmaze)->list:
-        try:
-            if vmaze[pointer[0]+1,pointer[1]] == -1:
-                #update pointer only if next cell is in the maze and is univisited
-                pointer[0] += 1
-                return pointer
-            else:
-                return pointer
-        except IndexError:
-            return pointer
-
-
-def dummy_random_walk(start,end,dimx=None,dimy=None)->tuple:
+def generate_random_walk(start_coord, end_coord, dimx=None, dimy=None)->Maze:
     """
     Args:
-        start: tuple, representing the startpoint
-        end: tuple, representing the endpoint
-        dim: int, dimension of the maze
+        start_coord: tuple, representing the startpoint
+        end_coord: tuple, representing the endpoint
+        dimx: int, X dimension of the maze
+        dimy: int, Y dimension of the maze
     Returns:
-        tuple, sequence of U,D,L,R representing the walk
+        Set: {maze ,sequence of U,D,L,R representing the walk}
     """
-    
     #If dimension is not provided, interpret the maze with dimension as the distance between start and end
     if dimx==None:
-        dimx=end[0]-start[0]
+        dimx=end_coord[0]-start_coord[0]+1
     if dimy==None:
-        dimy=end[1]-start[1]
+        dimy=end_coord[1]-start_coord[1]+1
 
-    vmaze = -1*np.ones((dimx,dimy))
-
-    pointer = [0,0] #Initiate pointer
+    the_maze = Maze((dimx,dimy))
     
-    ops = []
+    def run()->int:
+        the_maze.restart()
+        maze = the_maze.mazrix
 
-    counter = 0
-    max_count = (dimx*dimy)**2
+        curr_coord = start_coord
+        maze[curr_coord[1]][curr_coord[0]] = 0
+        walk = [curr_coord]
+        prev_move=None
+        total_steps=0
+        directions = []
 
-    while ((np.any(vmaze==(-1)) == True) or (pointer == [end[0]-start[0],end[1]-start[1]])) and counter < max_count:
-        vmaze[pointer[0]][pointer[1]] = 0
-        print(vmaze)
+        while curr_coord != end_coord:
+            possible_moves = [(0, 1), (0, -1), (1, 0), (-1, 0)]
+            match_moves = {(0,1):'D',(0,-1):'U',(1,0):'R',(-1,0):'L'}
+            
+            if prev_move:
+                possible_moves.remove((-prev_move[0], -prev_move[1]))  # Remove the reverse move
 
-        #up,right,down,left
-        probabilities=(0.25,0.25,0.25,0.25)
-        step = np.random.choice([1,2,3,4],p=probabilities)
-        match step:
-            case 1:
-                pointer_new = Move_functions.up(pointer,vmaze)
-                if pointer_new == pointer:
-                    pass
-                else:
-                    pointer = pointer_new
-                    ops.append('U')
-            case 2:
-                pointer_new = Move_functions.right(pointer,vmaze)
-                if pointer_new == pointer:
-                    pass
-                else:
-                    pointer = pointer_new
-                    ops.append('R')
-                
-            case 3:
-                pointer_new = Move_functions.down(pointer,vmaze)
-                if pointer_new == pointer:
-                    pass
-                else:
-                    pointer = pointer_new
-                    ops.append('D')
-            case 4:
-                pointer_new = Move_functions.left(pointer,vmaze)
-                if pointer_new == pointer:
-                    pass
-                else:
-                    pointer = pointer_new
-                    ops.append('L')
-        counter += 1
+            next_move = random.choice(possible_moves)
+            new_coord = (curr_coord[0] + next_move[0], curr_coord[1] + next_move[1])
+            
+            if (0 <= new_coord[0] < dimx and
+                0 <= new_coord[1] < dimy):
+                curr_coord = new_coord
+                walk.append(new_coord) # add coord to walk
+                maze[curr_coord[1]][curr_coord[0]]=0 # make the corresponding cell zero
+                directions.append(match_moves[next_move])
+                prev_move = next_move
+                print(maze, walk, directions)
+                total_steps += 1
+            else:
+                continue
 
-    if counter == max_count:
-        raise TimeoutError
-    else:
-        return ops
+        the_maze.solution(directions,walk)
+        return total_steps
 
-def random_walk(start,end,dimx=None,dimy=None):
-    while True:
-        try:
-            ops = dummy_random_walk(start,end,dimx,dimy)
-            break
-        except TimeoutError:
-            print("parsing")
-            continue
-    return ops
+    threshold = dimx*dimy/3
+    
+    runs = run()
+    while runs > threshold:
+        runs = run()
 
-print(random_walk((0,0),(4,4)))
+    return the_maze
+
+def check_working():
+    start_coord = (0, 0)
+    end_coord = (4, 4)
+    random_walk = generate_random_walk(start_coord, end_coord,10,10).solution_.walk
+
+    # Separate x and y coordinates for plotting
+    x_data = [step[0] for step in random_walk]
+    y_data = [-step[1] for step in random_walk]
+
+    for step in random_walk:
+        print(step)
+
+    plt.plot(x_data, y_data)  # Plot using x and y coordinates separately
+    plt.show()
+
+if __name__=="__main__":
+    check_working()
