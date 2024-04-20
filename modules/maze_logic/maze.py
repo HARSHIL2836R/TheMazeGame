@@ -5,11 +5,18 @@ class Maze():
     def __init__(self,dim) -> None:
         """
         Params:
-            dim: tuple, dimensions of maze
+            dim: tuple(x,y), dimensions of maze
         """
         self.dim=dim
-        self.mazrix = -1 * np.ones(dim)
+        self.mazrix = -1 * np.ones((dim[0]*2,dim[1]*2))
         self.solution_=Solution(None,None)
+    
+    def __copy__(self):
+        new = Maze(self.dim)
+        new.mazrix = self.mazrix.copy()
+        new.solution_=Solution(None, None)
+        new.solution(self.solution_.directions,self.solution_.walk)
+        return new
 
     def restart(self):
         self.mazrix = -1 * np.ones(self.dim)
