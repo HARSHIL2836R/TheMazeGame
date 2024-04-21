@@ -2,9 +2,10 @@ import time
 import random
 import matplotlib.pyplot as plt
 import numpy as np
-from maze import Maze
+#My Modules
+from modules.maze_logic.maze import Maze
 
-def generate_random_walk(start_coord, end_coord, dimx=None, dimy=None,maze_=None)->Maze:
+def generate_random_walk(start_coord: tuple, end_coord: tuple, dimx: int =None, dimy:int =None,maze_: Maze =None,lower_bound: int=0,upper_bound: int=None, debug: bool = False)->Maze:
     """
     Args:
         start_coord: tuple, representing the startpoint
@@ -12,6 +13,9 @@ def generate_random_walk(start_coord, end_coord, dimx=None, dimy=None,maze_=None
         dimx: int, X dimension of the maze
         dimy: int, Y dimension of the maze
         maze_: Maze, build upon the given maze or make a new maze if not provided
+        lower_bound: int, minimum number of steps the walk should run
+        upper_bound: int, maximum number of steps the walk should run
+        debug: bool, if true, print the matrix, directions and walk at each run otherwise suppress printing
     Returns:
         Maze: New instance of class Maze
     """
@@ -34,6 +38,10 @@ def generate_random_walk(start_coord, end_coord, dimx=None, dimy=None,maze_=None
         dimx=maze_.mazrix.shape[0]
     if dimy==None:
         dimy=maze_.mazrix.shape[1]
+
+    #use default upper bound if not provided
+    if upper_bound == None:
+        upper_bound = dimx*dimy/2
     
     global the_maze
     the_maze = None
@@ -50,7 +58,7 @@ def generate_random_walk(start_coord, end_coord, dimx=None, dimy=None,maze_=None
         total_steps=0
         directions = []
 
-        while (curr_coord != end_coord) and (total_steps < threshold):
+        while (curr_coord != end_coord) and (total_steps < upper_bound) and (total_steps >= lower_bound):
             possible_moves = [(0, 2), (0, -2), (2, 0), (-2, 0)]
             match_moves = {(0,2):'D',(0,-2):'U',(2,0):'R',(-2,0):'L'}
             match_wall = {'D':(0,-1),'U':(0,1),'R':(-1,0),'L':(1,0)}
@@ -74,7 +82,8 @@ def generate_random_walk(start_coord, end_coord, dimx=None, dimy=None,maze_=None
 
                 directions.append(direction)
 
-                print(maze, walk, directions)
+                if debug: 
+                    print(maze, walk, directions)
                 total_steps += 1
                 prev_move = next_move #update iterable
             else:
@@ -83,28 +92,28 @@ def generate_random_walk(start_coord, end_coord, dimx=None, dimy=None,maze_=None
         the_maze.solution(directions,[(x[0]/2,x[1]/2) for x in walk])
         return total_steps
 
-    threshold = dimx*dimy/2
     
     runs = run()
-    while runs > threshold:
+    while (runs > upper_bound) or (runs < lower_bound):
         runs = run()
 
-    print("maze_",maze_.mazrix)
+    if debug:
+        print("original_maze",maze_.mazrix)
     return the_maze
 
 def check_working()->None:
     maze=Maze((3,3))
-    mazrix = np.array([[ 0.,  0.,  0., -1., -1., -1.],
-    [-1., -1.,  0., -1., -1., -1.],
-    [-1., -1.,  0., -1., -1., -1.],
-    [-1., -1., -1., -1., -1., -1.],
-    [-1., -1., -1., -1., -1., -1.],
-    [-1., -1., -1., -1., -1., -1.]])
+    mazrix = np.array([[ 0,  0,  0, -1, -1, -1],
+    [-1, -1,  0, -1, -1, -1],
+    [-1, -1,  0, -1, -1, -1],
+    [-1, -1, -1, -1, -1, -1],
+    [-1, -1, -1, -1, -1, -1],
+    [-1, -1, -1, -1, -1, -1]])
     maze.mazrix = mazrix
     start_coord = (0, 0)
-    end_coord = (2, 2)
+    end_coord = (30, 30)
     start_time = time.time()
-    random_walk = generate_random_walk(start_coord, end_coord,maze_=maze).solution_.walk
+    random_walk = generate_random_walk(start_coord, end_coord,maze_=None,debug=True).solution_.walk
     end_time = time.time()
     print("Time taken:", end_time-start_time)
 

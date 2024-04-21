@@ -1,7 +1,6 @@
 import pygame
 #In Pygame, the origin (0, 0) is at the top-left corner of the screen, and coordinates increase as you go down and to the right
 
-
 #import user defined modules
 from modules.settings import Settings
 from modules.player import Player
@@ -24,10 +23,12 @@ def run_game():
     #Intanciate the player
     player = Player(screen)
 
+    curr_maze=gf.build_maze()
+
     # Start the main loop for the game.
     while True:
         # Watch for keyboard and mouse events.
         gf.check_events()
-        gf.update_screen(mg_settings, screen, player)
+        gf.update_screen(mg_settings, screen, player,curr_maze)
 
 run_game()

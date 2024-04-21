@@ -2,13 +2,13 @@
 import numpy as np
 
 class Maze():
-    def __init__(self,dim) -> None:
+    def __init__(self,dim: tuple) -> None:
         """
         Params:
             dim: tuple(x,y), dimensions of maze
         """
         self.dim=dim
-        self.mazrix = -1 * np.ones((dim[0]*2,dim[1]*2))
+        self.mazrix = -1 * np.ones((dim[0]*2,dim[1]*2), dtype=int)
         self.solution_=Solution(None,None)
     
     def __copy__(self):
@@ -21,11 +21,11 @@ class Maze():
     def restart(self):
         self.mazrix = -1 * np.ones(self.dim)
     
-    def solution(self,directions,walk):
+    def solution(self,directions: list,walk: list):
         self.solution_.directions = directions
         self.solution_.walk = walk
 
 class Solution():
-    def __init__(self,directions,walk) -> None:
+    def __init__(self,directions: list,walk: list) -> None:
         self.directions = directions
         self.walk = walk
