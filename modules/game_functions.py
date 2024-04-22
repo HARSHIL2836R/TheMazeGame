@@ -9,6 +9,7 @@ import modules.maze_logic.builder as builder
 from modules.maze_logic.maze import Maze
 from modules.player import Player
 from modules.settings import Settings
+from modules.camera import Camera
 
 MODE = "map"
 
@@ -33,7 +34,7 @@ def check_events(player: Player) -> None:
             player.move(keymap[event.key][0],keymap[event.key][1])
             #print("Move:",player.move(keymap[event.key][0],keymap[event.key][1]))
 
-def update_screen(mg_settings: Settings, screen: pygame.Surface, player: Player, maze: Maze):
+def update_screen(mg_settings: Settings, map_: pygame.Surface, screen: pygame.Surface, player: Player, maze: Maze):
     """
     Update images on screen and flip to the new screen
     Args:
@@ -44,27 +45,35 @@ def update_screen(mg_settings: Settings, screen: pygame.Surface, player: Player,
         None
     """
     #Redraw the screen during each pass through the loop
-    screen.fill(mg_settings.bg_color)
+    map_.fill(mg_settings.bg_color)
     #old code: player.bltime()
 
-    #DRAW THE MAZE
-    width = mg_settings.box_width
-    height = mg_settings.box_height
-    x=0
-    for i in range(np.shape(maze.mazrix)[0]):
-        y=0
-        for j in range(np.shape(maze.mazrix)[1]):
-            if maze.mazrix[j][i] == 0:
-                pygame.draw.rect(screen,'white',[x,y,width,height])
-            if maze.mazrix[j][i] == -1:
-                pygame.draw.rect(screen,'black',[x,y,width,height])
-            y+=height
-        x+=width
-    player.bltime()
+    if MODE == "map":
+        #DRAW THE MAZE
+        width = mg_settings.box_width
+        height = mg_settings.box_height
+        wall_image = pygame.image.load('images/wall.jpeg')
+        path_image = pygame.image.load('images/path.png')
+        x=0
+        for i in range(np.shape(maze.mazrix)[0]):
+            y=0
+            for j in range(np.shape(maze.mazrix)[1]):
+                if maze.mazrix[j][i] == 0:
+                    map_.blit(pygame.transform.scale(path_image,(width,height)),[x,y,width,height])
+                if maze.mazrix[j][i] == -1:
+                    map_.blit(pygame.transform.scale(wall_image,(width,height)),[x,y,width,height])
+                y+=height
+            x+=width
+        player.bltime()
 
-    pygame.display.update()
-    # Make the most recently drawn screen visible.
-    pygame.display.flip()
+        pygame.display.update()
+        # Make the most recently drawn screen visible.
+        pygame.display.flip()
+    
+    if MODE == "camera":
+        camera = Camera(screen, map_, player)
+        camera.update(player)
+        camera.draw(screen,pygame.sprite.Group())
 
 def build_maze():
 

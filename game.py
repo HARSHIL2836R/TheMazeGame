@@ -14,6 +14,7 @@ def run_game():
 
     #set screen dimensions and title
     screen = pygame.display.set_mode((mg_settings.screen_width, mg_settings.screen_height))
+    map_ = pygame.display.set_mode((mg_settings.screen_width, mg_settings.screen_height))
     pygame.display.set_caption("The Maze Game")
 
     '''
@@ -22,10 +23,10 @@ def run_game():
     '''
 
     curr_maze=gf.build_maze()
-    mg_settings.set_dim(screen, curr_maze)
+    mg_settings.set_dim(map_, curr_maze)
 
     #Intanciate the player
-    player = Player(screen,curr_maze)
+    player = Player(map_,curr_maze)
     player.set_dim(mg_settings.box_width,mg_settings.box_height)
 
     print(curr_maze.solution_.directions)
@@ -34,6 +35,6 @@ def run_game():
     while True:
         # Watch for keyboard and mouse events.
         gf.check_events(player)
-        gf.update_screen(mg_settings, screen, player,curr_maze)
+        gf.update_screen(mg_settings, map_, screen, player,curr_maze)
 
 run_game()

@@ -1,19 +1,25 @@
 """Module to store the class Camera"""
 
+import pygame
 from modules.player import Player
 
 
 class Camera:
-    def __init__(self, width, height):
-        self.width = width
-        self.height = height
-        self.x = 0
-        self.y = 0
+    def __init__(self, screen: pygame.Surface, map_: pygame.Surface, player: Player):
+        self.map_ = map_
+        self.width = screen.get_width()
+        self.height = screen.get_height()
+        self.camera = pygame.Rect(0,0,self.width,self.height)
 
-    def update(self, player: Player):
-        self.x = player.rect.x - self.width / 2
-        self.y = player.rect.y - self.height / 2
+    def apply(self,entity):
+        return entity.rect.move(self.camera.topleft)
+    
+    def draw(self,surface: pygame.Surface,group):
+        for sprite in group:
+            surface.blit(self.image, self.apply(sprite))
 
-    def draw(self, screen, sprites):
-        for sprite in sprites:
-            screen.blit(sprite.image, (sprite.rect.x - self.x, sprite.rect.y - self.y))
+    def update(self,target):
+        x = int(self.map_.get_width()/2) - target.rect.centerx
+        y = int(self.map_.get_height()/2) - target.rect.centery
+
+        self.camera = pygame.Rect(x,y,self.width,self.height)

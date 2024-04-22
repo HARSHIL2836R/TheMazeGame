@@ -31,3 +31,8 @@ game.py
 - Select Level (text) (4/6)
 - Levels (1,2,3) (button) (4/6)
 - Press ESC to Quit (5/6)
+
+### 22nd April
+#### TODO:
+- Complete difficulty 2
+- Complete Camera procedure

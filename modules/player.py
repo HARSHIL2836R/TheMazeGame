@@ -25,7 +25,7 @@ class Player():
     
     def bltime(self)->None:
         """Draws the player at it's current position"""
-        self.screen.blit(self.image, self.rect)
+        self.screen.blit(pygame.transform.scale(self.image,(self.width,self.height)), self.rect)
     
     def set_dim(self, width:int,height:int)->None:
         self.width = width
