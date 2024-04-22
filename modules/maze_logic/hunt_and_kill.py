@@ -33,14 +33,11 @@ def hunt_n_kill(maze_: Maze, points: list, debug: bool=False)->Maze:
                 #Single captured Cell
                 if maze[curr_coord[1],curr_coord[0]] == -1:
                     maze[curr_coord[1],curr_coord[0]] = 0
-                    #Open two random walls
+                    #Open one random wall
                     wall1 = [curr_coord[1]+random.choice((-1,1)),curr_coord[0]+random.choice((-1,1))]
-                    wall2 = [curr_coord[1]+random.choice((-1,1)),curr_coord[0]+random.choice((-1,1))]
                     
                     if (0<=wall1[0]<dimx and 0<=wall1[1]<dimy):
                         maze[wall1] = 0
-                    if (0<=wall2[0]<dimx and 0<=wall2[1]<dimy):
-                        maze[wall2] = 0
                     continue
                 #Otherwise continue
                 continue

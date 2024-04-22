@@ -1,4 +1,6 @@
 '''Module to store the Settings class'''
+from pygame import Surface
+from modules.maze_logic.maze import Maze
 class Settings():
     """A class to store all settings for Maze Game"""
 
@@ -8,6 +10,10 @@ class Settings():
         self.screen_width = 800
         self.screen_height = 800
         self.bg_color = (144,43,245)
+    
+    def set_dim(self, screen: Surface, maze: Maze):
+        self.box_width = screen.get_width() / maze.mazrix.shape[0]
+        self.box_height = screen.get_height() / maze.mazrix.shape[1]
 
     class Menu():
         def __init__(self) -> None:

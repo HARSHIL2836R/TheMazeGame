@@ -88,7 +88,9 @@ def generate_random_walk(start_coord: tuple, end_coord: tuple, dimx: int =None, 
                 prev_move = next_move #update iterable
             else:
                 continue
-
+        
+        if debug:
+            print("Change directions and walk", total_steps)
         the_maze.solution(directions,[(x[0]/2,x[1]/2) for x in walk])
         return total_steps
 

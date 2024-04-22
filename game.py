@@ -20,15 +20,20 @@ def run_game():
     if menu.show(screen) == "exit":
         quit()
     '''
-    #Intanciate the player
-    player = Player(screen)
 
     curr_maze=gf.build_maze()
+    mg_settings.set_dim(screen, curr_maze)
+
+    #Intanciate the player
+    player = Player(screen,curr_maze)
+    player.set_dim(mg_settings.box_width,mg_settings.box_height)
+
+    print(curr_maze.solution_.directions)
 
     # Start the main loop for the game.
     while True:
         # Watch for keyboard and mouse events.
-        gf.check_events()
+        gf.check_events(player)
         gf.update_screen(mg_settings, screen, player,curr_maze)
 
 run_game()

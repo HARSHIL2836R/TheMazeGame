@@ -7,9 +7,12 @@ import numpy as np
 #My Modules
 import modules.maze_logic.builder as builder
 from modules.maze_logic.maze import Maze
+from modules.player import Player
 from modules.settings import Settings
 
-def check_events() -> None:
+MODE = "map"
+
+def check_events(player: Player) -> None:
     """
     Respond to keypresses and mouse events
     Args:
@@ -20,8 +23,17 @@ def check_events() -> None:
     for event in pygame.event.get():
         if event.type == pygame.QUIT or (event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE):
             sys.exit()
+        
+        keymap = {pygame.K_UP: (player.width*0,player.height*-1),
+                pygame.K_DOWN: (player.width*0,player.height*1),
+                pygame.K_RIGHT: (player.width*1,player.height*0),
+                pygame.K_LEFT: (player.width*-1,player.height*0)}
 
-def update_screen(mg_settings: Settings, screen: pygame.Surface, player, maze: Maze):
+        if event.type == pygame.KEYDOWN and event.key in keymap:
+            player.move(keymap[event.key][0],keymap[event.key][1])
+            #print("Move:",player.move(keymap[event.key][0],keymap[event.key][1]))
+
+def update_screen(mg_settings: Settings, screen: pygame.Surface, player: Player, maze: Maze):
     """
     Update images on screen and flip to the new screen
     Args:
@@ -35,24 +47,29 @@ def update_screen(mg_settings: Settings, screen: pygame.Surface, player, maze: M
     screen.fill(mg_settings.bg_color)
     #old code: player.bltime()
 
-    width = screen.get_width()/np.shape(maze.mazrix)[0]
-    height = screen.get_height()/np.shape(maze.mazrix)[1]
+    #DRAW THE MAZE
+    width = mg_settings.box_width
+    height = mg_settings.box_height
     x=0
     for i in range(np.shape(maze.mazrix)[0]):
         y=0
         for j in range(np.shape(maze.mazrix)[1]):
             if maze.mazrix[j][i] == 0:
                 pygame.draw.rect(screen,'white',[x,y,width,height])
+            if maze.mazrix[j][i] == -1:
+                pygame.draw.rect(screen,'black',[x,y,width,height])
             y+=height
         x+=width
-    
+    player.bltime()
+
     pygame.display.update()
     # Make the most recently drawn screen visible.
     pygame.display.flip()
 
 def build_maze():
 
-    my_maze = Maze((10,10))
+    my_maze = Maze((20,20))
     my_maze = builder.build_maze(my_maze,1)
-    print(my_maze)
+    print(my_maze.mazrix)
+    print(my_maze.solution_.directions)
     return my_maze
