@@ -13,8 +13,11 @@ def run_game():
     mg_settings = Settings()
 
     #set screen dimensions and title
+
+    #surface for map_ (do I need this?)
+    map_ = pygame.surface.Surface((mg_settings.screen_width,mg_settings.screen_height))
+    #the screen to be displayed
     screen = pygame.display.set_mode((mg_settings.screen_width, mg_settings.screen_height))
-    map_ = pygame.display.set_mode((mg_settings.screen_width, mg_settings.screen_height))
     pygame.display.set_caption("The Maze Game")
 
     '''
@@ -22,11 +25,11 @@ def run_game():
         quit()
     '''
 
-    curr_maze=gf.build_maze()
+    curr_maze=gf.build_maze((5,5))
     mg_settings.set_dim(map_, curr_maze)
 
     #Intanciate the player
-    player = Player(map_,curr_maze)
+    player = Player(screen,curr_maze)
     player.set_dim(mg_settings.box_width,mg_settings.box_height)
 
     print(curr_maze.solution_.directions)

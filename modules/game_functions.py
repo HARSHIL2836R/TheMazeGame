@@ -10,8 +10,9 @@ from modules.maze_logic.maze import Maze
 from modules.player import Player
 from modules.settings import Settings
 from modules.camera import Camera
+from modules.sprites import Sprite
 
-MODE = "map"
+MODE = "camera"
 
 def check_events(player: Player) -> None:
     """
@@ -45,15 +46,16 @@ def update_screen(mg_settings: Settings, map_: pygame.Surface, screen: pygame.Su
         None
     """
     #Redraw the screen during each pass through the loop
-    map_.fill(mg_settings.bg_color)
+    screen.fill(mg_settings.bg_color)
     #old code: player.bltime()
 
+    #DRAW THE MAZE
+    width = mg_settings.box_width
+    height = mg_settings.box_height
+    wall_image = pygame.image.load('images/wall.jpeg')
+    path_image = pygame.image.load('images/path.png')
     if MODE == "map":
-        #DRAW THE MAZE
-        width = mg_settings.box_width
-        height = mg_settings.box_height
-        wall_image = pygame.image.load('images/wall.jpeg')
-        path_image = pygame.image.load('images/path.png')
+        print(pygame.sprite.Group())
         x=0
         for i in range(np.shape(maze.mazrix)[0]):
             y=0
@@ -65,19 +67,62 @@ def update_screen(mg_settings: Settings, map_: pygame.Surface, screen: pygame.Su
                 y+=height
             x+=width
         player.bltime()
-
-        pygame.display.update()
-        # Make the most recently drawn screen visible.
-        pygame.display.flip()
     
     if MODE == "camera":
+        #ADD SPRITES TO GROUP
+        all_sprites = pygame.sprite.Group()
+        print("INSIDE CAMERA")
+
+        #MAKE OUTER WALLS
+        x=-width
+        y=0
+        for j in range(np.shape(maze.mazrix)[1]):
+            wall_sprite = Sprite(screen,pygame.transform.scale(wall_image,(width,height)),width,height)
+            wall_sprite.rect.x = x
+            wall_sprite.rect.y = y
+            all_sprites.add(wall_sprite)
+            y+=height
+        y=-height
+        x=-width
+        for i in range(np.shape(maze.mazrix)[0]+1):
+            wall_sprite = Sprite(screen,pygame.transform.scale(wall_image,(width,height)),width,height)
+            wall_sprite.rect.x = x
+            wall_sprite.rect.y = y
+            all_sprites.add(wall_sprite)
+            x+=width
+        #OUTER WALLS DONE
+
+        x=0
+        for i in range(np.shape(maze.mazrix)[0]):
+            y=0
+            for j in range(np.shape(maze.mazrix)[1]):
+                if maze.mazrix[j][i] == 0:
+                    path_sprite = Sprite(screen,pygame.transform.scale(path_image,(width,height)),width,height)
+                    path_sprite.rect.x = x
+                    path_sprite.rect.y = y
+                    all_sprites.add(path_sprite)
+                if maze.mazrix[j][i] == -1:
+                    wall_sprite = Sprite(screen,pygame.transform.scale(wall_image,(width,height)),width,height)
+                    wall_sprite.rect.x = x
+                    wall_sprite.rect.y = y
+                    all_sprites.add(wall_sprite)
+                y+=height
+            x+=width
+        
+        all_sprites.add(player)
+
         camera = Camera(screen, map_, player)
         camera.update(player)
-        camera.draw(screen,pygame.sprite.Group())
 
-def build_maze():
+        camera.draw(screen,all_sprites)
 
-    my_maze = Maze((20,20))
+    pygame.display.update()
+    # Make the most recently drawn screen visible.
+    pygame.display.flip()
+
+def build_maze(dim: tuple):
+
+    my_maze = Maze(dim)
     my_maze = builder.build_maze(my_maze,1)
     print(my_maze.mazrix)
     print(my_maze.solution_.directions)
