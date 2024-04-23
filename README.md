@@ -36,3 +36,8 @@ game.py
 #### TODO:
 - Complete difficulty 2
 - Complete Camera procedure
+
+### 23rd April
+#### TODO:
+- Complete difficulty 2
+- Improve Camera
