@@ -3,9 +3,9 @@ import random
 import matplotlib.pyplot as plt
 import numpy as np
 #My Modules
-from modules.maze_logic.maze import Maze
+from modules.maze_logic.maze import Maze, Solution
 
-def generate_random_walk(start_coord: tuple, end_coord: tuple, dimx: int =None, dimy:int =None,maze_: Maze =None,lower_bound: int=0,upper_bound: int=None, debug: bool = False)->Maze:
+def generate_random_walk(start_coord: tuple, end_coord: tuple, dimx: int =None, dimy:int =None,maze_: Maze =None,lower_bound: int=0,upper_bound: int=None, debug: bool = False,update_solution: bool=False)->Maze:
     """
     Args:
         start_coord: tuple, representing the startpoint
@@ -46,6 +46,9 @@ def generate_random_walk(start_coord: tuple, end_coord: tuple, dimx: int =None, 
     global the_maze
     the_maze = None
 
+    update_walks=[]
+    update_directions=[]
+
     def run()->int:
         global the_maze
         the_maze = maze_.__copy__()
@@ -58,7 +61,7 @@ def generate_random_walk(start_coord: tuple, end_coord: tuple, dimx: int =None, 
         total_steps=0
         directions = []
 
-        while (curr_coord != end_coord) and (total_steps < upper_bound) and (total_steps >= lower_bound):
+        while (curr_coord != end_coord) and (total_steps < upper_bound):
             possible_moves = [(0, 2), (0, -2), (2, 0), (-2, 0)]
             match_moves = {(0,2):'D',(0,-2):'U',(2,0):'R',(-2,0):'L'}
             match_wall = {'D':(0,-1),'U':(0,1),'R':(-1,0),'L':(1,0)}
@@ -88,16 +91,22 @@ def generate_random_walk(start_coord: tuple, end_coord: tuple, dimx: int =None, 
                 prev_move = next_move #update iterable
             else:
                 continue
-        
-        if debug:
-            print("Change directions and walk", total_steps)
-        the_maze.solution(directions,[(x[0]/2,x[1]/2) for x in walk])
+
+        if not update_solution:       
+            the_maze.solution(directions,[(x[0]/2,x[1]/2) for x in walk])
+        else:
+            update_directions.append(directions)
+            update_walks.append([(x[0]/2,x[1]/2) for x in walk])
+
         return total_steps
 
     
     runs = run()
     while (runs > upper_bound) or (runs < lower_bound):
         runs = run()
+
+    if update_solution:
+        the_maze.update_solution(update_directions[-1],update_walks[-1])
 
     if debug:
         print("original_maze",maze_.mazrix)

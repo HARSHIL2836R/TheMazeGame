@@ -6,6 +6,7 @@ from modules.settings import Settings
 from modules.player import Player
 import modules.game_functions as gf
 import modules.menu as menu
+from modules.game_screen import play_game
 
 def run_game():
     # Initialize game and create a screen object.
@@ -14,30 +15,32 @@ def run_game():
 
     #set screen dimensions and title
 
-    #surface for map_ (do I need this?)
-    map_ = pygame.surface.Surface((mg_settings.screen_width*2,mg_settings.screen_height*2))
-    #the screen to be displayed
-    screen = pygame.display.set_mode((mg_settings.screen_width, mg_settings.screen_height))
-    pygame.display.set_caption("The Maze Game")
+    if mg_settings.MODE == "map":
+        #display map_
+        map_ = pygame.display.set_mode((mg_settings.screen_width,mg_settings.screen_height))
+        #not needed indeed here
+        screen = pygame.surface.Surface((mg_settings.screen_width, mg_settings.screen_height))
+        pygame.display.set_caption("The Maze Game")
+    else:
+        #surface for map_ (do I need this?)
+        map_ = pygame.surface.Surface((mg_settings.screen_width*2,mg_settings.screen_height*2))
+        #the screen to be displayed
+        screen = pygame.display.set_mode((mg_settings.screen_width, mg_settings.screen_height))
+        pygame.display.set_caption("The Maze Game")
 
     '''
     if menu.show(screen) == "exit":
         quit()
     '''
 
-    curr_maze=gf.build_maze((10,10))
+    curr_maze=gf.build_maze(mg_settings.dim,2)
     mg_settings.set_dim(map_, curr_maze)
 
     #Intanciate the player
     player = Player(map_,curr_maze)
     player.set_dim(mg_settings.box_width,mg_settings.box_height)
 
-    print(curr_maze.solution_.directions)
-
-    # Start the main loop for the game.
-    while True:
-        # Watch for keyboard and mouse events.
-        gf.check_events(player)
-        gf.update_screen(mg_settings, map_, screen, player,curr_maze)
+    if play_game(screen,map_,mg_settings,player,curr_maze) == "game_over":
+        print("Game completed")
 
 run_game()

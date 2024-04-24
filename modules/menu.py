@@ -1,6 +1,5 @@
 '''Module for customising the Menu'''
 import pygame
-import sys
 from modules.button import Button
 from modules.settings import Settings
 

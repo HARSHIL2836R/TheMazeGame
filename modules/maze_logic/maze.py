@@ -25,26 +25,24 @@ class Maze():
         self.mazrix = -1 * np.ones(self.dim)
     
     def solution(self,directions: list,walk: list):
-        if self.solution_.directions == None:
-            self.solution_.directions = directions
-            self.solution_.walk = walk
-        else:
+        self.solution_.directions = directions
+        self.solution_.walk = walk
+        
+    def update_solution(self,directions: list,walk: list):
             start_coord = walk[0]
             end_coord = walk[-1]
             if start_coord == end_coord:
                 return None
-            print(self.solution_.walk)
-            print(len(self.solution_.walk))
             for i in range(len(self.solution_.walk)-1):
                 if (self.solution_.walk[i] == start_coord) and (self.solution_.walk[i+1] == end_coord):
                     #CHANGE WALK
                     new_walk = self.solution_.walk[:i+1]
-                    new_walk.append(walk[1:-1])
-                    new_walk.append(self.solution_.walk[i+1:])
+                    new_walk.extend(walk[1:-1])
+                    new_walk.extend(self.solution_.walk[i+1:])
                     #CHANGE DIRECTIONS
                     new_directions = self.solution_.directions[:i]
-                    new_directions.append(directions[1:-1])
-                    new_directions.append(self.solution_.directions[i+1:])
+                    new_directions.extend(directions)
+                    new_directions.extend(self.solution_.directions[i+1:])
 
                     self.solution_.walk = new_walk
                     self.solution_.directions = new_directions

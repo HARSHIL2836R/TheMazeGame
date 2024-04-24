@@ -10,7 +10,10 @@ class Settings():
         self.screen_width = 800
         self.screen_height = 800
         self.bg_color = (144,43,245)
-    
+        self.dim = (10,10)
+        self.MODE = "map"
+        self.move_fast = True
+
     def set_dim(self, screen: Surface, maze: Maze):
         self.box_width = screen.get_width() / maze.mazrix.shape[0]
         self.box_height = screen.get_height() / maze.mazrix.shape[1]
