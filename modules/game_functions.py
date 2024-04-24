@@ -1,6 +1,7 @@
 '''Module for refactoring the game'''
 
 import sys
+import time
 import pygame
 import numpy as np
 
@@ -51,7 +52,7 @@ def check_events(player: Player, mg_settings: Settings) -> str:
     if (player.pos[0]//2+1,player.pos[1]//2+1) == mg_settings.dim:
         return "game_over"
 
-def update_screen(mg_settings: Settings, map_: pygame.Surface, screen: pygame.Surface, player: Player, maze: Maze):
+def update_screen(mg_settings: Settings, map_: pygame.Surface, screen: pygame.Surface, player: Player, maze: Maze, clock: pygame.time.Clock):
     """
     Update images on screen and flip to the new screen
     Args:
@@ -61,6 +62,9 @@ def update_screen(mg_settings: Settings, map_: pygame.Surface, screen: pygame.Su
     Returns:
         None
     """
+    #milliseconds
+    start_ticks = clock.get_time()
+
     #Redraw the screen during each pass through the loop
     screen.fill(mg_settings.bg_color)
     #old code: player.bltime()
@@ -130,6 +134,10 @@ def update_screen(mg_settings: Settings, map_: pygame.Surface, screen: pygame.Su
         camera.update(player)
 
         camera.draw(screen,all_sprites)
+
+        #Blit Counter
+        timer = pygame.font.SysFont('Monospace',32).render(str(clock.get_time()-start_ticks),True,'white')
+        screen.blit(timer,screen.get_rect().topleft)
 
     pygame.display.update()
     # Make the most recently drawn screen visible.

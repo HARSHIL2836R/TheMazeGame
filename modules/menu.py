@@ -1,4 +1,5 @@
 '''Module for customising the Menu'''
+from pickletools import read_uint1
 import pygame
 from modules.button import Button
 from modules.settings import Settings
@@ -27,13 +28,10 @@ def show(screen: pygame.Surface):
     selector = font.render("###|Select Level|###", True, mg_settings.screen_text_color, mg_settings.screen_color)
     to_quit = font.render("Press ESC to QUIT", True, mg_settings.screen_text_color, mg_settings.screen_color)
 
-    while True:
+
+    def update_screen():
         mouse = pygame.mouse.get_pos()
-
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT or (event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE):
-                return "exit"
-
+        
         for button in {lvl1_button,lvl2_button,lvl3_button}:
             button.draw_button()
             button.update_button(mouse[0], mouse[1])
@@ -44,3 +42,19 @@ def show(screen: pygame.Surface):
 
         #Keep Updating the Screen
         pygame.display.update()
+
+
+    while True:
+        update_screen()
+        
+        #check_events
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT or (event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE):
+                return "exit"
+
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                pos = pygame.mouse.get_pos()
+
+                for button in {lvl1_button,lvl2_button,lvl3_button}:
+                    if button.rect.collidepoint(pos):
+                        return button.org_msg

@@ -1,5 +1,5 @@
 """Module to define the Button class"""
-import pygame.font
+import pygame
 
 class Button():
     def __init__(self, screen, msg, active_button_color, inactive_button_color, text_color, width, height, center_pos) -> None:

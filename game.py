@@ -1,3 +1,4 @@
+import numpy as np
 import pygame
 #In Pygame, the origin (0, 0) is at the top-left corner of the screen, and coordinates increase as you go down and to the right
 
@@ -15,25 +16,57 @@ def run_game():
 
     #set screen dimensions and title
 
+    #DISPLAY THE COMPLETE MAP
     if mg_settings.MODE == "map":
         #display map_
         map_ = pygame.display.set_mode((mg_settings.screen_width,mg_settings.screen_height))
         #not needed indeed here
         screen = pygame.surface.Surface((mg_settings.screen_width, mg_settings.screen_height))
         pygame.display.set_caption("The Maze Game")
+        
+        menu_out = menu.show(map_)
+    
+    #DISPLAY HALF OF MAP
     else:
         #surface for map_ (do I need this?)
         map_ = pygame.surface.Surface((mg_settings.screen_width*2,mg_settings.screen_height*2))
         #the screen to be displayed
         screen = pygame.display.set_mode((mg_settings.screen_width, mg_settings.screen_height))
         pygame.display.set_caption("The Maze Game")
+        
+        menu_out = menu.show(screen)
 
-    '''
-    if menu.show(screen) == "exit":
+    if menu_out == "exit":
         quit()
-    '''
+    difficulty = menu_out
+    difficulty = int(difficulty)
+    #Set dimensions based on difficulty
+    if difficulty == 1:
+        mg_settings.dim =(5,5)
+    if difficulty == 2:
+        mg_settings.dim =(10,10)
+    if difficulty == 3:
+        mg_settings.dim = (20,20)
 
-    curr_maze=gf.build_maze(mg_settings.dim,2)
+    pygame.display.quit()
+
+    #BUILD MAZE
+    curr_maze=gf.build_maze(mg_settings.dim,int(difficulty))
+    print("white",np.sum(np.where(curr_maze.mazrix == 0)))
+    while np.sum(np.where(curr_maze.mazrix == 0)) > (mg_settings.dim[0]**4):
+        curr_maze=gf.build_maze(mg_settings.dim,int(difficulty))
+        print("white",np.sum(np.where(curr_maze.mazrix == 0)))
+    
+    print("done")
+    screen = pygame.surface.Surface((mg_settings.screen_width, mg_settings.screen_height))
+    pygame.display.set_caption("The Maze Game")
+    map_ = pygame.display.set_mode((mg_settings.screen_width,mg_settings.screen_height))
+
+    #write solution in file
+    file = open('path.txt','w')
+    for i in range(len(curr_maze.solution_.directions)):
+        file.write(curr_maze.solution_.directions[i])
+    file.close()
     mg_settings.set_dim(map_, curr_maze)
 
     #Intanciate the player
