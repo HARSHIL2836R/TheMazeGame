@@ -14,9 +14,7 @@ class Player(pygame.sprite.Sprite):
         self.screen = screen
         self.image = image
         self.rect = self.image.get_rect()
-        print("self.rect", self.rect)
         self.screen_rect = screen.get_rect()
-        print("self.screen_rect", self.screen_rect)
         self.the_maze = the_maze
         self.maze = the_maze.mazrix
 
@@ -31,6 +29,7 @@ class Player(pygame.sprite.Sprite):
     def set_dim(self, width:int,height:int)->None:
         self.width = width
         self.height = height
+        self.image = pygame.transform.scale(self.image,(self.width,self.height))
 
     def move(self, x: int =0,y: int =0)->bool:
         """Move player by x pixels right and y pixels up"""

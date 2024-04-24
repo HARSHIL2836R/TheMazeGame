@@ -71,13 +71,12 @@ def update_screen(mg_settings: Settings, map_: pygame.Surface, screen: pygame.Su
     if MODE == "camera":
         #ADD SPRITES TO GROUP
         all_sprites = pygame.sprite.Group()
-        print("INSIDE CAMERA")
 
         #MAKE OUTER WALLS
         x=-width
         y=0
         for j in range(np.shape(maze.mazrix)[1]):
-            wall_sprite = Sprite(screen,pygame.transform.scale(wall_image,(width,height)),width,height)
+            wall_sprite = Sprite(map_,pygame.transform.scale(wall_image,(width,height)),width,height)
             wall_sprite.rect.x = x
             wall_sprite.rect.y = y
             all_sprites.add(wall_sprite)
@@ -85,7 +84,7 @@ def update_screen(mg_settings: Settings, map_: pygame.Surface, screen: pygame.Su
         y=-height
         x=-width
         for i in range(np.shape(maze.mazrix)[0]+1):
-            wall_sprite = Sprite(screen,pygame.transform.scale(wall_image,(width,height)),width,height)
+            wall_sprite = Sprite(map_,pygame.transform.scale(wall_image,(width,height)),width,height)
             wall_sprite.rect.x = x
             wall_sprite.rect.y = y
             all_sprites.add(wall_sprite)
@@ -97,12 +96,12 @@ def update_screen(mg_settings: Settings, map_: pygame.Surface, screen: pygame.Su
             y=0
             for j in range(np.shape(maze.mazrix)[1]):
                 if maze.mazrix[j][i] == 0:
-                    path_sprite = Sprite(screen,pygame.transform.scale(path_image,(width,height)),width,height)
+                    path_sprite = Sprite(map_,pygame.transform.scale(path_image,(width,height)),width,height)
                     path_sprite.rect.x = x
                     path_sprite.rect.y = y
                     all_sprites.add(path_sprite)
-                if maze.mazrix[j][i] == -1:
-                    wall_sprite = Sprite(screen,pygame.transform.scale(wall_image,(width,height)),width,height)
+                elif maze.mazrix[j][i] == -1:
+                    wall_sprite = Sprite(map_,pygame.transform.scale(wall_image,(width,height)),width,height)
                     wall_sprite.rect.x = x
                     wall_sprite.rect.y = y
                     all_sprites.add(wall_sprite)
@@ -111,7 +110,7 @@ def update_screen(mg_settings: Settings, map_: pygame.Surface, screen: pygame.Su
         
         all_sprites.add(player)
 
-        camera = Camera(screen, map_, player)
+        camera = Camera(screen, map_, mg_settings)
         camera.update(player)
 
         camera.draw(screen,all_sprites)
