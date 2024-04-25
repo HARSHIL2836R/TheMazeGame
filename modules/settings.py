@@ -29,3 +29,12 @@ class Settings():
             self.active_bt_color = 	(0,0,255)
             self.inactive_bt_color = (35,58,119)
             self.bt_text_color = (255,255,255)
+    
+    class End():
+        def __init__(self) -> None:
+            """End Screen Settings"""
+            Settings.__init__(self)
+            self.screen_color = (0,0,0)
+            self.active_bt_color = 	(0,0,255)
+            self.inactive_bt_color = (35,58,119)
+            self.bt_text_color = (255,255,255)

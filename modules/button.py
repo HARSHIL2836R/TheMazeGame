@@ -1,8 +1,8 @@
 """Module to define the Button class"""
 import pygame
 
-class Button():
-    def __init__(self, screen, msg, active_button_color, inactive_button_color, text_color, width, height, center_pos) -> None:
+class Button(pygame.sprite.Sprite):
+    def __init__(self, screen: pygame.Surface, msg: str, active_button_color: tuple[int], inactive_button_color: tuple[int], text_color: tuple[int], width: int, height: int, center_pos: tuple[int]) -> None:
         """Initialize button attributes
         Args:
             screen: Surface
@@ -10,6 +10,8 @@ class Button():
         Returns:
             None
         """
+        super().__init__()
+
         self.screen = screen
         self.screen_rect = screen.get_rect()
 
@@ -43,6 +45,7 @@ class Button():
     def draw_button(self):
         # Draw blank button and then draw message.
         self.screen.fill(self.button_color, self.rect)
+        self.msg_image_rect.center = self.rect.center
         self.screen.blit(self.msg_image, self.msg_image_rect)
 
     def update_button(self, mouse_x, mouse_y):
@@ -52,3 +55,9 @@ class Button():
         else:
             self.button_color = self.inactive_button_color
             self.prep_msg(self.org_msg)
+
+    def update_animation(self):
+        self.rect.move_ip(0,5)
+
+        if self.rect.top > self.screen.get_height():
+            self.kill()

@@ -39,7 +39,6 @@ def check_events(player: Player, mg_settings: Settings) -> str:
     if mg_settings.move_fast:
         keys = pygame.key.get_pressed()  # Checking pressed keys
         if keys[pygame.K_UP]:
-            print("MOVE UP")
             player.move(keymap[pygame.K_UP][0],keymap[pygame.K_UP][1])
         elif keys[pygame.K_DOWN]:
             player.move(keymap[pygame.K_DOWN][0],keymap[pygame.K_DOWN][1])
