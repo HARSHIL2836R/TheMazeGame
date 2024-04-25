@@ -1,5 +1,6 @@
 '''Module to store the Settings class'''
-from pygame import Surface
+import random
+from pygame import Surface,image as pyimage
 from modules.maze_logic.maze import Maze
 #from maze_logic.maze import Maze
 from modules.player import Player
@@ -13,13 +14,22 @@ class Settings():
         #Screen settings
         self.screen_width = 800
         self.screen_height = 800
-        self.bg_color = (144,43,245)
+        self.bg_color = (100,168,207)
         self.dim = (10,10)
         self.MODE = "camera"
-        self.move_fast = True
+        self.move_fast = False
         self.timeout = 15000 #milliseconds
         self.start_point = (0,0)
         self.end_point = (10,10)
+        self.path_image = pyimage.load('images/sky.jpg')
+        self.wall_images = []
+        for i in range(1,7):
+            self.wall_images.append(pyimage.load('images/block'+str(i)+'.jpeg'))
+
+    def create_wall_images_list(self, no_of_walls):
+        self.use_walls = []
+        for i in range(no_of_walls):
+            self.use_walls.append(random.choice(self.wall_images))
 
     def set_dim(self, screen: Surface, maze: Maze):
         self.box_width = screen.get_width() / maze.mazrix.shape[0]

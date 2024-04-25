@@ -1,7 +1,7 @@
 '''Module for refactoring the game'''
 
+import random
 import sys
-import time
 import pygame
 import numpy as np
 
@@ -67,10 +67,12 @@ def update_screen(mg_settings: Settings, map_: pygame.Surface, screen: pygame.Su
     #DRAW THE MAZE
     width = mg_settings.box_width
     height = mg_settings.box_height
-    wall_image = pygame.image.load('images/wall.jpeg')
-    path_image = pygame.image.load('images/path.png')
+    wall_images = mg_settings.use_walls
+    path_image = mg_settings.path_image
+
 
     if mg_settings.MODE == "map":
+        wall_counter = 0
         x=0
         for i in range(np.shape(maze.mazrix)[0]):
             y=0
@@ -78,7 +80,8 @@ def update_screen(mg_settings: Settings, map_: pygame.Surface, screen: pygame.Su
                 if maze.mazrix[j][i] == 0:
                     map_.blit(pygame.transform.scale(path_image,(width,height)),[x,y,width,height])
                 if maze.mazrix[j][i] == -1:
-                    map_.blit(pygame.transform.scale(wall_image,(width,height)),[x,y,width,height])
+                    map_.blit(pygame.transform.scale(wall_images[wall_counter],(width,height)),[x,y,width,height])
+                    wall_counter += 1
                 y+=height
             x+=width
         player.bltime()
@@ -87,11 +90,13 @@ def update_screen(mg_settings: Settings, map_: pygame.Surface, screen: pygame.Su
         #ADD SPRITES TO GROUP
         all_sprites = pygame.sprite.Group()
 
+        wall_counter = 0
         #MAKE OUTER WALLS
         x=-width
         y=0
         for j in range(np.shape(maze.mazrix)[1]):
-            wall_sprite = Sprite(map_,pygame.transform.scale(wall_image,(width,height)),width,height)
+            wall_sprite = Sprite(map_,pygame.transform.scale(wall_images[wall_counter],(width,height)),width,height)
+            wall_counter += 1
             wall_sprite.rect.x = x
             wall_sprite.rect.y = y
             all_sprites.add(wall_sprite)
@@ -99,7 +104,8 @@ def update_screen(mg_settings: Settings, map_: pygame.Surface, screen: pygame.Su
         y=-height
         x=-width
         for i in range(np.shape(maze.mazrix)[0]+1):
-            wall_sprite = Sprite(map_,pygame.transform.scale(wall_image,(width,height)),width,height)
+            wall_sprite = Sprite(map_,pygame.transform.scale(wall_images[wall_counter],(width,height)),width,height)
+            wall_counter += 1
             wall_sprite.rect.x = x
             wall_sprite.rect.y = y
             all_sprites.add(wall_sprite)
@@ -116,7 +122,8 @@ def update_screen(mg_settings: Settings, map_: pygame.Surface, screen: pygame.Su
                     path_sprite.rect.y = y
                     all_sprites.add(path_sprite)
                 elif maze.mazrix[j][i] == -1:
-                    wall_sprite = Sprite(map_,pygame.transform.scale(wall_image,(width,height)),width,height)
+                    wall_sprite = Sprite(map_,pygame.transform.scale(wall_images[wall_counter],(width,height)),width,height)
+                    wall_counter +=1
                     wall_sprite.rect.x = x
                     wall_sprite.rect.y = y
                     all_sprites.add(wall_sprite)

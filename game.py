@@ -58,12 +58,14 @@ def run_game():
         mg_settings.dim = (20,20)
         mg_settings.start_point =(0,0)
         mg_settings.end_point =(9,9)
+        map_ = pygame.surface.Surface((mg_settings.screen_width*4,mg_settings.screen_height*4))
 
     pygame.display.quit()
 
     #BUILD MAZE
     print("Building Maze...")
     curr_maze=gf.build_maze(mg_settings.dim,int(difficulty),mg_settings.start_point,mg_settings.end_point)
+    mg_settings.create_wall_images_list(np.sum(np.where(curr_maze.mazrix == -1))+2*np.shape(curr_maze.mazrix)[0]-1)
     print("white",np.sum(np.where(curr_maze.mazrix == 0)))
     
     print("Building done")

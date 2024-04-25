@@ -10,7 +10,7 @@ class Player(pygame.sprite.Sprite):
         super().__init__()
 
         #Load the player image and get it's rectangular representation
-        image = pygame.image.load('images/player.png')
+        image = pygame.image.load('images/player3.png')
         self.screen = screen
         self.image = image
         self.rect = self.image.get_rect()
