@@ -48,13 +48,61 @@ def run_game():
     #Set dimensions based on difficulty
     if difficulty == 1:
         mg_settings.dim =(5,5)
+        mg_settings.start_point =(0,0)
+        mg_settings.end_point =(4,4)
     if difficulty == 2:
         mg_settings.dim =(10,10)
+        mg_settings.start_point =(0,0)
+        mg_settings.end_point =(4,4)
     if difficulty == 3:
         mg_settings.dim = (20,20)
+        mg_settings.start_point =(0,0)
+        mg_settings.end_point =(9,9)
 
     pygame.display.quit()
 
+    #BUILD MAZE
+    print("Building Maze...")
+    curr_maze=gf.build_maze(mg_settings.dim,int(difficulty),mg_settings.start_point,mg_settings.end_point)
+    print("white",np.sum(np.where(curr_maze.mazrix == 0)))
+    
+    print("Building done")
+    map_,screen = set_display(mg_settings)
+    
+    #write solution in file
+    file = open('path.txt','w')
+    for i in range(len(curr_maze.solution_.directions)):
+        file.write(curr_maze.solution_.directions[i])
+    file.close()
+    mg_settings.set_dim(map_, curr_maze)
+
+    #Intanciate the player
+    player = Player(map_,curr_maze)
+    player.set_dim(mg_settings.box_width,mg_settings.box_height)
+
+    scoreboard = mg_settings.ScoreBoard()
+    play_game_out = play_game(screen,map_,mg_settings,player,curr_maze,scoreboard)
+    
+    if play_game_out == "game_over":
+        print("Game completed")
+        if mg_settings.MODE == "map":
+            print(the_end.show(map_))
+        else:
+            print(the_end.show(screen))
+
+    elif play_game_out == "timeout":
+        print("Game Timeout")
+
+        if mg_settings.MODE == "map":
+            print(the_end.show(map_))
+        else:
+            print(the_end.show(screen))
+
+def check_game():
+    pygame.init()
+    mg_settings = Settings()
+    map_,screen = set_display(mg_settings)
+    difficulty = 1
     #BUILD MAZE
     print("Building Maze...")
     curr_maze=gf.build_maze(mg_settings.dim,int(difficulty))
@@ -74,19 +122,12 @@ def run_game():
     player = Player(map_,curr_maze)
     player.set_dim(mg_settings.box_width,mg_settings.box_height)
 
-    if play_game(screen,map_,mg_settings,player,curr_maze) == "game_over":
+    scoreboard = mg_settings.ScoreBoard()
+    play_game_out = play_game(screen,map_,mg_settings,player,curr_maze,scoreboard)
+    if play_game_out == "game_over":
         print("Game completed")
-        pygame.display.quit()
-
-        map_,screen = set_display(mg_settings)
-        print(the_end.show(screen))
-
-def check_endscreen():
-    pygame.init()
-    mg_settings = Settings()
-    map_,screen = set_display(mg_settings)
-    if mg_settings.MODE == "map":
-        the_end.show(map_)
+    elif play_game_out == "timeout":
+        print("Game Timeout")
 
 run_game()
-#check_endscreen()
+#check_game()

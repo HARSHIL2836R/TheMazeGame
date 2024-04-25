@@ -51,9 +51,8 @@ def check_events(player: Player, mg_settings: Settings) -> str:
     if (player.pos[0]//2+1,player.pos[1]//2+1) == mg_settings.dim:
         return "game_over"
 
-def update_screen(mg_settings: Settings, map_: pygame.Surface, screen: pygame.Surface, player: Player, maze: Maze, clock: pygame.time.Clock):
+def update_screen(mg_settings: Settings, map_: pygame.Surface, screen: pygame.Surface, player: Player, maze: Maze):
     """
-    Update images on screen and flip to the new screen
     Args:
         mg_settings: Settings, the settings class containing all game settings
         screen: Surface, the screen used for display of the running game
@@ -61,9 +60,6 @@ def update_screen(mg_settings: Settings, map_: pygame.Surface, screen: pygame.Su
     Returns:
         None
     """
-    #milliseconds
-    start_ticks = clock.get_time()
-
     #Redraw the screen during each pass through the loop
     screen.fill(mg_settings.bg_color)
     #old code: player.bltime()
@@ -134,18 +130,10 @@ def update_screen(mg_settings: Settings, map_: pygame.Surface, screen: pygame.Su
 
         camera.draw(screen,all_sprites)
 
-        #Blit Counter
-        timer = pygame.font.SysFont('Monospace',32).render(str(clock.get_time()-start_ticks),True,'white')
-        screen.blit(timer,screen.get_rect().topleft)
-
-    pygame.display.update()
-    # Make the most recently drawn screen visible.
-    pygame.display.flip()
-
-def build_maze(dim: tuple,difficulty: int):
+def build_maze(dim: tuple,difficulty: int,start_point: tuple,end_point: tuple):
 
     my_maze = Maze(dim)
-    my_maze = builder.build_maze(my_maze,difficulty)
+    my_maze = builder.build_maze(my_maze,difficulty,start_point, end_point)
     print(my_maze.mazrix)
     print(my_maze.solution_.directions)
     return my_maze

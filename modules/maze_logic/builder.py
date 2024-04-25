@@ -4,12 +4,12 @@ from modules.maze_logic.maze import Maze
 from modules.maze_logic.hunt_and_kill import hunt_n_kill
 from modules.maze_logic.random_walk import generate_random_walk
 
-def build_maze(maze: Maze, difficulty: int)->Maze:
+def build_maze(maze: Maze, difficulty: int, start_point: tuple,end_point: tuple)->Maze:
     dimx = maze.dim[0]
     dimy = maze.dim[1]
     if difficulty == 1:
         #Make the Solution Path
-        new_maze = generate_random_walk((0,0),(dimx-1,dimy-1),maze_=maze,lower_bound=0,upper_bound=dimx*dimy/2)
+        new_maze = generate_random_walk(start_point,end_point,maze_=maze,lower_bound=0,upper_bound=dimx*dimy/2)
         points = [(int(x[0]),int(x[1])) for x in new_maze.solution_.walk]
 
         #Completing the maze
@@ -18,7 +18,7 @@ def build_maze(maze: Maze, difficulty: int)->Maze:
     
     if difficulty == 2:
         #Make the Solution Path
-        new_maze = generate_random_walk((0,0),(int(dimx-1),int(dimy-1)),maze_=maze,lower_bound=0,upper_bound=dimx*dimy/2,debug=False)
+        new_maze = generate_random_walk(start_point,end_point,maze_=maze,lower_bound=0,upper_bound=dimx*dimy/2,debug=False)
         points = [(int(x[0]),int(x[1])) for x in new_maze.solution_.walk]
 
         #Modify the solution path
@@ -35,7 +35,7 @@ def build_maze(maze: Maze, difficulty: int)->Maze:
     
     if difficulty == 3:
         #Make the Solution Path
-        new_maze = generate_random_walk((0,0),(int(dimx-1),int(dimy-1)),maze_=maze,lower_bound=0,upper_bound=dimx*dimy/2,debug=False)
+        new_maze = generate_random_walk(start_point,end_point,maze_=maze,lower_bound=0,upper_bound=dimx*dimy/2,debug=False)
         points = [(int(x[0]),int(x[1])) for x in new_maze.solution_.walk]
 
         for i in range(int(dimx/2)):

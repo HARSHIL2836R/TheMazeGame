@@ -26,7 +26,6 @@ def show(screen: pygame.Surface):
         pos = (random.randint(0,screen.get_width()), random.randint(0,screen.get_height()))
         square = Button(screen,"The End",mg_settings.active_bt_color,mg_settings.inactive_bt_color,mg_settings.bt_text_color,50,50,pos)
         squares.add(square)
-        print(squares)
 
         for sprite in squares:
             sprite.update_animation()
