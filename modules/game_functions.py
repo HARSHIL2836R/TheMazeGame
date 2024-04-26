@@ -1,9 +1,13 @@
 '''Module for refactoring the game'''
 
+from cgi import print_arguments
+from ctypes import WinDLL
+from msilib import MSIMODIFY_INSERT_TEMPORARY
 import random
 import sys
 import pygame
 import numpy as np
+import pygame.locals
 
 #My Modules
 import modules.maze_logic.builder as builder
@@ -48,7 +52,7 @@ def check_events(player: Player, mg_settings: Settings) -> str:
             player.move(keymap[pygame.K_LEFT][0],keymap[pygame.K_LEFT][1])
         pygame.event.pump()
 
-    if (player.pos[0]//2+1,player.pos[1]//2+1) == mg_settings.dim:
+    if (player.pos[0],player.pos[1]) == (mg_settings.end_point[0]*2,mg_settings.end_point[1]*2):
         return "game_over"
 
 def update_screen(mg_settings: Settings, map_: pygame.Surface, screen: pygame.Surface, player: Player, maze: Maze):
@@ -62,14 +66,13 @@ def update_screen(mg_settings: Settings, map_: pygame.Surface, screen: pygame.Su
     """
     #Redraw the screen during each pass through the loop
     screen.fill(mg_settings.bg_color)
-    #old code: player.bltime()
 
     #DRAW THE MAZE
     width = mg_settings.box_width
     height = mg_settings.box_height
     wall_images = mg_settings.use_walls
     path_image = mg_settings.path_image
-
+    nest_image = mg_settings.nest_image
 
     if mg_settings.MODE == "map":
         wall_counter = 0
@@ -130,6 +133,12 @@ def update_screen(mg_settings: Settings, map_: pygame.Surface, screen: pygame.Su
                 y+=height
             x+=width
         
+        #Draw Nest
+        nest_sprite = Sprite(map_,pygame.transform.scale(nest_image,(width,height)),width,height)
+        nest_sprite.rect.x = mg_settings.end_point[0]*2*width
+        nest_sprite.rect.y = mg_settings.end_point[1]*2*height
+        all_sprites.add(nest_sprite)
+
         all_sprites.add(player)
 
         camera = Camera(screen, map_, mg_settings)
@@ -143,4 +152,5 @@ def build_maze(dim: tuple,difficulty: int,start_point: tuple,end_point: tuple):
     my_maze = builder.build_maze(my_maze,difficulty,start_point, end_point)
     print(my_maze.mazrix)
     print(my_maze.solution_.directions)
+    print(my_maze.solution_.walk)
     return my_maze

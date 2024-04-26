@@ -44,6 +44,7 @@ def run_game():
         quit()
     difficulty = menu_out
     difficulty = int(difficulty)
+    mg_settings.difficulty = difficulty
 
     #Set dimensions based on difficulty
     if difficulty == 1:
@@ -53,7 +54,7 @@ def run_game():
     if difficulty == 2:
         mg_settings.dim =(10,10)
         mg_settings.start_point =(0,0)
-        mg_settings.end_point =(4,4)
+        mg_settings.end_point =(9,9)
     if difficulty == 3:
         mg_settings.dim = (20,20)
         mg_settings.start_point =(0,0)
@@ -65,6 +66,7 @@ def run_game():
     #BUILD MAZE
     print("Building Maze...")
     curr_maze=gf.build_maze(mg_settings.dim,int(difficulty),mg_settings.start_point,mg_settings.end_point)
+    
     mg_settings.create_wall_images_list(np.sum(np.where(curr_maze.mazrix == -1))+2*np.shape(curr_maze.mazrix)[0]-1)
     print("white",np.sum(np.where(curr_maze.mazrix == 0)))
     
@@ -82,6 +84,7 @@ def run_game():
     player = Player(map_,curr_maze)
     player.set_dim(mg_settings.box_width,mg_settings.box_height)
 
+    #Instanciate the scoreboard and Play the Game!
     scoreboard = mg_settings.ScoreBoard()
     play_game_out = play_game(screen,map_,mg_settings,player,curr_maze,scoreboard)
     

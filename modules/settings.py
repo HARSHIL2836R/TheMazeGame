@@ -1,4 +1,5 @@
 '''Module to store the Settings class'''
+import math
 import random
 from pygame import Surface,image as pyimage
 from modules.maze_logic.maze import Maze
@@ -15,6 +16,7 @@ class Settings():
         self.screen_width = 800
         self.screen_height = 800
         self.bg_color = (100,168,207)
+        self.difficulty = 1
         self.dim = (10,10)
         self.MODE = "camera"
         self.move_fast = False
@@ -25,6 +27,7 @@ class Settings():
         self.wall_images = []
         for i in range(1,7):
             self.wall_images.append(pyimage.load('images/block'+str(i)+'.jpeg'))
+        self.nest_image = pyimage.load('images/nest.png')
 
     def create_wall_images_list(self, no_of_walls):
         self.use_walls = []
@@ -34,6 +37,10 @@ class Settings():
     def set_dim(self, screen: Surface, maze: Maze):
         self.box_width = screen.get_width() / maze.mazrix.shape[0]
         self.box_height = screen.get_height() / maze.mazrix.shape[1]
+
+        if self.difficulty == 3:
+            self.box_width *= 2
+            self.box_height *= 2
 
     class Menu():
         def __init__(self) -> None:
@@ -67,8 +74,8 @@ class Settings():
             for line in f.readlines():
                 self.data.append(line)
             f.close()
-            if self.data[-1] != "\n":
-                self.data.append("\n")
+            if self.data[-1][-2:] != "\n":
+                self.data[-1] += "\n"
 
             #Initiate current_score
             self.curr_score = 0
@@ -84,7 +91,12 @@ class Settings():
             f.close()
 
         def update_score(self,player: Player, maze: Maze, end_point: tuple):
-            self.curr_score = (player.pos[0] - end_point[0])**2 + (player.pos[1] - end_point[1])**2
+            max_dist = (end_point[0]*2)**2 + (end_point[1]*2)**2
+            dist = (player.pos[0] - end_point[0]*2)**2 + (player.pos[1] - end_point[1]*2)**2
+            self.curr_score = 110*(math.exp(-2*dist/max_dist)-math.exp(-2))
+            if dist == 0:
+                self.curr_score = 100.00
+            self.curr_score = "{0:.2f}".format(self.curr_score)
 
         def iterable_data(self)->list:
             iter_data = []

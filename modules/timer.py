@@ -9,7 +9,8 @@ class Timer():
         self.current_time = self.start_time
         self.time_elapsed = 0
         self.time_remaining = 0
-        
+        self.pause = False
+    
     def update(self):
         self.current_time = pygame.time.get_ticks()
         self.time_elapsed = self.current_time - self.start_time

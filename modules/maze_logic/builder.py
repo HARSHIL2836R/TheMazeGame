@@ -38,14 +38,13 @@ def build_maze(maze: Maze, difficulty: int, start_point: tuple,end_point: tuple)
         new_maze = generate_random_walk(start_point,end_point,maze_=maze,lower_bound=0,upper_bound=dimx*dimy/2,debug=False)
         points = [(int(x[0]),int(x[1])) for x in new_maze.solution_.walk]
 
-        for i in range(int(dimx/2)):
-            #Modify the solution path
-            rand_pt = random.randint(0,len(points)-2)
-            new_maze = generate_random_walk(points[rand_pt],points[rand_pt+1],maze_=new_maze,lower_bound=2,upper_bound=dimx*dimy/2,debug=False,update_solution=True)
-            
-            middle_wall = (int((points[rand_pt][0]+points[rand_pt+1][0])),int((points[rand_pt][1]+points[rand_pt+1][1])))
-            print(middle_wall)
-            new_maze.mazrix[middle_wall[1],middle_wall[0]] = -1
+        #Modify the solution path
+        rand_pt = random.randint(0,len(points)-2)
+        new_maze = generate_random_walk(points[rand_pt],points[rand_pt+1],maze_=new_maze,lower_bound=2,upper_bound=dimx*dimy/2,debug=False,update_solution=True)
+        
+        middle_wall = (int((points[rand_pt][0]+points[rand_pt+1][0])),int((points[rand_pt][1]+points[rand_pt+1][1])))
+        print(middle_wall)
+        new_maze.mazrix[middle_wall[1],middle_wall[0]] = -1
         
         #Completing the maze
         new_maze = hunt_n_kill(new_maze, points, debug=False)

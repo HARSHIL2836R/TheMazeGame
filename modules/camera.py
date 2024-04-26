@@ -4,6 +4,7 @@ from turtle import screensize, settiltangle
 import pygame
 
 #My Modules
+from modules import settings
 from modules.player import Player
 from modules.settings import Settings
 from modules.sprites import Sprite

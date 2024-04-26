@@ -10,7 +10,10 @@ from modules.settings import Settings
 from modules.timer import Timer
 
 def play_game(screen: pygame.Surface, map_: pygame.Surface, mg_settings: Settings, player: Player, curr_maze: Maze, scoreboard: Settings.ScoreBoard)->str:
-    
+
+    pygame.mixer.init()
+    the_wind_rises_theme = pygame.mixer.Sound('audio/caproni.mp3')  
+    the_wind_rises_theme.play(loops=-1,fade_ms=1000)  
     clock = pygame.time.Clock()
     timer = Timer(mg_settings.timeout)
 
@@ -18,14 +21,17 @@ def play_game(screen: pygame.Surface, map_: pygame.Surface, mg_settings: Setting
     while True:
         # Watch for keyboard and mouse events.
         if gf.check_events(player, mg_settings) == "game_over":
-            score = str(datetime.datetime.now())+","+str(scoreboard.curr_score)+","+str(timer.time_elapsed/1000)+"s,"+str(0)+"\n"
+            scoreboard.update_score(player,curr_maze,mg_settings.end_point)
+            score = str(datetime.datetime.now())+","+str(scoreboard.curr_score)+","+str(timer.time_elapsed/1000)+"s,"+str(0)
             scoreboard.add_score(score)
             scoreboard.write_to_file()
+            the_wind_rises_theme.fadeout(1000)
             return "game_over"
         gf.update_screen(mg_settings, map_, screen, player,curr_maze)
 
         #Blit Counter
-        timer.update()
+        if not timer.pause:
+            timer.update()
         width = 150
         height = 100
         timer_image = Button(screen, str(timer.time_remaining/1000),'white','white','black',width,height,(screen.get_rect().topleft[0]+width/2,screen.get_rect().topleft[1]+height/2))
@@ -43,9 +49,10 @@ def play_game(screen: pygame.Surface, map_: pygame.Surface, mg_settings: Setting
         pygame.display.flip()
         
         if timer.check():
-            score = str(datetime.datetime.now())+","+str(scoreboard.curr_score)+","+str(timer.time_elapsed/1000)+"s,"+str(1)+"\n"
+            score = str(datetime.datetime.now())+","+str(scoreboard.curr_score)+","+str(timer.time_elapsed/1000)+"s,"+str(1)
             scoreboard.add_score(score)
             scoreboard.write_to_file()
+            the_wind_rises_theme.fadeout(1000)
             return "timeout"
         
         clock.tick(120)

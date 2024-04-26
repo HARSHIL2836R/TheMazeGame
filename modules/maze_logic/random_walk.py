@@ -61,7 +61,7 @@ def generate_random_walk(start_coord: tuple, end_coord: tuple, dimx: int =None, 
         total_steps=0
         directions = []
 
-        while (curr_coord != end_coord) and (total_steps < upper_bound):
+        while (curr_coord != end_coord) and (total_steps <= upper_bound):
             possible_moves = [(0, 2), (0, -2), (2, 0), (-2, 0)]
             match_moves = {(0,2):'D',(0,-2):'U',(2,0):'R',(-2,0):'L'}
             match_wall = {'D':(0,-1),'U':(0,1),'R':(-1,0),'L':(1,0)}

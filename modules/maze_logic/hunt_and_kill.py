@@ -42,6 +42,13 @@ def hunt_n_kill(maze_: Maze, points: list, debug: bool=False)->Maze:
                 #Otherwise continue
                 continue
             else:
+                for neighbor in neighbors:
+                    if (neighbor[0]/2,neighbor[1]/2) in maze_.solution_.walk:
+                        #Make it less likely to interfere into solution path
+                        toss = random.choice((0,1))
+                        if toss:
+                            continue
+                #Otherwise continue
                 break
         
         if debug:
