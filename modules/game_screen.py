@@ -31,8 +31,8 @@ def play_game(screen: pygame.Surface, map_: pygame.Surface, mg_settings: Setting
         #Blit Counter
         if not timer.pause:
             timer.update()
-        width = 150
-        height = 100
+        width = 200
+        height = 50
         timer_image = Button(screen, str(timer.time_remaining/1000),'white','white','black',width,height,(screen.get_rect().topleft[0]+width/2,screen.get_rect().topleft[1]+height/2))
         timer_image.draw_button()
 

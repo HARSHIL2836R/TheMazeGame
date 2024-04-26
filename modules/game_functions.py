@@ -34,7 +34,7 @@ def check_events(player: Player, mg_settings: Settings) -> str:
         if not mg_settings.move_fast:
             if event.type == pygame.KEYDOWN and event.key in keymap:
                 if not player.move(keymap[event.key][0],keymap[event.key][1]):
-                    pygame.mixer.Sound('audio/duck-toy-sound.mp3').play()
+                    pygame.mixer.Sound('audio/ducky-toy-sound.mp3').play()
                 #print("Move:",player.move(keymap[event.key][0],keymap[event.key][1]))
 
     if mg_settings.move_fast:
