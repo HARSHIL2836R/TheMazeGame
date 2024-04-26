@@ -19,6 +19,19 @@
 
 \refsection{0}
   \datalist[entry]{nty/global//global/global}
+    \entry{menu-geeksforgeeks}{online}{}
+      \field{sortinit}{g}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labeltitlesource}{title}
+      \field{title}{geeksforgeeks guide for creating start menu in pygame}
+      \verb{urlraw}
+      \verb https://www.geeksforgeeks.org/creating-start-menu-in-pygame/
+      \endverb
+      \verb{url}
+      \verb https://www.geeksforgeeks.org/creating-start-menu-in-pygame/
+      \endverb
+      \warn{\item online entry 'menu-geeksforgeeks' (references.bib): Invalid format '06-04-24' of date field 'date' - ignoring}
+    \endentry
     \entry{thebook}{book}{}
       \name{author}{1}{}{%
         {{hash=003c2fe29c9abefca40063065bca1472}{%

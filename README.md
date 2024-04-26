@@ -41,3 +41,60 @@ game.py
 #### TODO:
 - Complete difficulty 2
 - Improve Camera
+
+### 26th April
+
+#### Updated Structure (Only Relevant Files needed for Game)
+```
+notes.md
+game.py
+path.txt
+|
+\-modules/
+|--game_functions.py
+|--player.py
+|--settings.py
+|--menu.py
+|--button.py
+|--camera.py
+|--end_screen.py
+|--game_screen.py
+|--sprites.py
+|--timer.py
+|--__init__.py
+|
+|--maze_logic/
+|---builder.py
+|---hunt_and_kill.py
+|---maze.py
+|---random_walk.py
+|
+\-images/
+|--player.bmp
+|--blocks[i].jpeg
+|--sky.jpg
+|--nest.png
+|
+\-the_latex_project/
+|--report.tex
+|--references.bib
+```
+
+#### TODO: Add function descriptions and comments wherever not added
+- [x] game.py
+- [] button.py
+- [] camera.py
+- [] game_functions.py
+- [x] player.py
+- [x] settings.py
+- [] menu.py
+- [] button.py
+- [] camera.py
+- [] end_screen.py
+- [x] game_screen.py
+- [] sprites.py
+- [] timer.py
+- [] builder.py
+- [] hunt_and_kill.py
+- [] maze.py
+- [] random_walk.py

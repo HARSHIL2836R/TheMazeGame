@@ -5,12 +5,19 @@ import pygame
 #import user defined modules
 from modules.settings import Settings
 from modules.player import Player
+from modules.game_screen import play_game
 import modules.game_functions as gf
 import modules.menu as menu
-from modules.game_screen import play_game
 import modules.end_screen as the_end
 
 def set_display(mg_settings: Settings):
+    """
+    Function to set up a dispaly screen and a map(Surface type) for the game
+    Args:
+        mg_settings: Settings, class instance containing all game settings
+    Returns:
+        (Surface, Surface): (map_,screen); in camera mode, the screen gets displayed and map is used to store rects of all the Sprites
+    """
     #DISPLAY THE COMPLETE MAP
     if mg_settings.MODE == "map":
         #display map_
@@ -29,6 +36,13 @@ def set_display(mg_settings: Settings):
     return map_,screen    
     
 def run_game():
+    """
+    Function to run an instance of the Maze Game
+    Args:
+        None
+    Returns:
+        str: String indicating whether to rerun the game or not
+    """
     # Initialize game and create a screen object.
     pygame.init()
     pygame.mixer.init()
@@ -64,16 +78,20 @@ def run_game():
         mg_settings.end_point =(9,9)
         map_ = pygame.surface.Surface((mg_settings.screen_width*4,mg_settings.screen_height*4))
 
+    #Quite display because it's not needed, so that pygame doesn't freeze out when no input is provided from python while building the maze
     pygame.display.quit()
 
-    #BUILD MAZE
+    ####BUILD MAZE
     print("Building Maze...")
     curr_maze=gf.build_maze(mg_settings.dim,int(difficulty),mg_settings.start_point,mg_settings.end_point)
-    
+    #Create a list of randomised images to be used in wall sprites
     mg_settings.create_wall_images_list(np.sum(np.where(curr_maze.mazrix == -1))+2*np.shape(curr_maze.mazrix)[0]-1)
     print("white",np.sum(np.where(curr_maze.mazrix == 0)))
     
     print("Building done")
+    ####BUILD COMPLETE
+    
+    #Remake the display screen
     map_,screen = set_display(mg_settings)
     
     #write solution in file
@@ -98,6 +116,8 @@ def run_game():
             var = map_
         else:
             var = screen
+        
+        #Show the end-screen
         if the_end.show(var) == "rerun":
             return "rerun"
         elif the_end.show(var) == "exit":
@@ -112,6 +132,7 @@ def run_game():
         else:
             var = screen
 
+        #Show the end-screen
         if the_end.show(var) == "rerun":
             return "rerun"
         elif the_end.show(var) == "exit":
@@ -119,6 +140,9 @@ def run_game():
             return False
 
 def check_game():
+    """
+    Just a dummy function to check whether the game runs nice without need to show menu or end-screen
+    """
     pygame.init()
     mg_settings = Settings()
     map_,screen = set_display(mg_settings)
@@ -153,4 +177,6 @@ out = "rerun"
 while out == "rerun":
     out = run_game()
     print(out)
+
+#Uncomment if you want to run only the game, if so comment out the previous while loop also
 #check_game()

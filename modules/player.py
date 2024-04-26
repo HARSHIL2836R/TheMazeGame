@@ -1,16 +1,21 @@
-'''Module to store class of Player element'''
+'''Module to store the class Player, children of pygame.sprite.Sprite class containing all information of the player running in the maze (or say a pegion flying in the sky-top maze :) )'''
 import pygame
 
+#My Modules
 from modules.maze_logic.maze import Maze
 
 class Player(pygame.sprite.Sprite):
 
     def __init__(self, screen: pygame.Surface, the_maze: Maze):
-        """Initialise the player and set it starting position"""
+        """
+        Initialise the player
+        The properties initialised are:
+        Parent class (Sprite) properties, Surface on which player's rect is present, Image of the surface of player, Rect values of the player, Rect values of the Screen, Maze in which the player is present, (ndarray) Matrix of the Maze, Position of the player (Coordinates(x,y))
+        """ 
         super().__init__()
 
         #Load the player image and get it's rectangular representation
-        image = pygame.image.load('images/player3.png')
+        image = pygame.image.load('images/player.png')
         self.screen = screen
         self.image = image
         self.rect = self.image.get_rect()
@@ -23,16 +28,28 @@ class Player(pygame.sprite.Sprite):
         self.pos=(0,0)
     
     def bltime(self)->None:
-        """Draws the player at it's current position"""
+        """
+        Draws the player at it's current position
+        """
         self.screen.blit(pygame.transform.scale(self.image,(self.width,self.height)), self.rect)
     
     def set_dim(self, width:int,height:int)->None:
+        """
+        Sets the dimensions of the Rect of the player and adds width and height as property of the object
+        """
         self.width = width
         self.height = height
         self.image = pygame.transform.scale(self.image,(self.width,self.height))
 
     def move(self, x: int =0,y: int =0)->bool:
-        """Move player by x pixels right and y pixels up"""
+        """
+        Move player by x pixels right and y pixels up
+        Args:
+            x: int, pixels right
+            y: int, pixels up
+        Returns:
+            bool: False is player was unable to move due to an Obstacle, True otherwise
+        """
         new_rect = pygame.Rect(self.rect)
         new_rect.x = self.rect.x + x
         new_rect.y = self.rect.y + y

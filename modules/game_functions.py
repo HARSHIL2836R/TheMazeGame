@@ -1,9 +1,8 @@
-'''Module for refactoring the game'''
+'''Module storing the functions to control the player and draw out the sprites'''
 
 import sys
 import pygame
 import numpy as np
-import pygame.locals
 
 #My Modules
 import modules.maze_logic.builder as builder

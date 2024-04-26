@@ -1,15 +1,17 @@
 [0] Config.pm:307> INFO - This is Biber 2.19
 [0] Config.pm:310> INFO - Logfile is 'report.blg'
-[199] biber-MSWIN64:340> INFO - === 
-[299] Biber.pm:419> INFO - Reading 'report.bcf'
-[426] Biber.pm:979> INFO - Found 1 citekeys in bib section 0
-[440] Biber.pm:4419> INFO - Processing section 0
-[460] Biber.pm:4610> INFO - Looking for bibtex file 'references.bib' for section 0
-[518] bibtex.pm:1713> INFO - LaTeX decoding ...
-[531] bibtex.pm:1519> INFO - Found BibTeX data source 'references.bib'
-[581] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[581] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[581] Biber.pm:4239> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'en-US'
-[581] Biber.pm:4245> INFO - No sort tailoring available for locale 'en-US'
-[582] bbl.pm:660> INFO - Writing 'report.bbl' with encoding 'UTF-8'
-[583] bbl.pm:763> INFO - Output to report.bbl
+[92] biber-MSWIN64:340> INFO - === 
+[127] Biber.pm:419> INFO - Reading 'report.bcf'
+[210] Biber.pm:979> INFO - Found 2 citekeys in bib section 0
+[220] Biber.pm:4419> INFO - Processing section 0
+[230] Biber.pm:4610> INFO - Looking for bibtex file 'references.bib' for section 0
+[283] bibtex.pm:1713> INFO - LaTeX decoding ...
+[296] bibtex.pm:1519> INFO - Found BibTeX data source 'references.bib'
+[328] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[328] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[329] Biber.pm:4239> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'en-US'
+[329] Biber.pm:4245> INFO - No sort tailoring available for locale 'en-US'
+[333] bbl.pm:660> INFO - Writing 'report.bbl' with encoding 'UTF-8'
+[334] bbl.pm:763> INFO - Output to report.bbl
+[334] Biber.pm:131> WARN - online entry 'menu-geeksforgeeks' (references.bib): Invalid format '06-04-24' of date field 'date' - ignoring
+[334] Biber.pm:133> INFO - WARNINGS: 1
