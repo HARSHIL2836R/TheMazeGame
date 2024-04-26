@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.3.30)  26 APR 2024 17:57
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.3.30)  27 APR 2024 01:55
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -377,31 +377,45 @@ Package biblatex Info: ... and expl3
 Package: xparse 2023-10-10 L3 Experimental document command parser
 )
 Package: blx-case-expl3 2023/03/05 v3.19 expl3 case changing code for biblatex
+)) (C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.sty
+Package: geometry 2020/01/02 v5.9 Page Geometry
+ (C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+)
+\Gm@cnth=\count400
+\Gm@cntv=\count401
+\c@Gm@tempcnt=\count402
+\Gm@bindingoffset=\dimen145
+\Gm@wd@mp=\dimen146
+\Gm@odd@mp=\dimen147
+\Gm@even@mp=\dimen148
+\Gm@layoutwidth=\dimen149
+\Gm@layoutheight=\dimen150
+\Gm@layouthoffset=\dimen151
+\Gm@layoutvoffset=\dimen152
+\Gm@dimlist=\toks19
+ (C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg)) (C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.sty
+\lst@mode=\count403
+\lst@gtempboxa=\box52
+\lst@token=\toks20
+\lst@length=\count404
+\lst@currlwidth=\dimen153
+\lst@column=\count405
+\lst@pos=\count406
+\lst@lostspace=\dimen154
+\lst@width=\dimen155
+\lst@newlines=\count407
+\lst@lineno=\count408
+\lst@maxwidth=\dimen156
+ (C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmisc.sty
+File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
+\c@lstnumber=\count409
+\lst@skipnumbers=\count410
+\lst@framebox=\box53
+) (C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.cfg
+File: listings.cfg 2023/02/27 1.9 listings configuration
 ))
-Package hyperref Info: Option `colorlinks' set `true' on input line 14.
-\@quotelevel=\count400
-\@quotereset=\count401
- (report.aux)
-\openout1 = `report.aux'.
-
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
+Package: listings 2023/02/27 1.9 (Carsten Heinz)
  (C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/graphics\color.sty
 Package: color 2022/01/06 v1.3d Standard LaTeX Color (DPC)
  (C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
@@ -410,21 +424,34 @@ File: color.cfg 2016/01/02 v1.6 sample color configuration
 Package color Info: Driver file: pdftex.def on input line 149.
  (C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
 File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
- (C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
-[Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count402
-\scratchdimen=\dimen145
-\scratchbox=\box52
-\nofMPsegments=\count403
-\nofMParguments=\count404
-\everyMPshowfont=\toks19
-\MPscratchCnt=\count405
-\MPscratchDim=\dimen146
-\MPnumerator=\count406
-\makeMPintoPDFobject=\count407
-\everyMPtoPDFconversion=\toks20
-)) (C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx))
-Package hyperref Info: Link coloring ON on input line 24.
+) (C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx)) (C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
+File: lstlang1.sty 2023/02/27 1.9 listings language file
+)
+Package hyperref Info: Option `colorlinks' set `true' on input line 38.
+\@quotelevel=\count411
+\@quotereset=\count412
+ (report.aux)
+\openout1 = `report.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+Package hyperref Info: Link coloring ON on input line 48.
  (report.out) (report.out)
 \@outlinefile=\write4
 \openout4 = `report.out'.
@@ -448,19 +475,69 @@ Package biblatex Warning: Biber reported the following issues
 (biblatex)                - online entry 'menu-geeksforgeeks' (references.bib): Invalid format '06-04-24' of date field 'date' - ignoring.
 
 )
-Package biblatex Info: Reference section=0 on input line 24.
-Package biblatex Info: Reference segment=0 on input line 24.
+Package biblatex Info: Reference section=0 on input line 48.
+Package biblatex Info: Reference segment=0 on input line 48.
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: <default>
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(56.9055pt, 500.484pt, 56.9055pt)
+* v-part:(T,H,B)=(56.9055pt, 681.15898pt, 56.9055pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=500.484pt
+* \textheight=681.15898pt
+* \oddsidemargin=-15.36449pt
+* \evensidemargin=-15.36449pt
+* \topmargin=-52.36449pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=10.0pt
+* \footskip=30.0pt
+* \marginparwidth=65.0pt
+* \marginparsep=11.0pt
+* \columnsep=10.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+\c@lstlisting=\count413
+(C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count414
+\scratchdimen=\dimen157
+\scratchbox=\box54
+\nofMPsegments=\count415
+\nofMParguments=\count416
+\everyMPshowfont=\toks21
+\MPscratchCnt=\count417
+\MPscratchDim=\dimen158
+\MPnumerator=\count418
+\makeMPintoPDFobject=\count419
+\everyMPtoPDFconversion=\toks22
+)
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 33.
+(Font)              <12> on input line 57.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 33.
+(Font)              <8> on input line 57.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 33.
+(Font)              <6> on input line 57.
  (report.toc
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 3.
+(Font)              <7> on input line 8.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 3.
+(Font)              <5> on input line 8.
 )
 \tf@toc=\write5
 \openout5 = `report.toc'.
@@ -469,29 +546,34 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 
 {C:/Users/Dell/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] [2
 
-] [3] [4] [5] (report.aux)
+]
+Underfull \hbox (badness 10000) in paragraph at lines 118--119
+
+ []
+
+[3] [4] [5] [6] (report.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
  ***********
 Package rerunfilecheck Info: File `report.out' has not changed.
-(rerunfilecheck)             Checksum: 14E12A01C77653DC1797AC7F6838EC78;1537.
+(rerunfilecheck)             Checksum: C809197345256E003CE256612D3A4D5D;2139.
 Package logreq Info: Writing requests to 'report.run.xml'.
 \openout1 = `report.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 15649 strings out of 474486
- 278474 string characters out of 5744227
- 1935542 words of memory out of 5000000
- 37751 multiletter control sequences out of 15000+600000
- 563139 words of font info for 53 fonts, out of 8000000 for 9000
+ 18012 strings out of 474486
+ 310910 string characters out of 5744227
+ 2017542 words of memory out of 5000000
+ 40047 multiletter control sequences out of 15000+600000
+ 564293 words of font info for 57 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,11n,81p,761b,1277s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/Dell/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Dell/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Dell/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/Dell/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Dell/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Dell/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/Dell/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/Dell/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on report.pdf (5 pages, 136846 bytes).
+ 75i,12n,81p,1016b,1274s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\Dell\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk><C:/Users/Dell/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Dell/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Dell/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/Dell/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Dell/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Dell/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/Dell/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsl10.pfb><C:/Users/Dell/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/Dell/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/Dell/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
+Output written on report.pdf (6 pages, 187644 bytes).
 PDF statistics:
- 175 PDF objects out of 1000 (max. 8388607)
- 56 named destinations out of 1000 (max. 500000)
- 81 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 264 PDF objects out of 1000 (max. 8388607)
+ 99 named destinations out of 1000 (max. 500000)
+ 121 words of extra memory for PDF output out of 10000 (max. 10000000)
 

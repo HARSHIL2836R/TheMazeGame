@@ -4,6 +4,30 @@
 \usepackage{enumerate}
 \usepackage[backend=biber]{biblatex}
 \addbibresource{references.bib}
+\usepackage[top=2cm, bottom=2cm, right=2cm, left=2cm]{geometry}
+
+\usepackage{listings}
+\usepackage{color}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+    language=Python,
+    aboveskip=3mm,
+    belowskip=3mm,
+    showstringspaces=false,
+    columns=flexible,
+    basicstyle={\small\ttfamily},
+    numbers=none,
+    numberstyle=\tiny\color{gray},
+    keywordstyle=\color{blue},
+    commentstyle=\color{dkgreen},
+    stringstyle=\color{mauve},
+    breaklines=true,
+    breakatwhitespace=true,
+    tabsize=3
+}
 
 %Metadata
 \hypersetup{
@@ -40,13 +64,77 @@ And See~\cite{menu-geeksforgeeks}
 
 \section{Modules Used}
 \begin{itemize}
-    \item pygame
-    \item numpy
-    \item math: Used in settings module
-    \item os: os.path function used in settings module
-    \item sys: used in game_functions.py
+    \item pygame: The main module in creating this game, it provided all methods required to setup the display and the objects and their attributes which we can use to modify the object as per our choice
+    \item numpy: This modules gives base to this game by allowing it to use an ndarray object that store all the maze information in matrix form
+    \item math: Used in settings module, to compute the score as an exponential function linearly scaled to give us output on given input, that is the distance between the player and the end point
+    \item os: os.path function used in settings module, to access directory at a lower level than the directory given file is in
+    \item sys: used in game\_functions.py and end\_screen.py, to exit the game
+    \item random: used in settings.py, end\_screen.py, builder.py and hunt\_and\_kill.py to select a random element out of a given sequence 
+    \item datetime: used in game\_screen.py, to save the score with a timestamp of when the game ended 
 \end{itemize}
 
+\section{Directory Structure}
+\begin{lstlisting}
+notes.md # Store TODOs and progress and literally anything I wanted to note down for time being
+game.py # Running this file starts the game! Contains Initializations and Steps of what to do next based on previous output
+path.txt # File containing the Directions to be taken Sequentially to Reach to the end and complete the level
+last_maze.txt # File to store the matrix of the maze that was created in the last game
+|
+\-modules/
+    |--__init__.py # Formality
+    |--player.py # Class
+    |--settings.py # Class
+    |--button.py # Class
+    |--camera.py # Class
+    |--sprites.py # Class
+    |--timer.py # Class
+    |--game_functions.py # Functions
+    |--menu.py # Functions
+    |--end_screen.py # Functions
+    |--game_screen.py # Functions
+    |
+    |--maze_logic/
+        |---maze.py # Class
+        |---builder.py # Functions
+        |---hunt_and_kill.py # Function
+        |---random_walk.py # Function
+    |
+    \-images/
+        |--player.bmp # Pegion as our Player :)
+        |--blocks[i].jpeg # Flexibility to choose
+        |--sky.jpg # Sky is not the limit
+        |--nest.png # The Nest is the Goal
+    |
+    \-the_latex_project/
+        |--report.tex # Parent of the pdf you're reading
+        |--references.bib # All the references I used, noted
+\end{lstlisting}
+\section{Running Instructions}
+Before proceeding to the run this game, you must be aware of the frustated situation of our \textit{dear pegion} who has been caught into a \textsc{maze} laid by the \textit{Evil magician} who \textsl{conspires to take the home of this little pegion away from it}, essentially leviating it in open air in midst of a vast calm sea (See the paradox, calm sea and evil villian, duh). The Evil has constructed a maze around nest \textit{articulating in front of the world (you mean the world to him ;) ) his immense intelligence} and \textbf{challenging you in front of the world (yourself, hehe)} to break the his code, solve the maze, reach to your nest and rest in peace. By watching you in peace, the evil will \textit{burn to ashes} and so burns away the maze with it (pegion and nest are fire resistant by nature) and you prove your intelligence against the world (now it means something).\\
+Run the file \texttt{game.py} with \texttt{python3} and help the pegion (\textbf{by controlling it with up, down, right and left arrows}) reach it's nest!\\
+Beware, you must first be considerate of your own intelligence, choose the level wisely. Otherwise you'll have to face depression as you'll be graded realtivelty to the players who've played if before! but if you're my type, and grades don't matter much, enjoy the pegion, the flight and the music!\\
+\textcolor{red}{In case the game is struck and not loading (a random walk error maybe due to overconsumption of memory) interrupt the terminal and re-run the game.}
+\section{Features}
+Not much of a feature, but you can exit the game anytime you want by pressing ESC :)\\
+\subsection*{Menu Screen}
+\begin{itemize}
+    \item The game has three levels to select from
+\end{itemize}
+\subsection*{Game Screen}
+\begin{itemize}
+    \item A reverse timer is show on the top of screen showing how much time is left with you to complete the game
+    \item Current score is shown below the timer, essentially based on the distance between the player and the end point, hence, as a hint, giving you an idea of where to move
+    \item Background Music is being played to motivate the player to complete the game
+    \item Collision detection is applied producing ducky-toy squash sound effect on hitting a wall (we have a pegion obsessed with ducks)
+    \item Fading music when Game ends
+\end{itemize}
+\subsection*{End Screen}
+\begin{itemize}
+    \item Interesting music is being played in each outcome of game
+    \item Option of returning to Menu is given
+\end{itemize}
+\section{Project Journey}
+--Pending--
 
 %%%%%%ALGORITHMS STUDIED%%%%%%
 \section{Maze Generation Algorithms}

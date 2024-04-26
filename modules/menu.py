@@ -1,6 +1,7 @@
 '''Module for customising the Menu'''
-from pickletools import read_uint1
 import pygame
+
+#My Modules
 from modules.button import Button
 from modules.settings import Settings
 

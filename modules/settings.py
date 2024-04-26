@@ -36,7 +36,7 @@ class Settings():
 
     def set_dim(self, screen: Surface, maze: Maze)->None:
         """
-        Function to set Dimensions of the Game in the property of Settings, dim (tuple)
+        Function to set Dimensions of the Game in the attribute of Settings, dim (tuple)
         """
         self.box_width = screen.get_width() / maze.mazrix.shape[0]
         self.box_height = screen.get_height() / maze.mazrix.shape[1]
@@ -51,7 +51,7 @@ class Settings():
         Args:
             no_of_walls: number of walls in the game, used to determine the length of this list
         Returns:
-            None: creates a property of the given object, use_walls (list)
+            None: creates an attribute of the given object, use_walls (list)
         """
         self.use_walls = []
         for i in range(no_of_walls):
@@ -79,7 +79,7 @@ class Settings():
             Screen Color, Active Button color, Inactive Button color, Button Text color
             """
             Settings.__init__(self)
-            self.screen_color = (0,0,0)
+            self.screen_color = (0,0,60)
             self.active_bt_color = 	(0,0,255)
             self.inactive_bt_color = (35,58,119)
             self.bt_text_color = (255,255,255)
@@ -88,7 +88,7 @@ class Settings():
         def __init__(self) -> None:
             """
             The Scoreboard object
-            On initiailisation it loads data from file data/saved_data.csv into a list as a property of the object
+            On initiailisation it loads data from file data/saved_data.csv into a list as a attribute of the object
             Data is stored in csv file in the format: time,score,time_taken,timeout(bool)
             """
             #Load data
@@ -114,7 +114,7 @@ class Settings():
 
         def write_to_file(self):
             """
-            Write the data in object's property self.data to the file data/saved_data.csv
+            Write the data in object's attribute self.data to the file data/saved_data.csv
             """
             f = open(os.path.dirname(__file__)+'/../data/saved_data.csv',mode="w")
             for line in self.data:

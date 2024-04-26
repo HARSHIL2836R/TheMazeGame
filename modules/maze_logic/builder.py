@@ -1,10 +1,14 @@
-#My modules
 import random
+
+#My modules
 from modules.maze_logic.maze import Maze
 from modules.maze_logic.hunt_and_kill import hunt_n_kill
 from modules.maze_logic.random_walk import generate_random_walk
 
 def build_maze(maze: Maze, difficulty: int, start_point: tuple,end_point: tuple)->Maze:
+    """
+    Function to build a Maze object given, an initialised object, difficulty, start point and end point in the maze
+    """
     dimx = maze.dim[0]
     dimy = maze.dim[1]
     if difficulty == 1:

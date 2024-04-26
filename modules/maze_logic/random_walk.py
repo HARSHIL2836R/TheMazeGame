@@ -1,12 +1,11 @@
-import time
 import random
-import matplotlib.pyplot as plt
-import numpy as np
+
 #My Modules
-from modules.maze_logic.maze import Maze, Solution
+from modules.maze_logic.maze import Maze
 
 def generate_random_walk(start_coord: tuple, end_coord: tuple, dimx: int =None, dimy:int =None,maze_: Maze =None,lower_bound: int=0,upper_bound: int=None, debug: bool = False,update_solution: bool=False)->Maze:
     """
+    Function to Generate Random Walk between two given points either in a given maze or a newly created maze
     Args:
         start_coord: tuple, representing the startpoint
         end_coord: tuple, representing the endpoint
@@ -34,6 +33,7 @@ def generate_random_walk(start_coord: tuple, end_coord: tuple, dimx: int =None, 
     except ValueError:
         pass
 
+    #Set dimensions if not provided
     if dimx == None:
         dimx=maze_.mazrix.shape[0]
     if dimy==None:
@@ -50,6 +50,7 @@ def generate_random_walk(start_coord: tuple, end_coord: tuple, dimx: int =None, 
     update_directions=[]
 
     def run()->int:
+        #Make a copy of given maze to work upon
         global the_maze
         the_maze = maze_.__copy__()
         maze = the_maze.mazrix
@@ -100,41 +101,15 @@ def generate_random_walk(start_coord: tuple, end_coord: tuple, dimx: int =None, 
 
         return total_steps
 
-    
+    #Check how much steps the random walk took and iterate again if they're not in constraint
     runs = run()
     while (runs > upper_bound) or (runs < lower_bound):
         runs = run()
 
+    #Update solution if Maze aldready had a solution
     if update_solution:
         the_maze.update_solution(update_directions[-1],update_walks[-1])
 
     if debug:
         print("original_maze",maze_.mazrix)
     return the_maze
-
-def check_working()->None:
-    maze=Maze((3,3))
-    mazrix = np.array([[ 0,  0,  0, -1, -1, -1],
-    [-1, -1,  0, -1, -1, -1],
-    [-1, -1,  0, -1, -1, -1],
-    [-1, -1, -1, -1, -1, -1],
-    [-1, -1, -1, -1, -1, -1],
-    [-1, -1, -1, -1, -1, -1]])
-    maze.mazrix = mazrix
-    start_coord = (0, 0)
-    end_coord = (30, 30)
-    start_time = time.time()
-    random_walk = generate_random_walk(start_coord, end_coord,maze_=None,debug=True).solution_.walk
-    end_time = time.time()
-    print("Time taken:", end_time-start_time)
-
-    # Separate x and y coordinates for plotting
-    x_data = [step[0] for step in random_walk]
-    y_data = [-step[1] for step in random_walk]
-
-
-    plt.plot(x_data, y_data)  # Plot using x and y coordinates separately
-    plt.show()
-
-if __name__=="__main__":
-    check_working()

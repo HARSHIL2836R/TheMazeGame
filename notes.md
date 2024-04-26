@@ -82,19 +82,17 @@ path.txt
 
 #### TODO: Add function descriptions and comments wherever not added
 - [x] game.py
-- [] button.py
-- [] camera.py
-- [] game_functions.py
+- [x] button.py
+- [x] camera.py
+- [x] game_functions.py
 - [x] player.py
 - [x] settings.py
-- [] menu.py
-- [] button.py
-- [] camera.py
-- [] end_screen.py
+- [x] menu.py
+- [x] end_screen.py
 - [x] game_screen.py
-- [] sprites.py
-- [] timer.py
-- [] builder.py
-- [] hunt_and_kill.py
-- [] maze.py
-- [] random_walk.py
+- [x] sprites.py
+- [x] timer.py
+- [x] builder.py
+- [x] hunt_and_kill.py
+- [x] maze.py
+- [x] random_walk.py

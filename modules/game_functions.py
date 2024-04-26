@@ -17,9 +17,10 @@ def check_events(player: Player, mg_settings: Settings) -> str:
     """
     Respond to keypresses and mouse events
     Args:
-        None
+        player: Player
+        mg_settings: Settings
     Returns:
-        None
+        str, "game_over" if player reaches the end point
     """
     keymap = {pygame.K_UP: (player.width*0,player.height*-1),
             pygame.K_DOWN: (player.width*0,player.height*1),
@@ -59,8 +60,10 @@ def update_screen(mg_settings: Settings, map_: pygame.Surface, screen: pygame.Su
     """
     Args:
         mg_settings: Settings, the settings class containing all game settings
+        map_: Surface, the surface over which all Sprite rectangles lie
         screen: Surface, the screen used for display of the running game
         player: Player, the player class used to control all player events
+        maze: Maze, the Maze object over which current game runs
     Returns:
         None
     """
@@ -146,11 +149,14 @@ def update_screen(mg_settings: Settings, map_: pygame.Surface, screen: pygame.Su
 
         camera.draw(screen,all_sprites)
 
-def build_maze(dim: tuple,difficulty: int,start_point: tuple,end_point: tuple):
-
+def build_maze(dim: tuple,difficulty: int,start_point: tuple,end_point: tuple)->Maze:
+    """
+    Simple function to build maze given dimensions,difficulty and start and stop points
+    """
     my_maze = Maze(dim)
     my_maze = builder.build_maze(my_maze,difficulty,start_point, end_point)
     print(my_maze.mazrix)
+    np.savetxt('last_maze.txt',my_maze.mazrix,fmt="%3d")
     print(my_maze.solution_.directions)
     print(my_maze.solution_.walk)
     return my_maze

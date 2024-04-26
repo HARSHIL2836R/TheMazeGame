@@ -1,10 +1,15 @@
 \contentsline {section}{\numberline {1}Lorem}{2}{section.1}%
-\contentsline {section}{\numberline {2}Maze Generation Algorithms}{2}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Krsukal's Algorithm}{2}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Prism's Algorithm}{2}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}Recursive Backtracing}{2}{subsection.2.3}%
-\contentsline {subsection}{\numberline {2.4}Aldous-Broder Algorithm}{3}{subsection.2.4}%
-\contentsline {subsection}{\numberline {2.5}Wilson's Algorithm}{3}{subsection.2.5}%
-\contentsline {subsection}{\numberline {2.6}Hunt and Kill Algorithm}{4}{subsection.2.6}%
-\contentsline {subsection}{\numberline {2.7}Growing Tree Algorithm}{4}{subsection.2.7}%
-\contentsline {subsection}{\numberline {2.8}Eller's Algorithm}{4}{subsection.2.8}%
+\contentsline {section}{\numberline {2}Modules Used}{2}{section.2}%
+\contentsline {section}{\numberline {3}Directory Structure}{2}{section.3}%
+\contentsline {section}{\numberline {4}Running Instructions}{3}{section.4}%
+\contentsline {section}{\numberline {5}Features}{3}{section.5}%
+\contentsline {section}{\numberline {6}Project Journey}{3}{section.6}%
+\contentsline {section}{\numberline {7}Maze Generation Algorithms}{4}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Krsukal's Algorithm}{4}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Prism's Algorithm}{4}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Recursive Backtracing}{4}{subsection.7.3}%
+\contentsline {subsection}{\numberline {7.4}Aldous-Broder Algorithm}{4}{subsection.7.4}%
+\contentsline {subsection}{\numberline {7.5}Wilson's Algorithm}{5}{subsection.7.5}%
+\contentsline {subsection}{\numberline {7.6}Hunt and Kill Algorithm}{5}{subsection.7.6}%
+\contentsline {subsection}{\numberline {7.7}Growing Tree Algorithm}{5}{subsection.7.7}%
+\contentsline {subsection}{\numberline {7.8}Eller's Algorithm}{5}{subsection.7.8}%

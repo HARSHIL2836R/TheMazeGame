@@ -1,15 +1,20 @@
 '''Module for customising the end screen'''
 import random
+import sys
 import pygame
 
+#My Modules
 from modules.settings import Settings
 from modules.button import Button
 
-def show(screen: pygame.Surface):
-
+def show(screen: pygame.Surface)->str:
+    """
+    Function to update the Game Screen to The End Screen and return string whether to re-run the game or exit it
+    """
     mg_settings = Settings.End()
-    screen.fill((0,0,60))
+    screen.fill(mg_settings.screen_color)
 
+    #Initialise the group to store animating sprites
     squares = pygame.sprite.Group()
     clock = pygame.time.Clock()
 
@@ -17,13 +22,15 @@ def show(screen: pygame.Surface):
     font = pygame.font.SysFont("Monospace", 70)
     title = font.render("Your Score is:", True, mg_settings.bt_text_color, mg_settings.screen_color)
 
+    #Initialising the Scoreboard object
     scoreboard = Settings.ScoreBoard()
     data = scoreboard.iterable_data()
-    
+    #Show score
     score = data[-1][1]
     font = pygame.font.SysFont("Monospace", 60)
     score = font.render(score, True, mg_settings.bt_text_color, mg_settings.screen_color)
-
+    
+    #Show the time_elapsed or whether the game timed out
     if data[-1][-1].strip('\n') == "0":
         font = pygame.font.SysFont("Monospace", 70)
         title_2 = font.render("Time Taken is:", True, mg_settings.bt_text_color, mg_settings.screen_color)
@@ -43,7 +50,7 @@ def show(screen: pygame.Surface):
         for event in pygame.event.get():
             if event.type == pygame.QUIT or (event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE):
                 print("exit") 
-                quit()
+                sys.exit()
             
             if event.type == pygame.KEYDOWN and event.key == pygame.K_m:
                 pygame.quit()

@@ -1,25 +1,28 @@
-from matplotlib.pylab import rand
 import numpy as np
 import random
+
 #My modules
 from modules.maze_logic.maze import Maze
 
 def hunt_n_kill(maze_: Maze, points: list, debug: bool=False)->Maze:
     """
+    Function to implement the hunt and kill algorithm to complete the maze
     Args:
         maze: Maze, the maze over which Hunt and Kill algorithm is to be applied to complete it
-        points: list, the list of points open in maze
+        points: list, the list of points in solution of the maze
         debug: bool, if true, turn on the print statements
     Returns:
         Maze: New instance of class Maze
     """
 
+    #Copy given maze into a new instance of Maze
     the_maze = maze_.__copy__()
     maze = the_maze.mazrix
     dimx = the_maze.dim[0]
     dimy = the_maze.dim[1]
     coords = [(x,y) for x in np.arange(dimx) for y in np.arange(dimy)]
     
+    #Run until all points having even coordinates are reachable
     while not (np.all([maze[2*x][2*y] == 0 for (x,y) in coords])):
         #Initialise
         new_coords = random.sample(coords,len(coords))
@@ -43,8 +46,9 @@ def hunt_n_kill(maze_: Maze, points: list, debug: bool=False)->Maze:
                 continue
             else:
                 for neighbor in neighbors:
-                    if (neighbor[0]/2,neighbor[1]/2) in maze_.solution_.walk:
-                        #Make it less likely to interfere into solution path
+                    #if (neighbor[0]/2,neighbor[1]/2) in maze_.solution_.walk:
+                    if maze[neighbor[0],neighbor[1]] != 1:
+                        #Make it less likely to interfere into another path
                         toss = random.choice((0,1))
                         if toss:
                             continue
@@ -56,6 +60,8 @@ def hunt_n_kill(maze_: Maze, points: list, debug: bool=False)->Maze:
             print("start_point,points,neighbors",start_point,points,neighbors)
         
         count = 0
+        prev_move = None
+        #Run/Move if no neighbor is unvisited
         while (not (np.all([maze[int(y/2),int(x/2)] == 0 for (x,y) in neighbors]))) and count < 100:
             if debug:
                 print("TRYING TO MOVIE","\n", maze)
@@ -63,16 +69,22 @@ def hunt_n_kill(maze_: Maze, points: list, debug: bool=False)->Maze:
             match_moves = {(0,2):'D',(0,-2):'U',(2,0):'R',(-2,0):'L'}
             match_wall = {'D':(0,-1),'U':(0,1),'R':(-1,0),'L':(1,0)}
             
+            if prev_move in possible_moves:
+                possible_moves.remove(prev_move)
+            
             random.shuffle(possible_moves)
             for next_move in possible_moves:
                 new_coord = (curr_coord[0] + next_move[0], curr_coord[1] + next_move[1])
+                #If point is outside maze, move to next neighbor
                 if not (0<=new_coord[0]<dimx*2 and 0<=new_coord[1]<dimy*2):
                     continue
+                #If point is visited, move to next neighbor
                 if maze[new_coord[1]][new_coord[0]] == 0:
                     continue
                 else:
                     break
             
+            #If new position is inside maze, work
             if (0 <= new_coord[0] < dimx*2 and 0 <= new_coord[1] < dimy*2):
                     curr_coord = new_coord
                     neighbors = [(curr_coord[0],curr_coord[1]+2),(curr_coord[0],curr_coord[1]-2),(curr_coord[0]+2,curr_coord[1]),(curr_coord[0]-2,curr_coord[1])]
@@ -82,6 +94,8 @@ def hunt_n_kill(maze_: Maze, points: list, debug: bool=False)->Maze:
                     direction = match_moves[next_move]
                     wall_coord = (curr_coord[0]+match_wall[direction][0],curr_coord[1]+match_wall[direction][1])
                     maze[wall_coord[1]][wall_coord[0]]=0 # make the corresponding wall zero
+                    
+                    prev_move = next_move
                     count += 1
             else:
                 count += 1
