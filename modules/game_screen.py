@@ -11,7 +11,6 @@ from modules.timer import Timer
 
 def play_game(screen: pygame.Surface, map_: pygame.Surface, mg_settings: Settings, player: Player, curr_maze: Maze, scoreboard: Settings.ScoreBoard)->str:
 
-    pygame.mixer.init()
     the_wind_rises_theme = pygame.mixer.Sound('audio/caproni.mp3')  
     the_wind_rises_theme.play(loops=-1,fade_ms=1000)  
     clock = pygame.time.Clock()
@@ -53,6 +52,7 @@ def play_game(screen: pygame.Surface, map_: pygame.Surface, mg_settings: Setting
             scoreboard.add_score(score)
             scoreboard.write_to_file()
             the_wind_rises_theme.fadeout(1000)
+            pygame.mixer.Sound('audio/punch-gaming-sound-effect-hd_RzlG1GE.mp3').play()
             return "timeout"
         
         clock.tick(120)

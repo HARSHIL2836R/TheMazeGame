@@ -1,5 +1,4 @@
 '''Module for customising the end screen'''
-from optparse import TitledHelpFormatter
 import random
 import pygame
 
@@ -31,15 +30,24 @@ def show(screen: pygame.Surface):
         font = pygame.font.SysFont("Monospace", 60)
         time = font.render(data[-1][-2], True, mg_settings.bt_text_color, mg_settings.screen_color)
     else:
-        font = pygame.font.SysFont("Monospace", 70)
+        font = pygame.font.SysFont("Monospace", 65)
         timeout = font.render("YOUR GAME TIMED OUT!", True, mg_settings.bt_text_color, mg_settings.screen_color)
+    
+    font = pygame.font.SysFont("Monospace", 40)
+    msg = font.render("Press ESC to exit", True, mg_settings.bt_text_color, mg_settings.screen_color)
+    msg2 = font.render("Press M to return to Main Menu", True, mg_settings.bt_text_color, mg_settings.screen_color)
     ####
 
     while True:
         #check_events
         for event in pygame.event.get():
             if event.type == pygame.QUIT or (event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE):
-                return "exit" 
+                print("exit") 
+                quit()
+            
+            if event.type == pygame.KEYDOWN and event.key == pygame.K_m:
+                pygame.quit()
+                return "rerun"
 
 
         pos = (random.randint(0,screen.get_width()), random.randint(0,screen.get_height()))
@@ -58,7 +66,10 @@ def show(screen: pygame.Surface):
             screen.blit(title_2, (screen.get_rect().centerx-title_2.get_rect().width/2,screen.get_rect().height*4/6))
             screen.blit(time, (screen.get_rect().centerx-time.get_rect().width/2,screen.get_rect().height*5/6))
         else:
-            screen.blit(timeout, (screen.get_rect().centerx-timeout.get_rect().width/2,screen.get_rect().height*4/6))
+            screen.blit(timeout, (screen.get_rect().centerx-timeout.get_rect().width/2,screen.get_rect().height*3/6))
+        
+        screen.blit(msg, (screen.get_rect().centerx-msg.get_rect().width/2,screen.get_rect().height*0))
+        screen.blit(msg2, (screen.get_rect().centerx-msg2.get_rect().width/2,screen.get_rect().height*0.5/6))
         ###
 
         #Keep Updating the Screen

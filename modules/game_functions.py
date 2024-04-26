@@ -1,9 +1,5 @@
 '''Module for refactoring the game'''
 
-from cgi import print_arguments
-from ctypes import WinDLL
-from msilib import MSIMODIFY_INSERT_TEMPORARY
-import random
 import sys
 import pygame
 import numpy as np
@@ -37,19 +33,24 @@ def check_events(player: Player, mg_settings: Settings) -> str:
         
         if not mg_settings.move_fast:
             if event.type == pygame.KEYDOWN and event.key in keymap:
-                player.move(keymap[event.key][0],keymap[event.key][1])
+                if not player.move(keymap[event.key][0],keymap[event.key][1]):
+                    pygame.mixer.Sound('audio/duck-toy-sound.mp3').play()
                 #print("Move:",player.move(keymap[event.key][0],keymap[event.key][1]))
 
     if mg_settings.move_fast:
         keys = pygame.key.get_pressed()  # Checking pressed keys
         if keys[pygame.K_UP]:
-            player.move(keymap[pygame.K_UP][0],keymap[pygame.K_UP][1])
+            if not player.move(keymap[pygame.K_UP][0],keymap[pygame.K_UP][1]):
+                pygame.mixer.Sound('audio/duck-toy-sound.mp3').play()
         elif keys[pygame.K_DOWN]:
-            player.move(keymap[pygame.K_DOWN][0],keymap[pygame.K_DOWN][1])
+            if not player.move(keymap[pygame.K_DOWN][0],keymap[pygame.K_DOWN][1]):
+                pygame.mixer.Sound('audio/duck-toy-sound.mp3').play()
         elif keys[pygame.K_RIGHT]:
-            player.move(keymap[pygame.K_RIGHT][0],keymap[pygame.K_RIGHT][1])
+            if not player.move(keymap[pygame.K_RIGHT][0],keymap[pygame.K_RIGHT][1]):
+                pygame.mixer.Sound('audio/duck-toy-sound.mp3').play()
         elif keys[pygame.K_LEFT]:
-            player.move(keymap[pygame.K_LEFT][0],keymap[pygame.K_LEFT][1])
+            if not player.move(keymap[pygame.K_LEFT][0],keymap[pygame.K_LEFT][1]):
+                pygame.mixer.Sound('audio/duck-toy-sound.mp3').play()
         pygame.event.pump()
 
     if (player.pos[0],player.pos[1]) == (mg_settings.end_point[0]*2,mg_settings.end_point[1]*2):

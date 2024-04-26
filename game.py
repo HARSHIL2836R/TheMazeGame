@@ -18,7 +18,7 @@ def set_display(mg_settings: Settings):
         #not needed indeed here
         screen = pygame.surface.Surface((mg_settings.screen_width, mg_settings.screen_height))
         pygame.display.set_caption("The Maze Game")
-            
+
     #DISPLAY HALF OF MAP
     else:
         #surface for map_ (do I need this?)
@@ -31,6 +31,7 @@ def set_display(mg_settings: Settings):
 def run_game():
     # Initialize game and create a screen object.
     pygame.init()
+    pygame.mixer.init()
     mg_settings = Settings()
 
     #set screen dimensions and title
@@ -42,6 +43,8 @@ def run_game():
 
     if menu_out == "exit":
         quit()
+
+    pygame.mixer.Sound('audio/counter-strike-jingle-cs-radio-ok-lets-go.mp3').play()
     difficulty = menu_out
     difficulty = int(difficulty)
     mg_settings.difficulty = difficulty
@@ -90,18 +93,30 @@ def run_game():
     
     if play_game_out == "game_over":
         print("Game completed")
+        pygame.mixer.Sound('audio/happy-happy-happy-song.mp3').play()
         if mg_settings.MODE == "map":
-            print(the_end.show(map_))
+            var = map_
         else:
-            print(the_end.show(screen))
+            var = screen
+        if the_end.show(var) == "rerun":
+            return "rerun"
+        elif the_end.show(var) == "exit":
+            print("exit")
+            return False
 
     elif play_game_out == "timeout":
         print("Game Timeout")
-
+        pygame.mixer.Sound('audio/gta-v-death-sound-effect-102.mp3').play()
         if mg_settings.MODE == "map":
-            print(the_end.show(map_))
+            var = map_
         else:
-            print(the_end.show(screen))
+            var = screen
+
+        if the_end.show(var) == "rerun":
+            return "rerun"
+        elif the_end.show(var) == "exit":
+            print("exit")
+            return False
 
 def check_game():
     pygame.init()
@@ -134,5 +149,8 @@ def check_game():
     elif play_game_out == "timeout":
         print("Game Timeout")
 
-run_game()
+out = "rerun"
+while out == "rerun":
+    out = run_game()
+    print(out)
 #check_game()
