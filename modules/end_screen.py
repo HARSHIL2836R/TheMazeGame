@@ -27,23 +27,23 @@ def show(screen: pygame.Surface)->str:
     data = scoreboard.iterable_data()
     #Show score
     score = data[-1][1]
-    font = pygame.font.SysFont("Monospace", 60)
+    font = pygame.font.Font("fonts/Arcade.ttf", 100)
     score = font.render(score, True, mg_settings.bt_text_color, mg_settings.screen_color)
     
     #Show the time_elapsed or whether the game timed out
     if data[-1][-1].strip('\n') == "0":
         font = pygame.font.SysFont("Monospace", 70)
         title_2 = font.render("Time Taken is:", True, mg_settings.bt_text_color, mg_settings.screen_color)
-        font = pygame.font.SysFont("Monospace", 60)
+        font = pygame.font.Font("fonts/Arcade.ttf", 100)
         time = font.render(data[-1][-2], True, mg_settings.bt_text_color, mg_settings.screen_color)
     else:
         font = pygame.font.SysFont("Monospace", 65)
         timeout = font.render("YOUR GAME TIMED OUT!", True, mg_settings.bt_text_color, mg_settings.screen_color)
     
     font = pygame.font.SysFont("Monospace", 40)
-    player_dead = font.render("Pegion DEAD", True, mg_settings.bt_text_color, mg_settings.screen_color)
+    player_dead = font.render("WASTED", True, mg_settings.bt_text_color, mg_settings.screen_color)
 
-    font = pygame.font.SysFont("Monospace", 40)
+    font = pygame.font.Font("fonts/led.ttf", 20)
     msg = font.render("Press ESC to exit", True, mg_settings.bt_text_color, mg_settings.screen_color)
     msg2 = font.render("Press M to return to Main Menu", True, mg_settings.bt_text_color, mg_settings.screen_color)
     ####

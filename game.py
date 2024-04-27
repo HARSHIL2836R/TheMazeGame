@@ -1,5 +1,7 @@
+from matplotlib.pylab import rand
 import numpy as np
 import pygame
+import random
 #In Pygame, the origin (0, 0) is at the top-left corner of the screen, and coordinates increase as you go down and to the right
 
 #import user defined modules
@@ -68,17 +70,20 @@ def run_game():
         mg_settings.dim =(5,5)
         mg_settings.start_point =(0,0)
         mg_settings.end_point =(4,4)
-        mg_settings.timeout = 15000 
+        mg_settings.timeout = 5000 
+        mg_settings.no_of_enemies = 5
     if difficulty == 2:
         mg_settings.dim =(10,10)
         mg_settings.start_point =(0,0)
-        mg_settings.end_point =(9,9)
-        mg_settings.timeout = 60000
+        mg_settings.end_point =random.choice([(9,9),(0,9),(9,0)])
+        mg_settings.timeout = 20000
+        mg_settings.no_of_enemies = 10
     if difficulty == 3:
         mg_settings.dim = (20,20)
         mg_settings.start_point =(0,0)
-        mg_settings.end_point =(9,9)
-        mg_settings.timeout = 120000
+        mg_settings.end_point = (random.randint(9,20),random.randint(9,20))
+        mg_settings.timeout = 30000
+        mg_settings.no_of_enemies = 15
         map_ = pygame.surface.Surface((mg_settings.screen_width*4,mg_settings.screen_height*4))
 
     #Quite display because it's not needed, so that pygame doesn't freeze out when no input is provided from python while building the maze

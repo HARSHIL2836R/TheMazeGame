@@ -2,6 +2,7 @@
 
 import math
 import random
+import re
 from pygame import Surface,image as pyimage
 import os.path
 
@@ -35,7 +36,7 @@ class Settings():
             self.wall_images.append(pyimage.load('images/block'+str(i)+'.jpeg'))
         self.nest_image = pyimage.load('images/nest.png')
         self.enable_enemies = True
-        self.no_of_enemies = 3
+        self.no_of_enemies = 1
 
     def set_dim(self, screen: Surface, maze: Maze)->None:
         """
@@ -67,14 +68,18 @@ class Settings():
             Background Color, Text Color, Level Buttons width, height, Active Button color (when hovered), Inactive Button color, Button Text color
             """
             Settings.__init__(self)
-            self.screen_color = (145,63,146)
-            self.screen_text_color = (255,255,255)
+            self.screen_color = (16, 24, 32)
+            self.screen_text_color = (254, 231, 21)
             self.lvl_button_width = self.screen_width/6
             self.lvl_button_height = 60
-            self.active_bt_color = 	(0,0,255)
-            self.inactive_bt_color = (35,58,119)
-            self.bt_text_color = (255,255,255)
+            self.active_bt_color = 	(203, 0, 0)
+            self.inactive_bt_color = (228, 234, 140)
+            self.bt_text_color = (0,0,0)
     
+    class GameScreen():
+        def __init__(self) -> None:
+            self.bt_color = (80, 49, 255)
+            self.text_color = (228, 234, 140)
     class End():
         def __init__(self) -> None:
             """End Screen Settings
@@ -128,6 +133,7 @@ class Settings():
         def update_score(self,player: Player, maze: Maze, end_point: tuple, timer: Timer):
             """
             Update current score based on the provided information (arguments)
+            Score here is essentially a weighted sum of linearly spanned exponential of fraction of distance and fraction of remaining time
             Args:
                 player: Player, use position from this object
                 maze: Maze
@@ -137,11 +143,9 @@ class Settings():
             """
             max_dist = (end_point[0]*2)**2 + (end_point[1]*2)**2
             dist = (player.pos[0] - end_point[0]*2)**2 + (player.pos[1] - end_point[1]*2)**2
-            w1 = 70
-            w2 = 30
-            self.curr_score = (w1*110*(math.exp(-2*dist/max_dist)-math.exp(-2)) + w2*100*(timer.time_remaining/(timer.end_time-timer.start_time)))/(w1+w2)
-            if dist == 0:
-                self.curr_score = 100.00
+            w1 = 70 # Distance
+            w2 = 30 # Time Remaining
+            self.curr_score = (w1*100*(math.exp(-2*dist/max_dist)-math.exp(-2)) + w2*100*(timer.time_remaining/(timer.end_time-timer.start_time)))/(w1+w2)
             self.curr_score = "{0:.2f}".format(self.curr_score)
 
         def iterable_data(self)->list:
@@ -154,7 +158,12 @@ class Settings():
             return iter_data
 
         def get_top_scores(self)->list:
+            """
+            Returns data list sorted in descending order of scores
+            """
             data = self.iterable_data()
+            if len(data) == 1:
+                return None
             sorted_data = sorted(data[1:], key=lambda x: float(x[1]), reverse=True)
             return sorted_data
 

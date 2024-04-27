@@ -3,7 +3,6 @@ Module to store methods to update the game_screen UI
 """
 import pygame
 import datetime
-import random
 
 #My Modules
 from modules.button import Button
@@ -50,31 +49,42 @@ def play_game(screen: pygame.Surface, map_: pygame.Surface, mg_settings: Setting
         gf.update_screen(mg_settings, map_, screen, player,curr_maze,enemies)
 
         global FRAME
-        print(FRAME)
-        if FRAME%4 == 0:        
-            #Move the enemies around
-            keymap = {'U': (player.width*0,player.height*-1),
-                'D': (player.width*0,player.height*1),
-                'R': (player.width*1,player.height*0),
-                'L': (player.width*-1,player.height*0)}
-            for enemy in enemies:
-                next_move = random.choice(['U','D','R','L'])
-                enemy.move(keymap[next_move][0],keymap[next_move][1])
-        FRAME +=1
-
+        for enemy in enemies:
+            if FRAME%3 == 0:
+                enemy.move()
+        FRAME+=1
+        
+        gs_settings = mg_settings.GameScreen()
+        bt_color = gs_settings.bt_color
+        text_color = gs_settings.text_color
         #Blit Counter
         if not timer.pause:
             timer.update()
         width = 200
-        height = 50
-        timer_image = Button(screen, "{0:^4.5}".format(str(timer.time_remaining/1000)),'white','white','black',width,height,(screen.get_rect().topleft[0]+width/2,screen.get_rect().topleft[1]+height/2))
+        height = 55
+        timer_image = Button(screen, "{0:^4.5}".format(str(timer.time_remaining/1000)),bt_color,bt_color,text_color,width,height,(screen.get_rect().topleft[0]+width/2,screen.get_rect().topleft[1]+height/2))
         timer_image.draw_button()
 
         #Show score
         scoreboard.update_score(player,curr_maze, mg_settings.end_point, timer)
         score = scoreboard.curr_score
-        score_image = Button(screen, str(score),'white','white','black',width,height,(screen.get_rect().topleft[0]+width/2,screen.get_rect().topleft[1]+height*3/2))
+        score_image = Button(screen, str(score),bt_color,bt_color,text_color,width,height,(screen.get_rect().topleft[0]+width/2,screen.get_rect().topleft[1]+height*3/2))
         score_image.draw_button()
+
+        #Show Lives
+        heart_width = 50
+        def draw_hearts_at(x,y):
+            lives_image = Button(screen, str(player.lives),mg_settings.bg_color,mg_settings.bg_color,text_color,width,height,(x,y))
+            lives_image.hearts()
+        if player.lives == 1:
+            draw_hearts_at(screen.get_rect().topright[0]-heart_width,screen.get_rect().topright[1]+5)
+        if player.lives == 2:
+            draw_hearts_at(screen.get_rect().topright[0]-heart_width,screen.get_rect().topright[1]+5)
+            draw_hearts_at(screen.get_rect().topright[0]-2*heart_width,screen.get_rect().topright[1]+5)
+        if player.lives == 3:
+            draw_hearts_at(screen.get_rect().topright[0]-heart_width,screen.get_rect().topright[1]+5)
+            draw_hearts_at(screen.get_rect().topright[0]-2*heart_width,screen.get_rect().topright[1]+5)
+            draw_hearts_at(screen.get_rect().topright[0]-3*heart_width,screen.get_rect().topright[1]+5)
 
         pygame.display.update()
         # Make the most recently drawn screen visible.

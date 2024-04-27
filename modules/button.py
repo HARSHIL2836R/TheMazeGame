@@ -26,7 +26,7 @@ class Button(pygame.sprite.Sprite):
         self.width, self.height = width, height
         self.button_color = inactive_button_color
         self.text_color = text_color
-        self.font = pygame.font.SysFont("monospace", 48)
+        self.font = pygame.font.Font('fonts/Blox2.ttf',40)
 
         # Build button
         self.rect = pygame.Rect(0,0,self.width,self.height)
@@ -76,3 +76,12 @@ class Button(pygame.sprite.Sprite):
         #kill the buttoon after it is not visible
         if self.rect.top > self.screen.get_height():
             self.kill()
+    
+    def hearts(self):
+        """
+        Draws Heart image depiciting lives of the player
+        """
+        self.screen.set_alpha(0)
+        self.msg_image = pygame.image.load('images/heart.png')
+        self.msg_image_rect.center = self.rect.center
+        self.screen.blit(self.msg_image, self.msg_image_rect)
