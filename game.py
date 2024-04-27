@@ -4,7 +4,7 @@ import pygame
 
 #import user defined modules
 from modules.settings import Settings
-from modules.player import Player
+from modules.player import Enemy, Player
 from modules.game_screen import play_game
 import modules.game_functions as gf
 import modules.menu as menu
@@ -68,14 +68,17 @@ def run_game():
         mg_settings.dim =(5,5)
         mg_settings.start_point =(0,0)
         mg_settings.end_point =(4,4)
+        mg_settings.timeout = 15000 
     if difficulty == 2:
         mg_settings.dim =(10,10)
         mg_settings.start_point =(0,0)
         mg_settings.end_point =(9,9)
+        mg_settings.timeout = 60000
     if difficulty == 3:
         mg_settings.dim = (20,20)
         mg_settings.start_point =(0,0)
         mg_settings.end_point =(9,9)
+        mg_settings.timeout = 120000
         map_ = pygame.surface.Surface((mg_settings.screen_width*4,mg_settings.screen_height*4))
 
     #Quite display because it's not needed, so that pygame doesn't freeze out when no input is provided from python while building the maze
@@ -104,10 +107,19 @@ def run_game():
     #Intanciate the player
     player = Player(map_,curr_maze)
     player.set_dim(mg_settings.box_width,mg_settings.box_height)
+    if mg_settings.enable_enemies:
+        enemies = []
+        for i in range(mg_settings.no_of_enemies):
+            x = np.random.randint(0,mg_settings.dim[0])
+            y = np.random.randint(0,mg_settings.dim[1])
+            while (curr_maze.mazrix[y][x] == -1):
+                x = np.random.randint(0,mg_settings.dim[0])
+                y = np.random.randint(0,mg_settings.dim[1])
+            enemies.append(Enemy(player,(x,y)))
 
     #Instanciate the scoreboard and Play the Game!
     scoreboard = mg_settings.ScoreBoard()
-    play_game_out = play_game(screen,map_,mg_settings,player,curr_maze,scoreboard)
+    play_game_out = play_game(screen,map_,mg_settings,player,curr_maze,scoreboard,enemies)
     
     if play_game_out == "game_over":
         print("Game completed")

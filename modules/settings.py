@@ -8,6 +8,7 @@ import os.path
 #My modules
 from modules.maze_logic.maze import Maze
 from modules.player import Player
+from modules.timer import Timer
 
 class Settings():
     """A class to store all settings for Maze Game"""
@@ -33,6 +34,8 @@ class Settings():
         for i in range(1,7):
             self.wall_images.append(pyimage.load('images/block'+str(i)+'.jpeg'))
         self.nest_image = pyimage.load('images/nest.png')
+        self.enable_enemies = True
+        self.no_of_enemies = 3
 
     def set_dim(self, screen: Surface, maze: Maze)->None:
         """
@@ -122,7 +125,7 @@ class Settings():
             print("Score saved")
             f.close()
 
-        def update_score(self,player: Player, maze: Maze, end_point: tuple):
+        def update_score(self,player: Player, maze: Maze, end_point: tuple, timer: Timer):
             """
             Update current score based on the provided information (arguments)
             Args:
@@ -134,7 +137,9 @@ class Settings():
             """
             max_dist = (end_point[0]*2)**2 + (end_point[1]*2)**2
             dist = (player.pos[0] - end_point[0]*2)**2 + (player.pos[1] - end_point[1]*2)**2
-            self.curr_score = 110*(math.exp(-2*dist/max_dist)-math.exp(-2))
+            w1 = 70
+            w2 = 30
+            self.curr_score = (w1*110*(math.exp(-2*dist/max_dist)-math.exp(-2)) + w2*100*(timer.time_remaining/(timer.end_time-timer.start_time)))/(w1+w2)
             if dist == 0:
                 self.curr_score = 100.00
             self.curr_score = "{0:.2f}".format(self.curr_score)
@@ -147,6 +152,11 @@ class Settings():
             for line in self.data:
                 iter_data.append(line.split(','))
             return iter_data
+
+        def get_top_scores(self)->list:
+            data = self.iterable_data()
+            sorted_data = sorted(data[1:], key=lambda x: float(x[1]), reverse=True)
+            return sorted_data
 
 #Just for checking working of class during creating it
 if __name__ == "__main__":

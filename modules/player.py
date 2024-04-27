@@ -10,14 +10,15 @@ class Player(pygame.sprite.Sprite):
         """
         Initialise the player
         The properties initialised are:
-        Parent class (Sprite) properties, Surface on which player's rect is present, Image of the surface of player, Rect values of the player, Rect values of the Screen, Maze in which the player is present, (ndarray) Matrix of the Maze, Position of the player (Coordinates(x,y))
+        Parent class (Sprite) properties, Surface on which player's rect is present, Images of the surface of player, Rect values of the player, Rect values of the Screen, Maze in which the player is present, (ndarray) Matrix of the Maze, Position of the player (Coordinates(x,y))
         """ 
         super().__init__()
 
         #Load the player image and get it's rectangular representation
-        image = pygame.image.load('images/player.png')
         self.screen = screen
-        self.image = image
+        self.right_face = pygame.image.load('images/player_right.png')
+        self.left_face = pygame.image.load('images/player_left.png')
+        self.image = self.right_face
         self.rect = self.image.get_rect()
         self.screen_rect = screen.get_rect()
         self.the_maze = the_maze
@@ -26,6 +27,8 @@ class Player(pygame.sprite.Sprite):
         #Start player at center of left edge
         self.rect.topleft = self.screen_rect.topleft
         self.pos=(0,0)
+
+        self.lives = 3
     
     def bltime(self)->None:
         """
@@ -39,6 +42,8 @@ class Player(pygame.sprite.Sprite):
         """
         self.width = width
         self.height = height
+        self.right_face = pygame.transform.scale(self.right_face,(self.width,self.height))
+        self.left_face = pygame.transform.scale(self.left_face,(self.width,self.height))
         self.image = pygame.transform.scale(self.image,(self.width,self.height))
 
     def move(self, x: int =0,y: int =0)->bool:
@@ -63,3 +68,15 @@ class Player(pygame.sprite.Sprite):
 
         #If not moving, return False
         return False
+
+class Enemy(Player):
+    def __init__(self, player: Player, pos: tuple):
+        super().__init__(player.screen, player.the_maze)
+        self.image = pygame.image.load('images/player_old.png')
+        self.right_face = self.image
+        self.left_face = self.image
+        self.set_dim(player.width,player.height)
+
+        self.rect.topleft = (pos[0]*self.width,pos[1]*self.height)
+
+        self.die = False

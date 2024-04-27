@@ -41,6 +41,9 @@ def show(screen: pygame.Surface)->str:
         timeout = font.render("YOUR GAME TIMED OUT!", True, mg_settings.bt_text_color, mg_settings.screen_color)
     
     font = pygame.font.SysFont("Monospace", 40)
+    player_dead = font.render("Pegion DEAD", True, mg_settings.bt_text_color, mg_settings.screen_color)
+
+    font = pygame.font.SysFont("Monospace", 40)
     msg = font.render("Press ESC to exit", True, mg_settings.bt_text_color, mg_settings.screen_color)
     msg2 = font.render("Press M to return to Main Menu", True, mg_settings.bt_text_color, mg_settings.screen_color)
     ####
@@ -72,8 +75,10 @@ def show(screen: pygame.Surface)->str:
         if data[-1][-1].strip('\n') == "0":
             screen.blit(title_2, (screen.get_rect().centerx-title_2.get_rect().width/2,screen.get_rect().height*4/6))
             screen.blit(time, (screen.get_rect().centerx-time.get_rect().width/2,screen.get_rect().height*5/6))
-        else:
+        elif data[-1][-1].strip('\n') == "1":
             screen.blit(timeout, (screen.get_rect().centerx-timeout.get_rect().width/2,screen.get_rect().height*3/6))
+        elif data[-1][-1].strip('\n') == "2":
+            screen.blit(player_dead, (screen.get_rect().centerx-player_dead.get_rect().width/2,screen.get_rect().height*3/6))
         
         screen.blit(msg, (screen.get_rect().centerx-msg.get_rect().width/2,screen.get_rect().height*0))
         screen.blit(msg2, (screen.get_rect().centerx-msg2.get_rect().width/2,screen.get_rect().height*0.5/6))

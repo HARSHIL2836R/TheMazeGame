@@ -28,6 +28,13 @@ def show(screen: pygame.Surface):
     font = pygame.font.SysFont("Monospace", 32)
     selector = font.render("###|Select Level|###", True, mg_settings.screen_text_color, mg_settings.screen_color)
     to_quit = font.render("Press ESC to QUIT", True, mg_settings.screen_text_color, mg_settings.screen_color)
+    #Scoreboard
+    sorted_data = Settings.ScoreBoard().get_top_scores()
+    font = pygame.font.SysFont("Monospace", 32)
+    data0 = font.render(str("{0:^16}".format("TimeStamp")+" -> "+"{0:^10}".format("Score")), True, mg_settings.screen_text_color, mg_settings.screen_color)
+    data1 = font.render(str(sorted_data[0][0][:16]+" -> "+str(sorted_data[0][1])), True, mg_settings.screen_text_color, mg_settings.screen_color)
+    data2 = font.render(str(sorted_data[1][0][:16]+" -> "+str(sorted_data[0][1])), True, mg_settings.screen_text_color, mg_settings.screen_color)
+    data3 = font.render(str(sorted_data[2][0][:16]+" -> "+str(sorted_data[0][1])), True, mg_settings.screen_text_color, mg_settings.screen_color)
 
 
     def update_screen():
@@ -37,8 +44,12 @@ def show(screen: pygame.Surface):
             button.draw_button()
             button.update_button(mouse[0], mouse[1])
 
-        screen.blit(title, (screen.get_rect().centerx-title.get_rect().width/2,screen.get_rect().height*2/6))
-        screen.blit(selector, (screen.get_rect().centerx-selector.get_rect().width/2,screen.get_rect().height*3/6))
+        screen.blit(title, (screen.get_rect().centerx-title.get_rect().width/2,screen.get_rect().height*0.3/6))
+        screen.blit(data0, (screen.get_rect().centerx-data0.get_rect().width/2,screen.get_rect().height*1/6))
+        screen.blit(data1, (screen.get_rect().centerx-data1.get_rect().width/2,screen.get_rect().height*1.5/6))
+        screen.blit(data2, (screen.get_rect().centerx-data2.get_rect().width/2,screen.get_rect().height*2/6))
+        screen.blit(data3, (screen.get_rect().centerx-data3.get_rect().width/2,screen.get_rect().height*2.5/6))
+        screen.blit(selector, (screen.get_rect().centerx-selector.get_rect().width/2,screen.get_rect().height*3.2/6))
         screen.blit(to_quit, (screen.get_rect().centerx-to_quit.get_rect().width/2,screen.get_rect().height*5/6))
 
         #Keep Updating the Screen

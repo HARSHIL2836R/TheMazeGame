@@ -1,5 +1,6 @@
 '''Module storing the functions to control the player and draw out the sprites'''
 
+import random
 import sys
 import pygame
 import numpy as np
@@ -7,13 +8,13 @@ import numpy as np
 #My Modules
 import modules.maze_logic.builder as builder
 from modules.maze_logic.maze import Maze
-from modules.player import Player
+from modules.player import Enemy, Player
 from modules.settings import Settings
 from modules.camera import Camera
 from modules.sprites import Sprite
 
 
-def check_events(player: Player, mg_settings: Settings) -> str:
+def check_events(player: Player, mg_settings: Settings, enemies) -> str:
     """
     Respond to keypresses and mouse events
     Args:
@@ -27,10 +28,23 @@ def check_events(player: Player, mg_settings: Settings) -> str:
             pygame.K_RIGHT: (player.width*1,player.height*0),
             pygame.K_LEFT: (player.width*-1,player.height*0)}
 
+    for enemy in enemies:
+        if pygame.sprite.collide_mask(enemy,player) and not enemy.die:
+            enemy.die = True
+            if player.lives == 1:
+                return "player_died"
+            else:
+                player.lives -= 1
+
     for event in pygame.event.get():
         if event.type == pygame.QUIT or (event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE):
             sys.exit()
         
+        if event.type == pygame.KEYDOWN and event.key == pygame.K_LEFT:
+            player.image = player.left_face
+        if event.type == pygame.KEYDOWN and event.key == pygame.K_RIGHT:
+            player.image = player.right_face
+
         if not mg_settings.move_fast:
             if event.type == pygame.KEYDOWN and event.key in keymap:
                 if not player.move(keymap[event.key][0],keymap[event.key][1]):
@@ -56,7 +70,7 @@ def check_events(player: Player, mg_settings: Settings) -> str:
     if (player.pos[0],player.pos[1]) == (mg_settings.end_point[0]*2,mg_settings.end_point[1]*2):
         return "game_over"
 
-def update_screen(mg_settings: Settings, map_: pygame.Surface, screen: pygame.Surface, player: Player, maze: Maze):
+def update_screen(mg_settings: Settings, map_: pygame.Surface, screen: pygame.Surface, player: Player, maze: Maze, enemies: list[Enemy]):
     """
     Args:
         mg_settings: Settings, the settings class containing all game settings
@@ -135,7 +149,7 @@ def update_screen(mg_settings: Settings, map_: pygame.Surface, screen: pygame.Su
                     all_sprites.add(wall_sprite)
                 y+=height
             x+=width
-        
+
         #Draw Nest
         nest_sprite = Sprite(map_,pygame.transform.scale(nest_image,(width,height)),width,height)
         nest_sprite.rect.x = mg_settings.end_point[0]*2*width
@@ -143,6 +157,9 @@ def update_screen(mg_settings: Settings, map_: pygame.Surface, screen: pygame.Su
         all_sprites.add(nest_sprite)
 
         all_sprites.add(player)
+        for enemy in enemies:
+            if not enemy.die:
+                all_sprites.add(enemy)
 
         camera = Camera(screen, map_, mg_settings)
         camera.update(player)
