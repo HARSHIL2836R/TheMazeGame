@@ -1,0 +1,1 @@
+{"rule":"IT_IS","sentence":"^\\QRun the file game.py with python3 and help the pegion (by controlling it with up, down, right and left arrows) reach it's nest!\\E$"}

@@ -1,15 +1,23 @@
-\contentsline {section}{\numberline {1}Lorem}{2}{section.1}%
-\contentsline {section}{\numberline {2}Modules Used}{2}{section.2}%
-\contentsline {section}{\numberline {3}Directory Structure}{2}{section.3}%
-\contentsline {section}{\numberline {4}Running Instructions}{3}{section.4}%
-\contentsline {section}{\numberline {5}Features}{3}{section.5}%
-\contentsline {section}{\numberline {6}Project Journey}{3}{section.6}%
-\contentsline {section}{\numberline {7}Maze Generation Algorithms}{4}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Krsukal's Algorithm}{4}{subsection.7.1}%
-\contentsline {subsection}{\numberline {7.2}Prism's Algorithm}{4}{subsection.7.2}%
-\contentsline {subsection}{\numberline {7.3}Recursive Backtracing}{4}{subsection.7.3}%
-\contentsline {subsection}{\numberline {7.4}Aldous-Broder Algorithm}{4}{subsection.7.4}%
-\contentsline {subsection}{\numberline {7.5}Wilson's Algorithm}{5}{subsection.7.5}%
-\contentsline {subsection}{\numberline {7.6}Hunt and Kill Algorithm}{5}{subsection.7.6}%
-\contentsline {subsection}{\numberline {7.7}Growing Tree Algorithm}{5}{subsection.7.7}%
-\contentsline {subsection}{\numberline {7.8}Eller's Algorithm}{5}{subsection.7.8}%
+\contentsline {section}{\numberline {1}Modules Used}{2}{section.1}%
+\contentsline {section}{\numberline {2}Directory Structure}{2}{section.2}%
+\contentsline {section}{\numberline {3}Running Instructions}{3}{section.3}%
+\contentsline {section}{\numberline {4}Features}{3}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Menu Screen}{3}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Game Screen}{3}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}End Screen}{3}{subsection.4.3}%
+\contentsline {section}{\numberline {5}Project Journey}{3}{section.5}%
+\contentsline {subsection}{\numberline {5.1}The Book}{4}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}The Maze matrix}{4}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}The Map}{5}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}The Camera and The Pegion}{5}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.5}Git Log}{6}{subsection.5.5}%
+\contentsline {section}{\numberline {6}Maze Generation Algorithms}{12}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Kruskal's Algorithm}{12}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Prism's Algorithm}{13}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Recursive Backtracing}{13}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Aldous-Broder Algorithm}{13}{subsection.6.4}%
+\contentsline {subsection}{\numberline {6.5}Wilson's Algorithm}{13}{subsection.6.5}%
+\contentsline {subsection}{\numberline {6.6}Hunt and Kill Algorithm}{14}{subsection.6.6}%
+\contentsline {subsection}{\numberline {6.7}Growing Tree Algorithm}{14}{subsection.6.7}%
+\contentsline {subsection}{\numberline {6.8}Eller's Algorithm}{14}{subsection.6.8}%
+\contentsline {section}{\numberline {7}My Algorithm}{14}{section.7}%

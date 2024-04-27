@@ -117,6 +117,24 @@ INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex\generic\iftex\ifvtex.sty
 INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex\latex\geometry\geometry.cfg
 INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex\latex\geometry\geometry.cfg
 INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex\latex\geometry\geometry.cfg
+INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex\latex\graphics\graphicx.sty
+INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex\latex\graphics\graphicx.sty
+INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex\latex\graphics\graphics.sty
+INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex\latex\graphics\graphics.sty
+INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex\latex\graphics\trig.sty
+INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex\latex\graphics\trig.sty
+INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex\latex\graphics-cfg\graphics.cfg
+INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex\latex\graphics-cfg\graphics.cfg
+INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex\latex\graphics-cfg\graphics.cfg
+INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex\latex\graphics-def\pdftex.def
+INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex\latex\graphics-def\pdftex.def
+INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex\latex\graphics-def\pdftex.def
+INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex\latex\caption\subcaption.sty
+INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex\latex\caption\subcaption.sty
+INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex\latex\caption\caption.sty
+INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex\latex\caption\caption.sty
+INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex\latex\caption\caption3.sty
+INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex\latex\caption\caption3.sty
 INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex\latex\listings\listings.sty
 INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex\latex\listings\listings.sty
 INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex\latex\listings\lstmisc.sty
@@ -130,9 +148,6 @@ INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex\latex\graphics\color.sty
 INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex\latex\graphics-cfg\color.cfg
 INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex\latex\graphics-cfg\color.cfg
 INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex\latex\graphics-cfg\color.cfg
-INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex\latex\graphics-def\pdftex.def
-INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex\latex\graphics-def\pdftex.def
-INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex\latex\graphics-def\pdftex.def
 INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex\latex\graphics\mathcolor.ltx
 INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex\latex\graphics\mathcolor.ltx
 INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex\latex\graphics\mathcolor.ltx
@@ -163,7 +178,14 @@ INPUT report.bbl
 INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex\context\base\mkii\supp-pdf.mkii
 INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex\context\base\mkii\supp-pdf.mkii
 INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex\context\base\mkii\supp-pdf.mkii
+INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex\latex\epstopdf-pkg\epstopdf-base.sty
+INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex\latex\epstopdf-pkg\epstopdf-base.sty
+INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex\latex\00miktex\epstopdf-sys.cfg
+INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex\latex\00miktex\epstopdf-sys.cfg
+INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex\latex\00miktex\epstopdf-sys.cfg
 INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr17.tfm
+INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr17.tfm
+INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx12.tfm
 INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr12.tfm
 INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr8.tfm
 INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr6.tfm
@@ -189,6 +211,83 @@ INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmcsc10.tf
 INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmsl10.tfm
 INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmtt10.tfm
 INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx12.tfm
+INPUT .\screenshots\commits.png
+INPUT .\screenshots\commits.png
+INPUT .\screenshots\commits.png
+INPUT .\screenshots\commits.png
+INPUT .\screenshots\commits.png
+INPUT .\screenshots\commits.png
+INPUT .\screenshots\commits.png
+INPUT .\screenshots\code_freq.png
+INPUT .\screenshots\code_freq.png
+INPUT .\screenshots\code_freq.png
+INPUT .\screenshots\code_freq.png
+INPUT .\screenshots\code_freq.png
+INPUT .\screenshots\code_freq.png
+INPUT .\screenshots\code_freq.png
+INPUT .\screenshots\Screenshot (164).png
+INPUT .\screenshots\Screenshot (164).png
+INPUT .\screenshots\Screenshot (164).png
+INPUT .\screenshots\Screenshot (164).png
+INPUT .\screenshots\Screenshot (164).png
+INPUT .\screenshots\Screenshot (164).png
+INPUT .\screenshots\Screenshot (164).png
+INPUT .\screenshots\Screenshot (166).png
+INPUT .\screenshots\Screenshot (166).png
+INPUT .\screenshots\Screenshot (166).png
+INPUT .\screenshots\Screenshot (166).png
+INPUT .\screenshots\Screenshot (166).png
+INPUT .\screenshots\Screenshot (166).png
+INPUT .\screenshots\Screenshot (166).png
+INPUT .\screenshots\Screenshot (168).png
+INPUT .\screenshots\Screenshot (168).png
+INPUT .\screenshots\Screenshot (168).png
+INPUT .\screenshots\Screenshot (168).png
+INPUT .\screenshots\Screenshot (168).png
+INPUT .\screenshots\Screenshot (168).png
+INPUT .\screenshots\Screenshot (168).png
+INPUT .\screenshots\Screenshot (169).png
+INPUT .\screenshots\Screenshot (169).png
+INPUT .\screenshots\Screenshot (169).png
+INPUT .\screenshots\Screenshot (169).png
+INPUT .\screenshots\Screenshot (169).png
+INPUT .\screenshots\Screenshot (169).png
+INPUT .\screenshots\Screenshot (169).png
+INPUT .\screenshots\Screenshot (170).png
+INPUT .\screenshots\Screenshot (170).png
+INPUT .\screenshots\Screenshot (170).png
+INPUT .\screenshots\Screenshot (170).png
+INPUT .\screenshots\Screenshot (170).png
+INPUT .\screenshots\Screenshot (170).png
+INPUT .\screenshots\Screenshot (170).png
+INPUT .\screenshots\Screenshot (172).png
+INPUT .\screenshots\Screenshot (172).png
+INPUT .\screenshots\Screenshot (172).png
+INPUT .\screenshots\Screenshot (172).png
+INPUT .\screenshots\Screenshot (172).png
+INPUT .\screenshots\Screenshot (172).png
+INPUT .\screenshots\Screenshot (172).png
+INPUT .\screenshots\Screenshot (171).png
+INPUT .\screenshots\Screenshot (171).png
+INPUT .\screenshots\Screenshot (171).png
+INPUT .\screenshots\Screenshot (171).png
+INPUT .\screenshots\Screenshot (171).png
+INPUT .\screenshots\Screenshot (171).png
+INPUT .\screenshots\Screenshot (171).png
+INPUT .\screenshots\Screenshot (174).png
+INPUT .\screenshots\Screenshot (174).png
+INPUT .\screenshots\Screenshot (174).png
+INPUT .\screenshots\Screenshot (174).png
+INPUT .\screenshots\Screenshot (174).png
+INPUT .\screenshots\Screenshot (174).png
+INPUT .\screenshots\Screenshot (174).png
+INPUT .\screenshots\Screenshot (175).png
+INPUT .\screenshots\Screenshot (175).png
+INPUT .\screenshots\Screenshot (175).png
+INPUT .\screenshots\Screenshot (175).png
+INPUT .\screenshots\Screenshot (175).png
+INPUT .\screenshots\Screenshot (175).png
+INPUT .\screenshots\Screenshot (175).png
 INPUT report.aux
 INPUT .\report.out
 INPUT .\report.out
@@ -208,6 +307,8 @@ INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm
 INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr12.pfb
 INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr17.pfb
 INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr17.pfb
+INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr9.pfb
+INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr9.pfb
 INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsl10.pfb
 INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsl10.pfb
 INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmti10.pfb

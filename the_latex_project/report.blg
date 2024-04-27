@@ -1,0 +1,24 @@
+[0] Config.pm:307> INFO - This is Biber 2.19
+[0] Config.pm:310> INFO - Logfile is 'report.blg'
+[92] biber-MSWIN64:340> INFO - === 
+[127] Biber.pm:419> INFO - Reading 'report.bcf'
+[217] Biber.pm:979> INFO - Found 10 citekeys in bib section 0
+[227] Biber.pm:4419> INFO - Processing section 0
+[237] Biber.pm:4610> INFO - Looking for bibtex file 'references.bib' for section 0
+[301] bibtex.pm:1713> INFO - LaTeX decoding ...
+[314] bibtex.pm:1519> INFO - Found BibTeX data source 'references.bib'
+[358] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[358] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[359] Biber.pm:4239> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'en-US'
+[359] Biber.pm:4245> INFO - No sort tailoring available for locale 'en-US'
+[368] bbl.pm:660> INFO - Writing 'report.bbl' with encoding 'UTF-8'
+[370] bbl.pm:763> INFO - Output to report.bbl
+[370] Biber.pm:131> WARN - online entry 'menu-geeksforgeeks' (references.bib): Invalid format '06-04-24' of date field 'date' - ignoring
+[370] Biber.pm:131> WARN - online entry 'rendering_text' (references.bib): Invalid format '16-04-2024' of date field 'date' - ignoring
+[370] Biber.pm:131> WARN - online entry 'stack-exchange-algorithms' (references.bib): Invalid format '18-04-2024' of date field 'date' - ignoring
+[370] Biber.pm:131> WARN - online entry 'replit' (references.bib): Invalid format '20-04-2024' of date field 'date' - ignoring
+[370] Biber.pm:131> WARN - online entry 'camera_tutorial' (references.bib): Invalid format '23-04-2024' of date field 'date' - ignoring
+[370] Biber.pm:131> WARN - online entry 'sprite_reference' (references.bib): Invalid format '23-04-2024' of date field 'date' - ignoring
+[370] Biber.pm:131> WARN - online entry 'end-scren_animation' (references.bib): Invalid format '25-04-2024' of date field 'date' - ignoring
+[370] Biber.pm:131> WARN - online entry 'camera_reference' (references.bib): Invalid format '23-04-2024' of date field 'date' - ignoring
+[370] Biber.pm:133> INFO - WARNINGS: 8

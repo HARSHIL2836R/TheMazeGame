@@ -44,19 +44,6 @@
       \endverb
       \warn{\item online entry 'menu-geeksforgeeks' (references.bib): Invalid format '06-04-24' of date field 'date' - ignoring}
     \endentry
-    \entry{sprite_reference}{online}{}
-      \field{sortinit}{g}
-      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
-      \field{labeltitlesource}{title}
-      \field{title}{geeksforgeeks guide to creating sprites}
-      \verb{urlraw}
-      \verb https://www.geeksforgeeks.org/pygame-creating-sprites/
-      \endverb
-      \verb{url}
-      \verb https://www.geeksforgeeks.org/pygame-creating-sprites/
-      \endverb
-      \warn{\item online entry 'sprite_reference' (references.bib): Invalid format '23-04-2024' of date field 'date' - ignoring}
-    \endentry
     \entry{rendering_text}{online}{}
       \field{sortinit}{g}
       \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
@@ -69,19 +56,6 @@
       \verb https://www.geeksforgeeks.org/python-display-text-to-pygame-window/#:~:text=Create%20a%20Font%20object%20using,of%20pygame%20text%20surface%20object.
       \endverb
       \warn{\item online entry 'rendering_text' (references.bib): Invalid format '16-04-2024' of date field 'date' - ignoring}
-    \endentry
-    \entry{camera_reference}{online}{}
-      \field{sortinit}{G}
-      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
-      \field{labeltitlesource}{title}
-      \field{title}{Github repo of the game used in Youtube camera tutorial}
-      \verb{urlraw}
-      \verb https://github.com/HUCORP-admin/Pygame-Camera/tree/5aaac706677e9f20bbf30002b15744cd17e64657
-      \endverb
-      \verb{url}
-      \verb https://github.com/HUCORP-admin/Pygame-Camera/tree/5aaac706677e9f20bbf30002b15744cd17e64657
-      \endverb
-      \warn{\item online entry 'camera_reference' (references.bib): Invalid format '23-04-2024' of date field 'date' - ignoring}
     \endentry
     \entry{thebook}{book}{}
       \name{author}{1}{}{%
@@ -106,19 +80,6 @@
       \field{labeltitlesource}{title}
       \field{title}{Python Crash Course}
       \field{year}{2016}
-    \endentry
-    \entry{end-scren_animation}{online}{}
-      \field{sortinit}{P}
-      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
-      \field{labeltitlesource}{title}
-      \field{title}{Pygame Sprites and Groups Explaination}
-      \verb{urlraw}
-      \verb https://www.youtube.com/watch?v=4TfZjhw0J-8
-      \endverb
-      \verb{url}
-      \verb https://www.youtube.com/watch?v=4TfZjhw0J-8
-      \endverb
-      \warn{\item online entry 'end-scren_animation' (references.bib): Invalid format '25-04-2024' of date field 'date' - ignoring}
     \endentry
     \entry{replit}{online}{}
       \field{sortinit}{R}
@@ -145,19 +106,6 @@
       \verb https://stackoverflow.com/questions/38502/whats-a-good-algorithm-to-generate-a-maze
       \endverb
       \warn{\item online entry 'stack-exchange-algorithms' (references.bib): Invalid format '18-04-2024' of date field 'date' - ignoring}
-    \endentry
-    \entry{camera_tutorial}{online}{}
-      \field{sortinit}{Y}
-      \field{sortinithash}{fd67ad5a9ef0f7456bdd9aab10fe1495}
-      \field{labeltitlesource}{title}
-      \field{title}{Youtube Scrolling Maps Cameras tutorial}
-      \verb{urlraw}
-      \verb https://www.youtube.com/watch?v=FDJU8lIObVE
-      \endverb
-      \verb{url}
-      \verb https://www.youtube.com/watch?v=FDJU8lIObVE
-      \endverb
-      \warn{\item online entry 'camera_tutorial' (references.bib): Invalid format '23-04-2024' of date field 'date' - ignoring}
     \endentry
   \enddatalist
 \endrefsection

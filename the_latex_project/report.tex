@@ -5,6 +5,8 @@
 \usepackage[backend=biber]{biblatex}
 \addbibresource{references.bib}
 \usepackage[top=2cm, bottom=2cm, right=2cm, left=2cm]{geometry}
+\usepackage{graphicx}
+\usepackage{subcaption}
 
 \usepackage{listings}
 \usepackage{color}
@@ -47,25 +49,25 @@
 % preamble
 \begin{document}
 \title{
-The\\
-Maze\\
-Game\\
+{\Huge\textbf{The Maze Game}}\\[2cm]
+\begin{flushleft}
+    CS108: Software and Systems Lab Project
+\end{flushleft}
+\begin{flushright}
+    Indian Institute of Technology, Bombay
+\end{flushright}
 }
-\author{Harshil Solanki}
+\author{23B1016, Harshil Solanki}
 \date{}
 \maketitle
 \tableofcontents
 \clearpage
 
 
-\section{Lorem}
-See~\cite{thebook}
-And See~\cite{menu-geeksforgeeks}
-
 \section{Modules Used}
 \begin{itemize}
-    \item pygame: The main module in creating this game, it provided all methods required to setup the display and the objects and their attributes which we can use to modify the object as per our choice
-    \item numpy: This modules gives base to this game by allowing it to use an ndarray object that store all the maze information in matrix form
+    \item pygame: The main module in creating this game, it provided all methods required to set up the display and the objects and their attributes which we can use to modify the object as per our choice
+    \item numpy: This module gives base to this game by allowing it to use an ndarray object that store all the maze information in matrix form
     \item math: Used in settings module, to compute the score as an exponential function linearly scaled to give us output on given input, that is the distance between the player and the end point
     \item os: os.path function used in settings module, to access directory at a lower level than the directory given file is in
     \item sys: used in game\_functions.py and end\_screen.py, to exit the game
@@ -98,29 +100,30 @@ last_maze.txt # File to store the matrix of the maze that was created in the las
         |---builder.py # Functions
         |---hunt_and_kill.py # Function
         |---random_walk.py # Function
-    |
-    \-images/
-        |--player.bmp # Pegion as our Player :)
-        |--blocks[i].jpeg # Flexibility to choose
-        |--sky.jpg # Sky is not the limit
-        |--nest.png # The Nest is the Goal
-    |
-    \-the_latex_project/
-        |--report.tex # Parent of the pdf you're reading
-        |--references.bib # All the references I used, noted
+|
+\-images/
+    |--player.bmp # Pegion as our Player :)
+    |--blocks[i].jpeg # Flexibility to choose
+    |--sky.jpg # Sky is not the limit
+    |--nest.png # The Nest is the Goal
+|
+\-the_latex_project/
+    |--report.tex # Parent of the pdf you're reading
+    |--references.bib # All the references I used, noted
 \end{lstlisting}
 \section{Running Instructions}
-Before proceeding to the run this game, you must be aware of the frustated situation of our \textit{dear pegion} who has been caught into a \textsc{maze} laid by the \textit{Evil magician} who \textsl{conspires to take the home of this little pegion away from it}, essentially leviating it in open air in midst of a vast calm sea (See the paradox, calm sea and evil villian, duh). The Evil has constructed a maze around nest \textit{articulating in front of the world (you mean the world to him ;) ) his immense intelligence} and \textbf{challenging you in front of the world (yourself, hehe)} to break the his code, solve the maze, reach to your nest and rest in peace. By watching you in peace, the evil will \textit{burn to ashes} and so burns away the maze with it (pegion and nest are fire resistant by nature) and you prove your intelligence against the world (now it means something).\\
+Before proceeding to the run this game, you must be aware of the frustrated situation of our \textit{dear pegion} who has been caught into a \textsc{maze} laid by the \textit{Evil magician} who \textsl{conspires to take the home of this little pegion away from it}, essentially levitating it in open air in midst of a vast calm sea (See the paradox, calm sea and evil villain, duh). The Evil has constructed a maze around nest \textit{articulating in front of the world (you mean the world to him ;)) his immense intelligence} and \textbf{challenging you in front of the world (yourself, hehe)} to break his code, solve the maze, reach to your nest and rest in peace. By watching you in peace, the evil will \textit{burn to ashes} and so burns away the maze with it (pegion and nest are fire-resistant by nature) and you prove your intelligence against the world (now it means something).\\
 Run the file \texttt{game.py} with \texttt{python3} and help the pegion (\textbf{by controlling it with up, down, right and left arrows}) reach it's nest!\\
-Beware, you must first be considerate of your own intelligence, choose the level wisely. Otherwise you'll have to face depression as you'll be graded realtivelty to the players who've played if before! but if you're my type, and grades don't matter much, enjoy the pegion, the flight and the music!\\
-\textcolor{red}{In case the game is struck and not loading (a random walk error maybe due to overconsumption of memory) interrupt the terminal and re-run the game.}
+Beware, you must first be considerate of your own intelligence, choose the level wisely. Otherwise, you'll have to face depression as you'll be graded relatively to the players who've played if before! But if you're my type, and grades don't matter much, enjoy the pegion, the flight and the music!\\
+\textcolor{red}{In case the game is struck and not loading (a random walk error maybe due to overconsumption of memory) interrupt the terminal and re-run the game.}\\
+\textcolor{red}{There's also a map version of the game, if you're curious you can see the whole maze in the screen by tweaking the value of \texttt{self.mode} in \texttt{modules.settings.py} as \texttt{"map"}.}
 \section{Features}
 Not much of a feature, but you can exit the game anytime you want by pressing ESC :)\\
-\subsection*{Menu Screen}
+\subsection{Menu Screen}
 \begin{itemize}
     \item The game has three levels to select from
 \end{itemize}
-\subsection*{Game Screen}
+\subsection{Game Screen}
 \begin{itemize}
     \item A reverse timer is show on the top of screen showing how much time is left with you to complete the game
     \item Current score is shown below the timer, essentially based on the distance between the player and the end point, hence, as a hint, giving you an idea of where to move
@@ -128,17 +131,514 @@ Not much of a feature, but you can exit the game anytime you want by pressing ES
     \item Collision detection is applied producing ducky-toy squash sound effect on hitting a wall (we have a pegion obsessed with ducks)
     \item Fading music when Game ends
 \end{itemize}
-\subsection*{End Screen}
+\subsection{End Screen}
 \begin{itemize}
     \item Interesting music is being played in each outcome of game
     \item Option of returning to Menu is given
 \end{itemize}
 \section{Project Journey}
---Pending--
+A brief overview of my journey could be given by my commits and code frequency on GitHub (Fig.(\ref{fig:commit}) and Fig.(\ref{fig:code_freq})).
+
+\begin{figure}[h]
+    \caption[1]{}
+    \begin{subfigure}[b]{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{screenshots/commits.png}
+        \caption[(a)]{Commit history in git}
+        \label{fig:commit}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{screenshots/code_freq.png}
+        \caption[(a)]{Code frequency over history in git}
+        \label{fig:code_freq}
+    \end{subfigure}
+\end{figure}
+
+\subsection{The Book}
+I started my project by solely refering to the book \textit{Python Crash Course}~\cite*{thebook} provided as a reference by the TA. It gave the fundamental basis to my game and showed me the power of Classes in building big projects. I created the Settings class and Player class.\\
+Then I implemented the menu in the game, learning first time about pygame Rects and Surfaces and how to blit them as Interactive buttons~\cite{menu-geeksforgeeks} and~\cite{rendering_text}. Created the Buttons class. I also stared write notes in file \texttt{README.md}\cite{md-reference}.\\
+\subsection{The Maze matrix}
+After making the menu I started to Research over the different Maze generation algorithms available. I came across \href{https://stackoverflow.com/questions/38502/whats-a-good-algorithm-to-generate-a-maze}{this answer} on StackExchange~\cite*{stack-exchange-algorithms} and have added the Algorithms I studied in Maze Generation Algorithms section (Section~\ref{maze_algs}). I wasted a few hours figuring out how to start the walk but my code didn't work. Next day I started with a sample code from replit~\cite*{replit} and based on it built my random walk fine-tuning it and adding additional parameters such as the range of steps the walk should consist of. Here are the Screenshots of my working out the random walk, Fig.~\ref{fig:20x20random_walk} and Fig.~\ref{fig:40x40random_walk}\\
+
+\begin{figure}[h]
+    \caption[1]{}
+    \begin{subfigure}[b]{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{screenshots/Screenshot (164).png}
+        \caption[(a)]{20x20 random walk without grid constraint}
+        \label{fig:20x20random_walk}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{screenshots/Screenshot (166).png}
+        \caption[(a)]{40x40 random walk without grid constraint}
+        \label{fig:40x40random_walk}
+    \end{subfigure}
+\end{figure}
+
+Getting Inspiration from all these Algorithms and understanding how randomness is used in each algorithm, I created my own Algorithm here~\ref{my_alg}
+Then I made the game dynamic by allowing the player to move and deploying the camera (while keeping the complete map layout as it is, so it can also be accessed by tweaking the code in settings)
+\subsection{The Map}
+Before the Camera class was created I was blitting object directly to the screen as a map, here are screenshots of that, Fig.~\ref{fig:map1} and Fig.~\ref{fig:map2}
+\begin{figure}[h]
+    \caption[1]{}
+    \begin{subfigure}[b]{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{screenshots/Screenshot (168).png}
+        \caption[(a)]{First Maze I blitted into pygame screen}
+        \label{fig:map1}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{screenshots/Screenshot (169).png}
+        \caption[(a)]{Scaled the maze to match screen size and blit player}
+        \label{fig:map2}
+    \end{subfigure}
+\end{figure}
+
+Final map view looked like this, Fig.~\ref{fig:map3}, Fig.~\ref{fig:map4} and Fig.~\ref{fig:map5}
+
+\begin{figure}[h]
+    \caption[1]{}
+    \centering
+    \begin{subfigure}[b]{0.4\textwidth}
+        \includegraphics[width=\textwidth]{screenshots/Screenshot (170).png}
+        \caption[(a)]{20x20 Maze}
+        \label{fig:map3}
+    \end{subfigure}
+    \hfil
+    \begin{subfigure}[b]{0.4\textwidth}
+        \includegraphics[width=\textwidth]{screenshots/Screenshot (172).png}
+        \caption[(a)]{10x10 Maze}
+        \label{fig:map4}
+    \end{subfigure}
+    \begin{subfigure}[r]{0.5\textwidth}
+        \includegraphics[width=\textwidth]{screenshots/Screenshot (171).png}
+        \caption[(a)]{40x40 Maze}
+        \label{fig:map5}
+    \end{subfigure}
+\end{figure}
+
+\subsection{The Camera and The Pegion}
+For the Camera to function efficiently~\cite{camera_tutorial}, I needed the \textit{"things"}, i.e. the player and wall and path Rects to be Sprites (children of class pygame.sprite.Sprite) hence I redefined the classes a bit and learnt more about Sprites and Groups in pygame~\cite{sprite_reference}. I also used groups to create animation effect in End-Screen~\cite*{end-scren_animation}. After implementing the camera, the game looked like, Fig.~\ref{fig:camera1} and end-screen like Fig.~\ref{fig:camera2}.
+
+\begin{figure}[h]
+    \caption[1]{}
+    \begin{subfigure}[b]{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{screenshots/Screenshot (174).png}
+        \caption[(a)]{Starting Camera screen where pegion is deployed}
+        \label{fig:camera1}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{screenshots/Screenshot (175).png}
+        \caption[(a)]{Animated End-Screen, incomplete}
+        \label{fig:camera2}
+    \end{subfigure}
+\end{figure}    
+
+\subsection{Git Log}
+Here's the output of command \texttt{git log --graph --oneline --stat --color} with changes to .pyc files and changes to the another Game project~\cite*{camera_reference} I referred to for building up camera in my game, removed.
+
+%%%%% WRITING git log --graph --oneline --color OUTPUT TO Document 
+{
+\let\XXegroup\relax
+\expandafter\def\csname XX[31\endcsname{%
+    \bgroup\let\XXegroup\egroup\leavevmode\color{red}}
+\expandafter\def\csname XX[1;31\endcsname{%
+    \bgroup\let\XXegroup\egroup\leavevmode\bfseries\color{red}}
+\expandafter\def\csname XX[32\endcsname{%
+    \bgroup\let\XXegroup\egroup\leavevmode\color{green}}
+\expandafter\def\csname XX[1;32\endcsname{%
+    \bgroup\let\XXegroup\egroup\leavevmode\bfseries\color{green}}
+\expandafter\def\csname XX[33\endcsname{%
+    \bgroup\let\XXegroup\egroup\leavevmode\color{yellow}}
+\expandafter\def\csname XX[1;33\endcsname{%
+    \bgroup\let\XXegroup\egroup\leavevmode\bfseries\color{yellow}}
+\expandafter\def\csname XX[34\endcsname{%
+    \bgroup\let\XXegroup\egroup\leavevmode\color{cyan}}
+\expandafter\def\csname XX[1;34\endcsname{%
+    \bgroup\let\XXegroup\egroup\leavevmode\bfseries\color{cyan}}
+\expandafter\def\csname XX[35\endcsname{%
+    \bgroup\let\XXegroup\egroup\leavevmode\color{magenta}}
+\expandafter\def\csname XX[1;35\endcsname{%
+    \bgroup\let\XXegroup\egroup\leavevmode\bfseries\color{magenta}}
+\expandafter\def\csname XX[36\endcsname{%
+    \bgroup\let\XXegroup\egroup\leavevmode\color{blue}}
+\expandafter\def\csname XX[1;36\endcsname{%
+    \bgroup\let\XXegroup\egroup\leavevmode\bfseries\color{blue}}
+
+
+\expandafter\def\csname XX[\endcsname{\XXegroup}
+\catcode`\^^[=13
+\def^^[#1m{%
+\expandafter\ifx\csname XX#1\endcsname\relax
+\typeout{XX#1}%
+\else
+\csname XX#1\endcsname
+\fi}
+\
+
+\begin{verbatim}
+    * [33m8c85451[m remove unwanted things, update problem statement, work on report
+    [31m|[m  ...Spring 2023-24) _ Maze Game in Python.pdf |  Bin [31m3332129[m -> [32m3343895[m bytes
+    [31m|[m  data/saved_data.csv                          |   12 [32m+[m[31m-[m
+    [31m|[m  exp.ipynb                                    |    3 [31m-[m
+    [31m|[m  last_maze.txt                                |   20 [32m+[m
+    [31m|[m  modules/button.py                            |   25 [32m+[m[31m-[m
+    [31m|[m  modules/camera.py                            |   27 [32m+[m[31m-[m
+    [31m|[m  modules/end_screen.py                        |   19 [32m+[m[31m-[m
+    [31m|[m  modules/game_functions.py                    |   14 [32m+[m[31m-[m
+    [31m|[m  modules/maze_logic/builder.py                |    6 [32m+[m[31m-[m
+    [31m|[m  modules/maze_logic/hunt_and_kill.py          |   22 [32m+[m[31m-[m
+    [31m|[m  modules/maze_logic/maze.py                   |   54 [32m+[m[31m-[m
+    [31m|[m  .../maze_logic/random walk from replit.py    |   36 [31m-[m
+    [31m|[m  modules/maze_logic/random_walk.py            |   41 [32m+[m[31m-[m
+    [31m|[m  modules/menu.py                              |    3 [32m+[m[31m-[m
+    [31m|[m  modules/settings.py                          |   10 [32m+[m[31m-[m
+    [31m|[m  modules/sprites.py                           |    4 [32m+[m
+    [31m|[m  modules/timer.py                             |   25 [32m+[m[31m-[m
+    [31m|[m  notes.md                                     |   24 [32m+[m[31m-[m
+    [31m|[m  path.txt                                     |    2 [32m+[m[31m-[m
+    [31m|[m  the_latex_project/report.aux                 |   25 [32m+[m[31m-[m
+    [31m|[m  the_latex_project/report.bcf-SAVE-ERROR      | 2364 [31m----------------[m
+    [31m|[m  the_latex_project/report.blg                 |   17 [31m-[m
+    [31m|[m  the_latex_project/report.fdb_latexmk         |   32 [32m+[m[31m-[m
+    [31m|[m  the_latex_project/report.fls                 |   44 [32m+[m[31m-[m
+    [31m|[m  the_latex_project/report.log                 |  202 [32m+[m[31m-[m
+    [31m|[m  the_latex_project/report.out                 |   23 [32m+[m[31m-[m
+    [31m|[m  the_latex_project/report.pdf                 |  Bin [31m136846[m -> [32m187644[m bytes
+    [31m|[m  the_latex_project/report.synctex.gz          |  Bin [31m28646[m -> [32m53120[m bytes
+    [31m|[m  the_latex_project/report.tex                 |   98 [32m+[m[31m-[m
+    [31m|[m  the_latex_project/report.toc                 |   23 [32m+[m[31m-[m
+    [31m|[m  107 files changed, 528 insertions(+), 4344 deletions(-)
+    * [33mddcff22[m rename readme
+    [31m|[m  README.md => notes.md | 0
+    [31m|[m  1 file changed, 0 insertions(+), 0 deletions(-)
+    * [33m5de56d0[m organise and comment things
+    [31m|[m  README.md                                    |  59 [32m++++++++++++[m[31m-[m
+    [31m|[m  data/saved_data.csv                          |   5 [32m+[m[31m-[m
+    [31m|[m  game.py                                      |  32 [32m++++++[m[31m-[m
+    [31m|[m  images/player.png                            | Bin [31m3002[m -> [32m12946[m bytes
+    [31m|[m  images/player3.png                           | Bin [31m12946[m -> [32m0[m bytes
+    [31m|[m  images/player_old.png                        | Bin [31m0[m -> [32m3002[m bytes
+    [31m|[m  modules/game_functions.py                    |   3 [32m+[m[31m-[m
+    [31m|[m  modules/game_screen.py                       |  11 [32m+++[m
+    [31m|[m  modules/player.py                            |  27 [32m++++[m[31m--[m
+    [31m|[m  modules/settings.py                          |  75 [32m+++++++++++++[m[31m----[m
+    [31m|[m  path.txt                                     |   2 [32m+[m[31m-[m
+    [31m|[m  the_latex_project/references.bib             |   2 [32m+[m[31m-[m
+    [31m|[m  the_latex_project/report.aux                 |   5 [32m+[m[31m-[m
+    [31m|[m  the_latex_project/report.bbl                 |  13 [32m+++[m
+    [31m|[m  the_latex_project/report.bcf                 |   1 [32m+[m
+    [31m|[m  the_latex_project/report.blg                 |  28 [32m+++[m[31m---[m
+    [31m|[m  the_latex_project/report.fdb_latexmk         |  27 [32m+++[m[31m---[m
+    [31m|[m  the_latex_project/report.fls                 |   6 [32m++[m
+    [31m|[m  the_latex_project/report.log                 |  28 [32m+++[m[31m---[m
+    [31m|[m  the_latex_project/report.pdf                 | Bin [31m112827[m -> [32m136846[m bytes
+    [31m|[m  the_latex_project/report.synctex.gz          | Bin [31m28106[m -> [32m28646[m bytes
+    [31m|[m  the_latex_project/report.tex                 |  11 [32m+++[m
+    [31m|[m  26 files changed, 270 insertions(+), 65 deletions(-)
+    * [33mcce1681[m Improve references.bib
+    [31m|[m  ...toy-sound.mp3 => duck-toy-sound_copy.mp3} | Bin
+    [31m|[m  audio/ducky-toy-sound.mp3                    | Bin [31m0[m -> [32m17059[m bytes
+    [31m|[m  audio/ducky-toy-sound.mp4                    | Bin [31m0[m -> [32m24907[m bytes
+    [31m|[m  data/saved_data.csv                          |   5 [32m+[m[31m-[m
+    [31m|[m  modules/game_functions.py                    |   2 [32m+[m[31m-[m
+    [31m|[m  modules/game_screen.py                       |   4 [32m+[m[31m-[m
+    [31m|[m  path.txt                                     |   2 [32m+[m[31m-[m
+    [31m|[m  the_latex_project/references.bib             |  96 [32m++++[m[31m-------------[m
+    [31m|[m  10 files changed, 28 insertions(+), 81 deletions(-)
+    * [33m80cff37[m basic requirements fulfilled
+    [31m|[m  .../angry-birds-theme-song-audiotrimmer.mp3  | Bin [31m0[m -> [32m129913[m bytes
+    [31m|[m  ...ter-strike-jingle-cs-radio-ok-lets-go.mp3 | Bin [31m0[m -> [32m26677[m bytes
+    [31m|[m  audio/duck-toy-sound.mp3                     | Bin [31m0[m -> [32m30765[m bytes
+    [31m|[m  audio/gta-v-death-sound-effect-102.mp3       | Bin [31m0[m -> [32m124804[m bytes
+    [31m|[m  audio/happy-happy-happy-song.mp3             | Bin [31m0[m -> [32m303291[m bytes
+    [31m|[m  .../punch-gaming-sound-effect-hd_RzlG1GE.mp3 | Bin [31m0[m -> [32m25423[m bytes
+    [31m|[m  audio/super-mario-beedoo_F3cwLoe.mp3         | Bin [31m0[m -> [32m133870[m bytes
+    [31m|[m  data/saved_data.csv                          |  28 [32m++++++++++++++[m[31m-[m
+    [31m|[m  game.py                                      |  32 [32m+++++++++++++[m[31m----[m
+    [31m|[m  modules/end_screen.py                        |  19 [32m+++++++[m[31m---[m
+    [31m|[m  modules/game_functions.py                    |  19 [32m+++++[m[31m-----[m
+    [31m|[m  modules/game_screen.py                       |   2 [32m+[m[31m-[m
+    [31m|[m  path.txt                                     |   2 [32m+[m[31m-[m
+    [31m|[m  the_latex_project/references.bib             |  10 [32m++++++[m
+    [31m|[m  19 files changed, 89 insertions(+), 23 deletions(-)
+    * [33mf475a3f[m Complete End Screen and start adding sound
+    [31m|[m  audio/caproni.mp3                            | Bin [31m0[m -> [32m4276122[m bytes
+    [31m|[m  audio/wind.wav                               | Bin [31m0[m -> [32m1059244[m bytes
+    [31m|[m  data/saved_data.csv                          |  76 [32m++++++[m[31m-----------[m
+    [31m|[m  game.py                                      |   5 [32m+[m[31m-[m
+    [31m|[m  images/nest.png                              | Bin [31m0[m -> [32m426146[m bytes
+    [31m|[m  images/nest2.png                             | Bin [31m0[m -> [32m578484[m bytes
+    [31m|[m  modules/camera.py                            |   1 [32m+[m
+    [31m|[m  modules/end_screen.py                        |  28 [32m++++++[m
+    [31m|[m  modules/game_functions.py                    |  16 [32m+++[m[31m-[m
+    [31m|[m  modules/game_screen.py                       |  15 [32m+++[m[31m-[m
+    [31m|[m  modules/maze_logic/builder.py                |  15 [32m++[m[31m--[m
+    [31m|[m  modules/maze_logic/hunt_and_kill.py          |   7 [32m++[m
+    [31m|[m  modules/maze_logic/random_walk.py            |   2 [32m+[m[31m-[m
+    [31m|[m  modules/player.py                            |   3 [32m+[m[31m-[m
+    [31m|[m  modules/settings.py                          |  18 [32m+++[m[31m-[m
+    [31m|[m  modules/timer.py                             |   3 [32m+[m[31m-[m
+    [31m|[m  path.txt                                     |   2 [32m+[m[31m-[m
+    [31m|[m  27 files changed, 119 insertions(+), 72 deletions(-)
+    * [33m70ec88f[m improve sprites
+    [31m|[m  data/saved_data.csv                          |  40 [32m+++++++++++++++++[m
+    [31m|[m  game.py                                      |   2 [32m+[m
+    [31m|[m  images/block1.jpeg                           | Bin [31m0[m -> [32m7486[m bytes
+    [31m|[m  images/block2.jpeg                           | Bin [31m0[m -> [32m6086[m bytes
+    [31m|[m  images/block3.jpeg                           | Bin [31m0[m -> [32m7165[m bytes
+    [31m|[m  images/block4.jpeg                           | Bin [31m0[m -> [32m8485[m bytes
+    [31m|[m  images/block5.jpeg                           | Bin [31m0[m -> [32m8212[m bytes
+    [31m|[m  images/block6.jpeg                           | Bin [31m0[m -> [32m6637[m bytes
+    [31m|[m  images/block7.jpeg                           | Bin [31m0[m -> [32m7161[m bytes
+    [31m|[m  images/blocks.jpeg                           | Bin [31m0[m -> [32m140051[m bytes
+    [31m|[m  images/blockscopy.jpeg                       | Bin [31m0[m -> [32m169321[m bytes
+    [31m|[m  images/path2.png                             | Bin [31m0[m -> [32m411409[m bytes
+    [31m|[m  images/player.jpeg                           | Bin [31m0[m -> [32m109513[m bytes
+    [31m|[m  images/player2.png                           | Bin [31m0[m -> [32m13552[m bytes
+    [31m|[m  images/player3.png                           | Bin [31m0[m -> [32m12946[m bytes
+    [31m|[m  images/sky.jpg                               | Bin [31m0[m -> [32m5818[m bytes
+    [31m|[m  modules/game_functions.py                    |  21 [32m++++++[m[31m---[m
+    [31m|[m  modules/player.py                            |   2 [32m+[m[31m-[m
+    [31m|[m  modules/settings.py                          |  16 [32m+++++[m[31m--[m
+    [31m|[m  path.txt                                     |   2 [32m+[m[31m-[m
+    [31m|[m  24 files changed, 71 insertions(+), 12 deletions(-)
+    * [33maefb038[m add scoreboard
+    [31m|[m  data/saved_data.csv                          |   9 [32m+++[m
+    [31m|[m  game.py                                      |  59 [32m++++++++++++++[m[31m---[m
+    [31m|[m  modules/end_screen.py                        |   1 [31m-[m
+    [31m|[m  modules/game_functions.py                    |  18 [32m+[m[31m----[m
+    [31m|[m  modules/game_screen.py                       |  39 [32m++++++++++[m[31m-[m
+    [31m|[m  modules/maze_logic/builder.py                |   8 [32m+[m[31m--[m
+    [31m|[m  modules/settings.py                          |  50 [32m+++++++++++++[m[31m-[m
+    [31m|[m  modules/timer.py                             |  29 [32m++++++++[m
+    [31m|[m  path.txt                                     |   2 [32m+[m[31m-[m
+    [31m|[m  15 files changed, 180 insertions(+), 35 deletions(-)
+    * [33mb46fc77[m implement end-screen
+    [31m|[m  game.py                                      |  53 [32m++++++++++[m[31m-------[m
+    [31m|[m  modules/__init__.py                          |   0
+    [31m|[m  modules/button.py                            |  15 [32m++++[m[31m-[m
+    [31m|[m  modules/end_screen.py                        |  43 [32m++++++++++++[m[31m-[m
+    [31m|[m  modules/game_functions.py                    |   1 [31m-[m
+    [31m|[m  modules/settings.py                          |   9 [32m+++[m
+    [31m|[m  path.txt                                     |   2 [32m+[m[31m-[m
+    [31m|[m  the_latex_project/references.bib             |  10 [32m++++[m
+    [31m|[m  13 files changed, 106 insertions(+), 27 deletions(-)
+    * [33mf82232f[m Add ending screen
+    [31m|[m  game.py                                      |  41 [32m+++++++++++++++[m[31m--[m
+    [31m|[m  modules/button.py                            |   2 [32m+[m[31m-[m
+    [31m|[m  modules/end_screen.py                        |   3 [32m++[m
+    [31m|[m  modules/game_functions.py                    |  10 [32m+++[m[31m-[m
+    [31m|[m  modules/game_screen.py                       |  12 [32m+++[m[31m--[m
+    [31m|[m  modules/menu.py                              |  28 [32m++++++++[m[31m---[m
+    [31m|[m  path.txt                                     |   1 [32m+[m
+    [31m|[m  12 files changed, 80 insertions(+), 17 deletions(-)
+    * [33me06e1a1[m initialise game completeion code
+    [31m|[m  game.py                                      |  29 [32m++++++[m[31m-----[m
+    [31m|[m  modules/game_functions.py                    |  44 [32m+++++++++++[m[31m------[m
+    [31m|[m  modules/game_screen.py                       |  14 [32m++++++[m
+    [31m|[m  modules/maze_logic/builder.py                |  30 [32m+++++++++[m[31m--[m
+    [31m|[m  modules/maze_logic/maze.py                   |  18 [32m+++[m[31m----[m
+    [31m|[m  modules/maze_logic/random_walk.py            |  23 [32m++++++[m[31m---[m
+    [31m|[m  modules/menu.py                              |   1 [31m-[m
+    [31m|[m  modules/settings.py                          |   5 [32m+[m[31m-[m
+    [31m|[m  15 files changed, 114 insertions(+), 50 deletions(-)
+    * [33m81e8ef3[m updating camera failed
+    [31m|[m  game.py                                      |   6 [32m+[m[31m-[m
+    [31m|[m  maze_logic/alg1.py                           |  23 [31m-------[m
+    [31m|[m  modules/camera.py                            |  55 [32m++++++++++++[m[31m-----[m
+    [31m|[m  modules/game_functions.py                    |  13 [32m++[m[31m--[m
+    [31m|[m  modules/player.py                            |   3 [32m+[m[31m-[m
+    [31m|[m  modules/sprites.py                           |   1 [31m-[m
+    [31m|[m  12 files changed, 50 insertions(+), 51 deletions(-)
+    * [33m692a00d[m update todo
+    [31m|[m  README.md | 7 [32m++++++[m[31m-[m
+    [31m|[m  1 file changed, 6 insertions(+), 1 deletion(-)
+    * [33m6d07e35[m Camera working
+    [31m|[m  game.py                                      |   9 [32m+[m[31m-[m
+    [31m|[m  modules/camera.py                            |  28 [32m+[m[31m-[m
+    [31m|[m  modules/game_functions.py                    |  73 [32m++++[m[31m-[m
+    [31m|[m  modules/player.py                            |   8 [32m+[m[31m-[m
+    [31m|[m  modules/sprites.py                           |  10 [32m+[m
+    [31m|[m  the_latex_project/references.bib             |  30 [32m++[m
+    [31m|[m  74 files changed, 1827 insertions(+), 28 deletions(-)
+    * [33m45a9ab7[m Worked on camera
+    [31m|[m  README.md                                    |   5 [32m++[m
+    [31m|[m  game.py                                      |   7 [32m+[m[31m--[m
+    [31m|[m  images/path.png                              | Bin [31m0[m -> [32m1347603[m bytes
+    [31m|[m  images/wall.jpeg                             | Bin [31m0[m -> [32m398914[m bytes
+    [31m|[m  modules/camera.py                            |  28 [32m++++++[m[31m----[m
+    [31m|[m  modules/game_functions.py                    |  47 [32m++++++++++[m[31m-------[m
+    [31m|[m  modules/player.py                            |   2 [32m+[m[31m-[m
+    [31m|[m  the_latex_project/references.bib             |  10 [32m++++[m
+    [31m|[m  11 files changed, 65 insertions(+), 34 deletions(-)
+    * [33m1d42932[m Added player move capacity
+    [31m|[m  exp.ipynb                                    | 144 [32m+++++++++++++++++[m
+    [31m|[m  game.py                                      |  11 [32m+[m[31m-[m
+    [31m|[m  modules/camera.py                            |  19 [32m+++[m
+    [31m|[m  modules/game_functions.py                    |  31 [32m+++[m[31m-[m
+    [31m|[m  modules/maze_logic/builder.py                |  17 [32m+[m[31m-[m
+    [31m|[m  modules/maze_logic/hunt_and_kill.py          |   5 [32m+[m[31m-[m
+    [31m|[m  modules/maze_logic/maze.py                   |  28 [32m+++[m[31m-[m
+    [31m|[m  modules/maze_logic/random_walk.py            |   4 [32m+[m[31m-[m
+    [31m|[m  modules/player.py                            |  25 [32m++[m[31m-[m
+    [31m|[m  modules/settings.py                          |   6 [32m+[m
+    [31m|[m  17 files changed, 270 insertions(+), 20 deletions(-)
+    * [33m271096b[m Completed primary maze matrix
+    [31m|[m  exp.ipynb                                    | 104 [32m++++++++++++++++[m[31m-[m
+    [31m|[m  game.py                                      |   5 [32m+[m[31m-[m
+    [31m|[m  modules/maze_logic/builder.py                |  20 [32m++++[m
+    [31m|[m  modules/maze_logic/hunt_and_kill.py          |  99 [32m++++++++++++++++[m
+    [31m|[m  modules/maze_logic/maze.py                   |   8 [32m+[m[31m-[m
+    [31m|[m  modules/maze_logic/random_walk.py            |  39 [32m++++[m[31m---[m
+    [31m|[m  the_latex_project/report.blg                 |  26 [32m++[m[31m---[m
+    [31m|[m  the_latex_project/report.fdb_latexmk         |  22 [32m++[m[31m--[m
+    [31m|[m  the_latex_project/report.log                 |  12 [32m+[m[31m-[m
+    [31m|[m  the_latex_project/report.pdf                 | Bin [31m112982[m -> [32m112827[m bytes
+    [31m|[m  the_latex_project/report.synctex.gz          | Bin [31m28438[m -> [32m28106[m bytes
+    [31m|[m  17 files changed, 308 insertions(+), 58 deletions(-)
+    * [33m07b796a[m modifications
+    [31m|[m  modules/maze_logic/random_walk.py | 21 [32m+++++++++++[m[31m----------[m
+    [31m|[m  the_latex_project/report.tex      |  3 [32m+[m[31m--[m
+    [31m|[m  2 files changed, 12 insertions(+), 12 deletions(-)
+    * [33m906971e[m implement walls and conplete random walk
+    [31m|[m  modules/maze_logic/maze.py                   |  11 [32m++[m[31m-[m
+    [31m|[m  modules/maze_logic/random_walk.py            |  75 [32m++++++++++++[m[31m-----[m
+    [31m|[m  3 files changed, 64 insertions(+), 22 deletions(-)
+    * [33m9eca23d[m successfully applied random walk to maze without walls
+    [31m|[m  exp.ipynb                                    |  53 [32m++++[m[31m-[m
+    [31m|[m  modules/maze_logic/maze.py                   |  14 [32m+[m[31m-[m
+    [31m|[m  .../maze_logic/random walk from replit.py    |  36 [32m++++[m
+    [31m|[m  modules/maze_logic/random_walk.py            | 173 [32m+++++++[m[31m----------[m
+    [31m|[m  the_latex_project/references.bib             |  10 [32m+[m
+    [31m|[m  6 files changed, 174 insertions(+), 112 deletions(-)
+    * [33md2e23dd[m trying out my algorithm
+    [31m|[m  exp.ipynb                               |   67 [32m+[m
+    [31m|[m  modules/maze_logic/maze.py              |   14 [32m+[m
+    [31m|[m  modules/maze_logic/random_walk.py       |  125 [32m++[m
+    [31m|[m  the_latex_project/report.bcf-SAVE-ERROR | 2364 [32m+++++++++++++++++++++[m
+    [31m|[m  the_latex_project/report.blg            |   26 [32m+[m[31m-[m
+    [31m|[m  the_latex_project/report.fdb_latexmk    |   20 [32m+[m[31m-[m
+    [31m|[m  the_latex_project/report.log            |   14 [32m+[m[31m-[m
+    [31m|[m  the_latex_project/report.pdf            |  Bin [31m111688[m -> [32m112982[m bytes
+    [31m|[m  the_latex_project/report.synctex.gz     |  Bin [31m26699[m -> [32m28438[m bytes
+    [31m|[m  the_latex_project/report.tex            |   14 [32m+[m[31m-[m
+    [31m|[m  10 files changed, 2612 insertions(+), 32 deletions(-)
+    * [33m86e74bf[m le tex
+    [31m|[m  noob.py => game.py                           |    0
+    [31m|[m  .../{refs.bib => references.bib}             |    2 [32m+[m[31m-[m
+    [31m|[m  the_latex_project/report.aux                 |   24 [32m+[m[31m-[m
+    [31m|[m  the_latex_project/report.bbl                 |   49 [32m+[m
+    [31m|[m  the_latex_project/report.bcf                 | 2405 [32m++++++++++++++++[m
+    [31m|[m  the_latex_project/report.blg                 |   15 [32m+[m
+    [31m|[m  the_latex_project/report.fdb_latexmk         |   38 [32m+[m[31m-[m
+    [31m|[m  the_latex_project/report.fls                 |   47 [32m+[m
+    [31m|[m  the_latex_project/report.log                 |  340 [32m++[m[31m-[m
+    [31m|[m  the_latex_project/report.out                 |   19 [32m+[m[31m-[m
+    [31m|[m  the_latex_project/report.pdf                 |  Bin [31m108698[m -> [32m111688[m bytes
+    [31m|[m  the_latex_project/report.run.xml             |   85 [32m+[m
+    [31m|[m  the_latex_project/report.synctex.gz          |  Bin [31m25871[m -> [32m26699[m bytes
+    [31m|[m  the_latex_project/report.tex                 |   12 [32m+[m[31m-[m
+    [31m|[m  the_latex_project/report.toc                 |   19 [32m+[m[31m-[m
+    [31m|[m  15 files changed, 2971 insertions(+), 84 deletions(-)
+    * [33me684e1a[m Research for Maze generation algorithms out there
+    [31m|[m  .vscode/settings.json                        |   4 [32m+[m
+    [31m|[m  maze_logic/alg1.py                           |  23 [32m++++[m
+    [31m|[m  modules/player.py                            |   2 [32m+[m[31m-[m
+    [31m|[m  the_latex_project/presentation.aux           |   5 [31m-[m
+    [31m|[m  the_latex_project/presentation.out           |   0
+    [31m|[m  the_latex_project/presentation.pdf           | Bin [31m40246[m -> [32m0[m bytes
+    [31m|[m  the_latex_project/presentation.synctex.gz    | Bin [31m1371[m -> [32m0[m bytes
+    [31m|[m  the_latex_project/presentation.toc           |   0
+    [31m|[m  the_latex_project/refs.bib                   |  10 [32m++[m
+    [31m|[m  the_latex_project/report.aux                 |  14 [32m+++[m
+    [31m|[m  ...tation.fdb_latexmk => report.fdb_latexmk} |  27 [32m+++[m[31m--[m
+    [31m|[m  .../{presentation.fls => report.fls}         |  51 [32m++++[m[31m----[m
+    [31m|[m  .../{presentation.log => report.log}         | 106 [32m+++++++++[m[31m--------[m
+    [31m|[m  the_latex_project/report.out                 |   9 [32m++[m
+    [31m|[m  the_latex_project/report.pdf                 | Bin [31m0[m -> [32m108698[m bytes
+    [31m|[m  the_latex_project/report.synctex.gz          | Bin [31m0[m -> [32m25871[m bytes
+    [31m|[m  the_latex_project/report.tex                 | 100 [32m++++++++++++++++[m
+    [31m|[m  the_latex_project/report.toc                 |   9 [32m++[m
+    [31m|[m  20 files changed, 274 insertions(+), 86 deletions(-)
+    * [33madf76d8[m modiy main game file acc to menu
+    [31m|[m  modules/game_functions.py                    |   2 [32m+[m[31m-[m
+    [31m|[m  modules/menu.py                              |   4 [32m++[m[31m--[m
+    [31m|[m  noob.py                                      |   6 [32m++++[m[31m--[m
+    [31m|[m  5 files changed, 7 insertions(+), 5 deletions(-)
+    * [33m144de1c[m Primitive menu made
+    [31m|[m  modules/menu.py                              |  30 [32m++++++++++[m[31m-------[m
+    [31m|[m  modules/settings.py                          |  14 [32m+++++++[m[31m-[m
+    [31m|[m  the_latex_project/refs.bib                   |  12 [32m++++++[m[31m-[m
+    [31m|[m  5 files changed, 42 insertions(+), 14 deletions(-)
+    * [33m2e6f8f3[m Buttons enhanced
+    [31m|[m  README.md                                    |  12 [32m+++++++[m[31m--[m
+    [31m|[m  modules/button.py                            |  20 [32m+++++++++++[m[31m---[m
+    [31m|[m  modules/menu.py                              |  23 [32m++++++++++++[m[31m-----[m
+    [31m|[m  modules/settings.py                          |   4 [32m+[m[31m--[m
+    [31m|[m  noob.py                                      |   2 [31m--[m
+    [31m|[m  the_latex_project/refs.bib                   |  16 [32m++++++++++++[m
+    [31m|[m  9 files changed, 60 insertions(+), 17 deletions(-)
+    * [33m2d634af[m Add button Menu creation fail with subsurface
+    [31m|[m  modules/button.py                            |  42 [32m+++++++++++++++++[m
+    [31m|[m  modules/game_functions.py                    |  20 [32m++++++[m[31m--[m
+    [31m|[m  modules/menu.py                              |  19 [32m+++++++[m[31m-[m
+    [31m|[m  noob.py                                      |   5 [32m+[m[31m-[m
+    [31m|[m  7 files changed, 79 insertions(+), 7 deletions(-)
+    * [33m26339ee[m create menu and plan
+    [31m|[m  README.md                                    | 26 [32m+++++++++++++++++[m[31m-[m
+    [31m|[m  modules/menu.py                              | 17 [32m++++++++++++[m
+    [31m|[m  noob.py                                      |  2 [32m++[m
+    [31m|[m  the_latex_project/refs.bib                   | 20 [32m++++++++++++++[m
+    [31m|[m  .../{presentation.tex => report.tex}         |  0
+    [31m|[m  5 files changed, 64 insertions(+), 1 deletion(-)
+    * [33m2b8c49e[m start latex work
+    [31m|[m  ...Spring 2023-24) _ Maze Game in Python.pdf | Bin [31m0[m -> [32m3332129[m bytes
+    [31m|[m  the_latex_project/presentation.aux           |   5 [32m+[m
+    [31m|[m  the_latex_project/presentation.fdb_latexmk   |  70 [32m+++++[m
+    [31m|[m  the_latex_project/presentation.fls           | 128 [32m+++++++++[m
+    [31m|[m  the_latex_project/presentation.log           | 237 [32m+++++++++++++++++[m
+    [31m|[m  the_latex_project/presentation.out           |   0
+    [31m|[m  the_latex_project/presentation.pdf           | Bin [31m0[m -> [32m40246[m bytes
+    [31m|[m  the_latex_project/presentation.synctex.gz    | Bin [31m0[m -> [32m1371[m bytes
+    [31m|[m  the_latex_project/presentation.tex           |  33 [32m+++[m
+    [31m|[m  the_latex_project/presentation.toc           |   0
+    [31m|[m  10 files changed, 473 insertions(+)
+    * [33m0b2f33f[m statement update to google sheets link
+    [31m|[m  ...Spring 2023-24) _ Maze Game in Python.pdf | Bin [31m973566[m -> [32m0[m bytes
+    [31m|[m  statement.html                               |   8 [32m++++++++[m
+    [31m|[m  statement.url.url                            |   5 [32m+++++[m
+    [31m|[m  3 files changed, 13 insertions(+)
+    * [33m39e1d33[m most of static part done
+    [31m|[m  ...395c5f90-17de-480f-b710-36c0ea1de012.jpeg | Bin [31m0[m -> [32m224957[m bytes
+    [31m|[m  ...c385f6fc-cfe2-4f33-ba2a-2552487c9500.jpeg | Bin [31m0[m -> [32m94816[m bytes
+    [31m|[m  images/player - Copy.bmp                     | Bin [31m0[m -> [32m7738[m bytes
+    [31m|[m  images/player.bmp                            | Bin [31m0[m -> [32m3942[m bytes
+    [31m|[m  images/player.png                            | Bin [31m0[m -> [32m3002[m bytes
+    [31m|[m  modules/game_functions.py                    |  19 [32m+++++++++++[m
+    [31m|[m  modules/player.py                            |  23 [32m+++++++++++++[m
+    [31m|[m  modules/settings.py                          |  10 [32m++++++[m
+    [31m|[m  noob.py                                      |  30 [32m+++++++++++++++++[m
+    [31m|[m  12 files changed, 82 insertions(+)
+    * [33mdb150e5[m Pdfs add
+    [31m|[m  ...Spring 2023-24) _ Maze Game in Python.pdf | Bin [31m0[m -> [32m973566[m bytes
+    [31m|[m  ...rch.Python.Oct_.2015.ISBN_.1593276036.pdf | Bin [31m0[m -> [32m5641524[m bytes
+    [31m|[m  2 files changed, 0 insertions(+), 0 deletions(-)
+    * [33m3d0154a[m first commit
+       README.md | 1 [32m+[m
+       1 file changed, 1 insertion(+)
+    
+\end{verbatim}
 
 %%%%%%ALGORITHMS STUDIED%%%%%%
 \section{Maze Generation Algorithms}
-\subsection{Krsukal's Algorithm}
+\label{maze_algs}
+\subsection{Kruskal's Algorithm}
 [\href{https://weblog.jamisbuck.org/2011/1/3/maze-generation-kruskal-s-algorithm}{Source}]\\
 Kruskal's algorithm is a method for producing a minimal spanning tree from a weighted graph. It works something like this:
 
@@ -234,7 +734,8 @@ Like the recursive backtracking algorithm, here's the “mile-high” overview o
     \item For the last row, join all adjacent cells that do not share a set, and omit the vertical connections, and you're done!
 \end{enumerate}
 
-\section*{My Algorithm}
+\section{My Algorithm}
+\label{my_alg}
 Taking inspiration from the previous algorithms, I'm going to implement my algorithm in this way:
 
 \begin{enumerate}
