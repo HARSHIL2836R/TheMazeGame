@@ -48,23 +48,28 @@ def check_events(player: Player, mg_settings: Settings, enemies) -> str:
         if not mg_settings.move_fast:
             if event.type == pygame.KEYDOWN and event.key in keymap:
                 if not player.move(keymap[event.key][0],keymap[event.key][1]):
-                    pygame.mixer.Sound('audio/ducky-toy-sound.mp3').play()
+                    if not mg_settings.is_muted:
+                        pygame.mixer.Sound('audio/ducky-toy-sound.mp3').play()
                 #print("Move:",player.move(keymap[event.key][0],keymap[event.key][1]))
 
     if mg_settings.move_fast:
         keys = pygame.key.get_pressed()  # Checking pressed keys
         if keys[pygame.K_UP]:
             if not player.move(keymap[pygame.K_UP][0],keymap[pygame.K_UP][1]):
-                pygame.mixer.Sound('audio/duck-toy-sound.mp3').play()
+                if not mg_settings.is_muted:
+                    pygame.mixer.Sound('audio/duck-toy-sound.mp3').play()
         elif keys[pygame.K_DOWN]:
             if not player.move(keymap[pygame.K_DOWN][0],keymap[pygame.K_DOWN][1]):
-                pygame.mixer.Sound('audio/duck-toy-sound.mp3').play()
+                if not mg_settings.is_muted:
+                    pygame.mixer.Sound('audio/duck-toy-sound.mp3').play()
         elif keys[pygame.K_RIGHT]:
             if not player.move(keymap[pygame.K_RIGHT][0],keymap[pygame.K_RIGHT][1]):
-                pygame.mixer.Sound('audio/duck-toy-sound.mp3').play()
+                if not mg_settings.is_muted:
+                    pygame.mixer.Sound('audio/duck-toy-sound.mp3').play()
         elif keys[pygame.K_LEFT]:
             if not player.move(keymap[pygame.K_LEFT][0],keymap[pygame.K_LEFT][1]):
-                pygame.mixer.Sound('audio/duck-toy-sound.mp3').play()
+                if not mg_settings.is_muted:
+                    pygame.mixer.Sound('audio/duck-toy-sound.mp3').play()
         pygame.event.pump()
 
     if (player.pos[0],player.pos[1]) == (mg_settings.end_point[0]*2,mg_settings.end_point[1]*2):

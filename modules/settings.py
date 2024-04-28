@@ -37,6 +37,7 @@ class Settings():
         self.nest_image = pyimage.load('images/nest.png')
         self.enable_enemies = True
         self.no_of_enemies = 1
+        self.is_muted = False
 
     def set_dim(self, screen: Surface, maze: Maze)->None:
         """
@@ -75,6 +76,7 @@ class Settings():
             self.active_bt_color = 	(203, 0, 0)
             self.inactive_bt_color = (228, 234, 140)
             self.bt_text_color = (0,0,0)
+            self.is_muted = False
     
     class GameScreen():
         def __init__(self) -> None:

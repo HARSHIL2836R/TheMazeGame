@@ -1,4 +1,5 @@
 """Module to define the Button class, child of pygame.sprite.Sprite class"""
+from turtle import screensize
 import pygame
 
 class Button(pygame.sprite.Sprite):
@@ -85,3 +86,21 @@ class Button(pygame.sprite.Sprite):
         self.msg_image = pygame.image.load('images/heart.png')
         self.msg_image_rect.center = self.rect.center
         self.screen.blit(self.msg_image, self.msg_image_rect)
+
+    def mute(self, is_muted: bool):
+        """
+        Enables Mute option
+        """
+        width = 50
+        height = 50
+        self.screen.set_alpha(0)
+        if is_muted:
+            self.msg_image = pygame.transform.scale(pygame.image.load('images/mute.png'), (width, height))
+        else:
+            self.msg_image = pygame.transform.scale(pygame.image.load('images/sound.png'), (width, height))
+        self.screen.blit(self.msg_image, self.screen.get_rect().topleft)
+    
+    def clear(self):
+        new_rect = pygame.Surface((50,50))
+        new_rect.fill((16, 24, 32))
+        self.screen.blit(new_rect,self.screen.get_rect().topleft)

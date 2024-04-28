@@ -21,8 +21,9 @@ def play_game(screen: pygame.Surface, map_: pygame.Surface, mg_settings: Setting
     """
 
     #Play background music
-    the_wind_rises_theme = pygame.mixer.Sound('audio/caproni.mp3')  
-    the_wind_rises_theme.play(loops=-1,fade_ms=1000)  
+    if not mg_settings.is_muted:
+        pygame.mixer.music.load('audio/caproni.mp3')  
+        pygame.mixer.music.play(loops=-1,fade_ms=1000)  
 
     #initiate clock and Timer
     clock = pygame.time.Clock()
@@ -37,14 +38,16 @@ def play_game(screen: pygame.Surface, map_: pygame.Surface, mg_settings: Setting
             score = str(datetime.datetime.now())+","+str(scoreboard.curr_score)+","+"{0:.5}".format(str(timer.time_elapsed/1000))+"s,"+str(0)
             scoreboard.add_score(score)
             scoreboard.write_to_file()
-            the_wind_rises_theme.fadeout(1000)
+            if not mg_settings.is_muted:
+                pygame.mixer.music.fadeout(1000)
             return "game_over"
         elif event_check_out == "player_died":
             scoreboard.update_score(player,curr_maze,mg_settings.end_point, timer)
             score = str(datetime.datetime.now())+","+str(scoreboard.curr_score)+","+"{0:.5}".format(str(timer.time_elapsed/1000))+"s,"+str(2)
             scoreboard.add_score(score)
             scoreboard.write_to_file()
-            the_wind_rises_theme.fadeout(1000)
+            if not mg_settings.is_muted:
+                pygame.mixer.music.fadeout(1000)
             return "game_over"
         gf.update_screen(mg_settings, map_, screen, player,curr_maze,enemies)
 
@@ -95,8 +98,9 @@ def play_game(screen: pygame.Surface, map_: pygame.Surface, mg_settings: Setting
             score = str(datetime.datetime.now())+","+str(scoreboard.curr_score)+","+"{0:.5}".format(str(timer.time_elapsed/1000))+"s,"+str(1)
             scoreboard.add_score(score)
             scoreboard.write_to_file()
-            the_wind_rises_theme.fadeout(1000)
-            pygame.mixer.Sound('audio/punch-gaming-sound-effect-hd_RzlG1GE.mp3').play()
+            if not mg_settings.is_muted:
+                pygame.mixer.music.fadeout(1000)
+                pygame.mixer.Sound('audio/punch-gaming-sound-effect-hd_RzlG1GE.mp3').play()
             return "timeout"
         
         clock.tick(20)

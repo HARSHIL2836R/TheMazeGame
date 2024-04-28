@@ -41,11 +41,11 @@ def show(screen: pygame.Surface)->str:
         timeout = font.render("YOUR GAME TIMED OUT!", True, mg_settings.bt_text_color, mg_settings.screen_color)
     
     font = pygame.font.SysFont("Monospace", 40)
-    player_dead = font.render("WASTED", True, mg_settings.bt_text_color, mg_settings.screen_color)
+    player_dead = pygame.image.load('images/WASTED.png')
 
     font = pygame.font.Font("fonts/led.ttf", 20)
     msg = font.render("Press ESC to exit", True, mg_settings.bt_text_color, mg_settings.screen_color)
-    msg2 = font.render("Press M to return to Main Menu", True, mg_settings.bt_text_color, mg_settings.screen_color)
+    msg2 = font.render("Press 'M' to return to Main Menu", True, mg_settings.bt_text_color, mg_settings.screen_color)
     ####
 
     while True:

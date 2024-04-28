@@ -53,14 +53,18 @@ def run_game():
     #set screen dimensions and title
     map_,screen = set_display(mg_settings)
     if mg_settings.MODE == "map":
-        menu_out = menu.show(map_)
+        menu_out, menu_settings = menu.show(map_)
     else:
-        menu_out = menu.show(screen)
+        menu_out, menu_settings = menu.show(screen)
 
     if menu_out == "exit":
         quit()
+    
+    if menu_settings.is_muted: 
+        mg_settings.is_muted = True
 
-    pygame.mixer.Sound('audio/counter-strike-jingle-cs-radio-ok-lets-go.mp3').play()
+    if not mg_settings.is_muted:
+        pygame.mixer.Sound('audio/counter-strike-jingle-cs-radio-ok-lets-go.mp3').play()
     difficulty = menu_out
     difficulty = int(difficulty)
     mg_settings.difficulty = difficulty
@@ -70,7 +74,7 @@ def run_game():
         mg_settings.dim =(5,5)
         mg_settings.start_point =(0,0)
         mg_settings.end_point =(4,4)
-        mg_settings.timeout = 5000 
+        mg_settings.timeout = 10000 
         mg_settings.no_of_enemies = 5
     if difficulty == 2:
         mg_settings.dim =(10,10)
@@ -112,8 +116,8 @@ def run_game():
     #Intanciate the player
     player = Player(map_,curr_maze)
     player.set_dim(mg_settings.box_width,mg_settings.box_height)
+    enemies = []
     if mg_settings.enable_enemies:
-        enemies = []
         for i in range(mg_settings.no_of_enemies):
             x = np.random.randint(0,mg_settings.dim[0])
             y = np.random.randint(0,mg_settings.dim[1])
@@ -128,7 +132,13 @@ def run_game():
     
     if play_game_out == "game_over":
         print("Game completed")
-        pygame.mixer.Sound('audio/happy-happy-happy-song.mp3').play()
+        if not mg_settings.is_muted:
+            scoreboard = Settings.ScoreBoard()
+            data = scoreboard.iterable_data()
+            if data[-1][-1].strip('\n') == "2": 
+                pygame.mixer.Sound('audio/gta-v-death-sound-effect-102.mp3').play()
+            else:
+                pygame.mixer.Sound('audio/happy-happy-happy-song.mp3').play()
         if mg_settings.MODE == "map":
             var = map_
         else:
@@ -143,7 +153,8 @@ def run_game():
 
     elif play_game_out == "timeout":
         print("Game Timeout")
-        pygame.mixer.Sound('audio/gta-v-death-sound-effect-102.mp3').play()
+        if not mg_settings.is_muted:
+            pygame.mixer.Sound('audio/super-mario-beedoo_F3cwLoe.mp3').play()
         if mg_settings.MODE == "map":
             var = map_
         else:
