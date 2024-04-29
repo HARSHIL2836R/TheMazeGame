@@ -203,6 +203,7 @@ INPUT report.toc
 INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx10.tfm
 OUTPUT report.toc
 INPUT C:\Users\Dell\AppData\Local\MiKTeX\fonts\map\pdftex\pdftex.map
+INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx12.tfm
 INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\tcrm1000.tfm
 INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr9.tfm
 INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmtt9.tfm
@@ -210,7 +211,6 @@ INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmti10.tfm
 INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmcsc10.tfm
 INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmsl10.tfm
 INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmtt10.tfm
-INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx12.tfm
 INPUT .\screenshots\commits.png
 INPUT .\screenshots\commits.png
 INPUT .\screenshots\commits.png
@@ -288,6 +288,34 @@ INPUT .\screenshots\Screenshot (175).png
 INPUT .\screenshots\Screenshot (175).png
 INPUT .\screenshots\Screenshot (175).png
 INPUT .\screenshots\Screenshot (175).png
+INPUT .\screenshots\Screenshot (181).png
+INPUT .\screenshots\Screenshot (181).png
+INPUT .\screenshots\Screenshot (181).png
+INPUT .\screenshots\Screenshot (181).png
+INPUT .\screenshots\Screenshot (181).png
+INPUT .\screenshots\Screenshot (181).png
+INPUT .\screenshots\Screenshot (181).png
+INPUT .\screenshots\Screenshot (182).png
+INPUT .\screenshots\Screenshot (182).png
+INPUT .\screenshots\Screenshot (182).png
+INPUT .\screenshots\Screenshot (182).png
+INPUT .\screenshots\Screenshot (182).png
+INPUT .\screenshots\Screenshot (182).png
+INPUT .\screenshots\Screenshot (182).png
+INPUT .\screenshots\Screenshot (183).png
+INPUT .\screenshots\Screenshot (183).png
+INPUT .\screenshots\Screenshot (183).png
+INPUT .\screenshots\Screenshot (183).png
+INPUT .\screenshots\Screenshot (183).png
+INPUT .\screenshots\Screenshot (183).png
+INPUT .\screenshots\Screenshot (183).png
+INPUT .\screenshots\Screenshot (184).png
+INPUT .\screenshots\Screenshot (184).png
+INPUT .\screenshots\Screenshot (184).png
+INPUT .\screenshots\Screenshot (184).png
+INPUT .\screenshots\Screenshot (184).png
+INPUT .\screenshots\Screenshot (184).png
+INPUT .\screenshots\Screenshot (184).png
 INPUT report.aux
 INPUT .\report.out
 INPUT .\report.out
@@ -301,16 +329,32 @@ INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm
 INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx12.pfb
 INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmcsc10.pfb
 INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmcsc10.pfb
+INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmex10.pfb
+INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmex10.pfb
+INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi10.pfb
+INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi10.pfb
+INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi5.pfb
+INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi5.pfb
+INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi7.pfb
+INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi7.pfb
 INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr10.pfb
 INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr10.pfb
 INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr12.pfb
 INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr12.pfb
 INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr17.pfb
 INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr17.pfb
+INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr5.pfb
+INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr5.pfb
+INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr7.pfb
+INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr7.pfb
 INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr9.pfb
 INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr9.pfb
 INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsl10.pfb
 INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsl10.pfb
+INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy10.pfb
+INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy10.pfb
+INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy5.pfb
+INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy5.pfb
 INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmti10.pfb
 INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmti10.pfb
 INPUT C:\Users\Dell\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmtt10.pfb

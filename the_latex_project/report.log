@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.3.30)  27 APR 2024 15:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.3.30)  28 APR 2024 16:08
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -528,6 +528,11 @@ Package biblatex Warning: Biber reported the following issues
 
 
 Package biblatex Warning: Biber reported the following issues
+(biblatex)                with 'pygame_docs':
+(biblatex)                - online entry 'pygame_docs' (references.bib): Invalid format '14-04-24' of date field 'date' - ignoring.
+
+
+Package biblatex Warning: Biber reported the following issues
 (biblatex)                with 'end-scren_animation':
 (biblatex)                - online entry 'end-scren_animation' (references.bib): Invalid format '25-04-2024' of date field 'date' - ignoring.
 
@@ -540,6 +545,21 @@ Package biblatex Warning: Biber reported the following issues
 Package biblatex Warning: Biber reported the following issues
 (biblatex)                with 'stack-exchange-algorithms':
 (biblatex)                - online entry 'stack-exchange-algorithms' (references.bib): Invalid format '18-04-2024' of date field 'date' - ignoring.
+
+
+Package biblatex Warning: Biber reported the following issues
+(biblatex)                with 'theme_site':
+(biblatex)                - online entry 'theme_site' (references.bib): Invalid format '26-04-2024' of date field 'date' - ignoring.
+
+
+Package biblatex Warning: Biber reported the following issues
+(biblatex)                with 'audio-source':
+(biblatex)                - online entry 'audio-source' (references.bib): Invalid format '26-04-2024' of date field 'date' - ignoring.
+
+
+Package biblatex Warning: Biber reported the following issues
+(biblatex)                with 'camera_reference2':
+(biblatex)                - online entry 'camera_reference2' (references.bib): Invalid format '25-04-2024' of date field 'date' - ignoring.
 
 
 Package biblatex Warning: Biber reported the following issues
@@ -608,16 +628,16 @@ Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
 \c@lstlisting=\count423
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 63.
+(Font)              <12> on input line 59.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 63.
+(Font)              <8> on input line 59.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 63.
+(Font)              <6> on input line 59.
  (report.toc
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 5.
+(Font)              <7> on input line 2.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 5.
+(Font)              <5> on input line 2.
 )
 \tf@toc=\write5
 \openout5 = `report.toc'.
@@ -627,129 +647,168 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 {C:/Users/Dell/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] [2
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 121--122
-
- []
-
-<screenshots/commits.png, id=171, 1381.41093pt x 679.03688pt>
-File: screenshots/commits.png Graphic file (type png)
-<use screenshots/commits.png>
-Package pdftex.def Info: screenshots/commits.png  used on input line 146.
-(pdftex.def)             Requested size: 250.24199pt x 122.99846pt.
-<screenshots/code_freq.png, id=173, 1376.14125pt x 709.90219pt>
-File: screenshots/code_freq.png Graphic file (type png)
-<use screenshots/code_freq.png>
-Package pdftex.def Info: screenshots/code_freq.png  used on input line 152.
-(pdftex.def)             Requested size: 250.24199pt x 129.08757pt.
-
-Overfull \hbox (2.2222pt too wide) in paragraph at lines 144--156
-[][] [] 
- []
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 159--161
+Underfull \hbox (badness 10000) in paragraph at lines 138--143
 
  []
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 162--163
+Underfull \hbox (badness 10000) in paragraph at lines 161--162
 
  []
 
-<screenshots/Screenshot (164).png, id=193, 1927.2pt x 1084.05pt>
+<screenshots/commits.png, id=181, 1381.41093pt x 679.03688pt>
+File: screenshots/commits.png Graphic file (type png)
+<use screenshots/commits.png>
+Package pdftex.def Info: screenshots/commits.png  used on input line 205.
+(pdftex.def)             Requested size: 225.21626pt x 110.69965pt.
+<screenshots/code_freq.png, id=183, 1376.14125pt x 709.90219pt>
+File: screenshots/code_freq.png Graphic file (type png)
+<use screenshots/code_freq.png>
+Package pdftex.def Info: screenshots/code_freq.png  used on input line 211.
+(pdftex.def)             Requested size: 225.21626pt x 116.17557pt.
+[4]
+Underfull \hbox (badness 10000) in paragraph at lines 218--220
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 221--222
+
+ []
+
+<screenshots/Screenshot (164).png, id=208, 1927.2pt x 1084.05pt>
 File: screenshots/Screenshot (164).png Graphic file (type png)
 <use screenshots/Screenshot (164).png>
-Package pdftex.def Info: screenshots/Screenshot (164).png  used on input line 168.
+Package pdftex.def Info: screenshots/Screenshot (164).png  used on input line 227.
 (pdftex.def)             Requested size: 250.24199pt x 140.7495pt.
-<screenshots/Screenshot (166).png, id=194, 1927.2pt x 1084.05pt>
+<screenshots/Screenshot (166).png, id=209, 1927.2pt x 1084.05pt>
 File: screenshots/Screenshot (166).png Graphic file (type png)
 <use screenshots/Screenshot (166).png>
-Package pdftex.def Info: screenshots/Screenshot (166).png  used on input line 174.
+Package pdftex.def Info: screenshots/Screenshot (166).png  used on input line 233.
 (pdftex.def)             Requested size: 250.24199pt x 140.7495pt.
 
-Overfull \hbox (2.2222pt too wide) in paragraph at lines 166--178
-[][] [] 
- []
-
-<screenshots/Screenshot (168).png, id=198, 1927.2pt x 1084.05pt>
-File: screenshots/Screenshot (168).png Graphic file (type png)
-<use screenshots/Screenshot (168).png>
-Package pdftex.def Info: screenshots/Screenshot (168).png  used on input line 188.
-(pdftex.def)             Requested size: 250.24199pt x 140.7495pt.
-<screenshots/Screenshot (169).png, id=199, 1927.2pt x 1084.05pt>
-File: screenshots/Screenshot (169).png Graphic file (type png)
-<use screenshots/Screenshot (169).png>
-Package pdftex.def Info: screenshots/Screenshot (169).png  used on input line 194.
-(pdftex.def)             Requested size: 250.24199pt x 140.7495pt.
-
-Overfull \hbox (2.2222pt too wide) in paragraph at lines 186--198
-[][] [] 
- []
-
-[4 <./screenshots/commits.png> <./screenshots/code_freq.png> <./screenshots/Screenshot (164).png> <./screenshots/Screenshot (166).png>]
-<screenshots/Screenshot (170).png, id=219, 1927.2pt x 1084.05pt>
-File: screenshots/Screenshot (170).png Graphic file (type png)
-<use screenshots/Screenshot (170).png>
-Package pdftex.def Info: screenshots/Screenshot (170).png  used on input line 206.
-(pdftex.def)             Requested size: 200.19054pt x 112.59628pt.
-<screenshots/Screenshot (172).png, id=220, 1927.2pt x 1084.05pt>
-File: screenshots/Screenshot (172).png Graphic file (type png)
-<use screenshots/Screenshot (172).png>
-Package pdftex.def Info: screenshots/Screenshot (172).png  used on input line 212.
-(pdftex.def)             Requested size: 200.19054pt x 112.59628pt.
-<screenshots/Screenshot (171).png, id=221, 1927.2pt x 1084.05pt>
-File: screenshots/Screenshot (171).png Graphic file (type png)
-<use screenshots/Screenshot (171).png>
-Package pdftex.def Info: screenshots/Screenshot (171).png  used on input line 217.
-(pdftex.def)             Requested size: 250.24199pt x 140.7495pt.
-<screenshots/Screenshot (174).png, id=227, 1927.2pt x 1084.05pt>
-File: screenshots/Screenshot (174).png Graphic file (type png)
-<use screenshots/Screenshot (174).png>
-Package pdftex.def Info: screenshots/Screenshot (174).png  used on input line 230.
-(pdftex.def)             Requested size: 250.24199pt x 140.7495pt.
-<screenshots/Screenshot (175).png, id=228, 1927.2pt x 1084.05pt>
-File: screenshots/Screenshot (175).png Graphic file (type png)
-<use screenshots/Screenshot (175).png>
-Package pdftex.def Info: screenshots/Screenshot (175).png  used on input line 236.
-(pdftex.def)             Requested size: 250.24199pt x 140.7495pt.
-
-Overfull \hbox (2.2222pt too wide) in paragraph at lines 228--240
+Overfull \hbox (2.2222pt too wide) in paragraph at lines 225--237
 [][] [] 
  []
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[5 <./screenshots/Screenshot (168).png> <./screenshots/Screenshot (169).png> <./screenshots/Screenshot (170).png> <./screenshots/Screenshot (172).png> <./screenshots/Screenshot (171).png>] [6 <./screenshots/Screenshot (174).png> <./screenshots/Screenshot (175).png>] [7] [8] [9] [10] [11] [12] [13] [14] [15] (report.aux)
+<screenshots/Screenshot (168).png, id=213, 1927.2pt x 1084.05pt>
+File: screenshots/Screenshot (168).png Graphic file (type png)
+<use screenshots/Screenshot (168).png>
+Package pdftex.def Info: screenshots/Screenshot (168).png  used on input line 247.
+(pdftex.def)             Requested size: 250.24199pt x 140.7495pt.
+<screenshots/Screenshot (169).png, id=214, 1927.2pt x 1084.05pt>
+File: screenshots/Screenshot (169).png Graphic file (type png)
+<use screenshots/Screenshot (169).png>
+Package pdftex.def Info: screenshots/Screenshot (169).png  used on input line 253.
+(pdftex.def)             Requested size: 250.24199pt x 140.7495pt.
+
+Overfull \hbox (2.2222pt too wide) in paragraph at lines 245--257
+[][] [] 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<screenshots/Screenshot (170).png, id=218, 1927.2pt x 1084.05pt>
+File: screenshots/Screenshot (170).png Graphic file (type png)
+<use screenshots/Screenshot (170).png>
+Package pdftex.def Info: screenshots/Screenshot (170).png  used on input line 265.
+(pdftex.def)             Requested size: 200.19054pt x 112.59628pt.
+<screenshots/Screenshot (172).png, id=219, 1927.2pt x 1084.05pt>
+File: screenshots/Screenshot (172).png Graphic file (type png)
+<use screenshots/Screenshot (172).png>
+Package pdftex.def Info: screenshots/Screenshot (172).png  used on input line 271.
+(pdftex.def)             Requested size: 200.19054pt x 112.59628pt.
+<screenshots/Screenshot (171).png, id=220, 1927.2pt x 1084.05pt>
+File: screenshots/Screenshot (171).png Graphic file (type png)
+<use screenshots/Screenshot (171).png>
+Package pdftex.def Info: screenshots/Screenshot (171).png  used on input line 276.
+(pdftex.def)             Requested size: 250.24199pt x 140.7495pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<screenshots/Screenshot (174).png, id=226, 1927.2pt x 1084.05pt>
+File: screenshots/Screenshot (174).png Graphic file (type png)
+<use screenshots/Screenshot (174).png>
+Package pdftex.def Info: screenshots/Screenshot (174).png  used on input line 289.
+(pdftex.def)             Requested size: 250.24199pt x 140.7495pt.
+<screenshots/Screenshot (175).png, id=227, 1927.2pt x 1084.05pt>
+File: screenshots/Screenshot (175).png Graphic file (type png)
+<use screenshots/Screenshot (175).png>
+Package pdftex.def Info: screenshots/Screenshot (175).png  used on input line 295.
+(pdftex.def)             Requested size: 250.24199pt x 140.7495pt.
+
+Overfull \hbox (2.2222pt too wide) in paragraph at lines 287--299
+[][] [] 
+ []
+
+[5 <./screenshots/commits.png> <./screenshots/code_freq.png>]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<screenshots/Screenshot (181).png, id=250, 1927.2pt x 1084.05pt>
+File: screenshots/Screenshot (181).png Graphic file (type png)
+<use screenshots/Screenshot (181).png>
+Package pdftex.def Info: screenshots/Screenshot (181).png  used on input line 307.
+(pdftex.def)             Requested size: 250.24199pt x 140.7495pt.
+<screenshots/Screenshot (182).png, id=251, 1927.2pt x 1084.05pt>
+File: screenshots/Screenshot (182).png Graphic file (type png)
+<use screenshots/Screenshot (182).png>
+Package pdftex.def Info: screenshots/Screenshot (182).png  used on input line 313.
+(pdftex.def)             Requested size: 250.24199pt x 140.7495pt.
+<screenshots/Screenshot (183).png, id=252, 1927.2pt x 1084.05pt>
+File: screenshots/Screenshot (183).png Graphic file (type png)
+<use screenshots/Screenshot (183).png>
+Package pdftex.def Info: screenshots/Screenshot (183).png  used on input line 319.
+(pdftex.def)             Requested size: 250.24199pt x 140.7495pt.
+<screenshots/Screenshot (184).png, id=253, 1927.2pt x 1084.05pt>
+File: screenshots/Screenshot (184).png Graphic file (type png)
+<use screenshots/Screenshot (184).png>
+Package pdftex.def Info: screenshots/Screenshot (184).png  used on input line 325.
+(pdftex.def)             Requested size: 250.24199pt x 140.7495pt.
+
+Overfull \hbox (2.2222pt too wide) in paragraph at lines 305--329
+[][] []
+ []
+
+
+Overfull \hbox (2.2222pt too wide) in paragraph at lines 305--329
+[] [] 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[6 <./screenshots/Screenshot (164).png> <./screenshots/Screenshot (166).png> <./screenshots/Screenshot (168).png> <./screenshots/Screenshot (169).png>] [7 <./screenshots/Screenshot (170).png> <./screenshots/Screenshot (172).png> <./screenshots/Screenshot (171).png>] [8 <./screenshots/Screenshot (174).png> <./screenshots/Screenshot (175).png>] [9 <./screenshots/Screenshot (181).png> <./screenshots/Screenshot (182).png> <./screenshots/Screenshot (183).png> <./screenshots/Screenshot (184).png>] [10] [11] [12] [13] [14] [15] [16] [17] [18] [19] (report.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
  ***********
 Package rerunfilecheck Info: File `report.out' has not changed.
-(rerunfilecheck)             Checksum: F33B48C574583AE9B1C7AF8A50BB56E5;3147.
+(rerunfilecheck)             Checksum: DCC3F86EAA528A2D97B51DDEA7968461;2559.
 Package logreq Info: Writing requests to 'report.run.xml'.
 \openout1 = `report.run.xml'.
 
  )
 (\end occurred inside a group at level 1)
 
-### simple group (level 1) entered at line 246 ({)
+### simple group (level 1) entered at line 459 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 19954 strings out of 474486
- 349856 string characters out of 5744227
- 2021542 words of memory out of 5000000
- 41935 multiletter control sequences out of 15000+600000
+ 20084 strings out of 474486
+ 352942 string characters out of 5744227
+ 2018542 words of memory out of 5000000
+ 42028 multiletter control sequences out of 15000+600000
  564899 words of font info for 59 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,12n,81p,1013b,1517s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\Dell\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk><C:/Users/Dell/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Dell/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Dell/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/Dell/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Dell/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Dell/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/Dell/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/Dell/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsl10.pfb><C:/Users/Dell/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/Dell/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/Dell/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on report.pdf (15 pages, 4069284 bytes).
+ 75i,12n,81p,948b,2113s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\Dell\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk><C:/Users/Dell/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Dell/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Dell/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/Dell/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Dell/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Dell/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/Dell/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/Dell/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Dell/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Dell/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/Dell/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/Dell/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Dell/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/Dell/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsl10.pfb><C:/Users/Dell/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Dell/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/Dell/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/Dell/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/Dell/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
+Output written on report.pdf (19 pages, 5898978 bytes).
 PDF statistics:
- 420 PDF objects out of 1000 (max. 8388607)
- 125 named destinations out of 1000 (max. 500000)
- 240 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 536 PDF objects out of 1000 (max. 8388607)
+ 162 named destinations out of 1000 (max. 500000)
+ 236 words of extra memory for PDF output out of 10000 (max. 10000000)
 

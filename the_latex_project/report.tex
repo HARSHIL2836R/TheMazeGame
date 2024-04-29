@@ -50,12 +50,8 @@
 \begin{document}
 \title{
 {\Huge\textbf{The Maze Game}}\\[2cm]
-\begin{flushleft}
-    CS108: Software and Systems Lab Project
-\end{flushleft}
-\begin{flushright}
+    CS108: Software Systems Lab Project\\[0.5cm]
     Indian Institute of Technology, Bombay
-\end{flushright}
 }
 \author{23B1016, Harshil Solanki}
 \date{}
@@ -63,6 +59,14 @@
 \tableofcontents
 \clearpage
 
+\section{Introduction}
+I'm Harshil Solanki, roll number 23B1016, and here's my project report for `The Maze Game' Project under TA Guramrit Singh for course CS108: Software Systems Lab.
+
+\subsection{Problem Statement}
+The aim of this project is to design and implement a variant of a 2D maze game using Pygame, a
+popular Python library for game development. The game will consist of a single player-controlled character
+navigating through a maze with a restrictive 2D top view from the starting point to the end point while
+avoiding obstacles and traps.
 
 \section{Modules Used}
 \begin{itemize}
@@ -70,9 +74,9 @@
     \item numpy: This module gives base to this game by allowing it to use an ndarray object that store all the maze information in matrix form
     \item math: Used in settings module, to compute the score as an exponential function linearly scaled to give us output on given input, that is the distance between the player and the end point
     \item os: os.path function used in settings module, to access directory at a lower level than the directory given file is in
-    \item sys: used in game\_functions.py and end\_screen.py, to exit the game
-    \item random: used in settings.py, end\_screen.py, builder.py and hunt\_and\_kill.py to select a random element out of a given sequence 
-    \item datetime: used in game\_screen.py, to save the score with a timestamp of when the game ended 
+    \item sys: used to exit the game whenever required
+    \item random: used to select a random element out of a given sequence 
+    \item datetime: used to save the score with a timestamp of when the game ended 
 \end{itemize}
 
 \section{Directory Structure}
@@ -102,31 +106,86 @@ last_maze.txt # File to store the matrix of the maze that was created in the las
         |---random_walk.py # Function
 |
 \-images/
-    |--player.bmp # Pegion as our Player :)
+    |--player_{left/right}.png # Pegion as our Player :)
+    |--ducky{left/right}.png # Evil duckies in our blind pursuit
     |--blocks[i].jpeg # Flexibility to choose
     |--sky.jpg # Sky is not the limit
     |--nest.png # The Nest is the Goal
+    |--heart.png # Image used to dislay lives
+    |--mute.png # Image used to covey the mute state of game
+    |--sound.png # Image used to covey the unmute state of game
+    |--WASTED.png # Well, Just Nostalgia. Die in the game deliberately and see yourself!
+|
+\-data/
+    |--saved_data.csv # File to store data (scores and time taken) of previous games
+|
+\-audio/
+    |--caproni.mp3 # The Background music played during the game
+    |--counter-strike-jingle-cs-radio-ok-lets-go.mp3 # Another Nostalgia to breed
+    |--ducky-toy-sound.mp3 # Our pegion's 'thud' sound
+    |--super-mario-beedoo_F3cwLoe.mp3 # Nostalgic Game Over
+    |--gta-v-death-sound-effect-102.mp3 # Too much of Nostalgia ;)
+    |--happy-happy-happy-song.mp3 # Winning = Happpyness
+    |--punch-gaming-sound-effect-hd_RzlG1GE.mp3 # Losing = :
 |
 \-the_latex_project/
     |--report.tex # Parent of the pdf you're reading
     |--references.bib # All the references I used, noted
 \end{lstlisting}
-\section{Running Instructions}
-Before proceeding to the run this game, you must be aware of the frustrated situation of our \textit{dear pegion} who has been caught into a \textsc{maze} laid by the \textit{Evil magician} who \textsl{conspires to take the home of this little pegion away from it}, essentially levitating it in open air in midst of a vast calm sea (See the paradox, calm sea and evil villain, duh). The Evil has constructed a maze around nest \textit{articulating in front of the world (you mean the world to him ;)) his immense intelligence} and \textbf{challenging you in front of the world (yourself, hehe)} to break his code, solve the maze, reach to your nest and rest in peace. By watching you in peace, the evil will \textit{burn to ashes} and so burns away the maze with it (pegion and nest are fire-resistant by nature) and you prove your intelligence against the world (now it means something).\\
-Run the file \texttt{game.py} with \texttt{python3} and help the pegion (\textbf{by controlling it with up, down, right and left arrows}) reach it's nest!\\
-Beware, you must first be considerate of your own intelligence, choose the level wisely. Otherwise, you'll have to face depression as you'll be graded relatively to the players who've played if before! But if you're my type, and grades don't matter much, enjoy the pegion, the flight and the music!\\
-\textcolor{red}{In case the game is struck and not loading (a random walk error maybe due to overconsumption of memory) interrupt the terminal and re-run the game.}\\
-\textcolor{red}{There's also a map version of the game, if you're curious you can see the whole maze in the screen by tweaking the value of \texttt{self.mode} in \texttt{modules.settings.py} as \texttt{"map"}.}
+\section{Playing Instructions}
+\begin{quote}
+    
+    Before proceeding to the run this game, you must be aware of the miserable situation of our \textit{dear pegion} who has been caught into a \textsc{maze} laid by the \textit{Evil magician} who \textsl{conspires to take the home of this little pegion away from it}, essentially levitating it in open air in midst of a vast calm sea (See the paradox, calm sea and evil villain, duh).
+    The Evil has constructed a maze around nest \textit{articulating in front of the world (you mean the world to him ;)) his immense intelligence} and \textbf{challenging you in front of the world (yourself, hehe)} to break his code, solve the maze and reach to your nest. By watching the pegion rest in peace in it's nest, the evil will \textit{burn to ashes} and so burns away the maze with it (pegion and nest are fire-resistant by nature) and you prove your intelligence against the world (now it means something).\\
+    To your surprise, he's added Evil Duckies to the Maze on hitting whome the Ducky dies and your pegion loses a third of it's total health and that implies that with zero health the pegion is dead and the game is over. The Duckies are blind in daylight and they move around randomly where they can. If you pass a ducky fast enough, it might save one life of yours!\\
+    Run the file \texttt{game.py} with \texttt{python3} and help the pegion (\textbf{by controlling it with up, down, right and left arrows}) reach it's nest!\\
+    Beware, you must be considerate of your own intelligence, choose the level wisely. Otherwise, you'll have to face depression as you'll be graded relatively to the players who've played if before! But if you're my type, and grades don't matter much, enjoy the pegion, the flight and the music!\\
+\end{quote}
+\begin{center}
+\subsection{GUI Instructions}
+\begin{itemize}
+    \item The Menu Screen gives you an option to mute the Music and Sound Effects of the game with a button on the topleft corner of the screen.
+    \item The Game Screen shows you your Score and the Remaining on topleft corner of the screen and the lives remaining on the topright corner of the screen.
+    \item It's a fast game so tighten your seat-belts before starting!
+\end{itemize}
+\subsection{Extra Instructions}
+\textcolor{red}{
+    \begin{itemize}
+    \item In case the game is struck and not loading (a random walk error maybe due to overconsumption of memory) interrupt the terminal and re-run the game.
+    \item There's also a map version of the game, if you're curious you can see the whole maze in the screen by tweaking the value of \texttt{self.mode} in \texttt{modules.settings.py} as \texttt{"map"}. You might want to disable the enemies using the \texttt{settings.py} module, set \texttt{self.enable\_enemies} to \texttt{False}.
+    \item In case you want pegion to move at a faster speed, set \texttt{self.move\_fast} to \texttt{True} in \texttt{settings.py}.
+\end{itemize}
+}
+\end{center}
 \section{Features}
 Not much of a feature, but you can exit the game anytime you want by pressing ESC :)\\
+\subsection*{Score}
+The Score is calculated at a point of time in the maze as follows:
+\begin{equation}
+    score = 100 \left( \frac{w_1\left(e^{\frac{-2d}{D}}-e^2\right)+w_2\left(\frac{t}{T}\right)}{w_1+w_2} \right)
+\end{equation}
+where 
+\begin{verse}
+    $d$ = distance between the player and the end point,\\
+    $D$ = maximum distance between the player and the end point possible in given maze,\\
+    $t$ = time remaining when the game was finished/over,\\
+    $T$ = total timeout allowed in the game,\\
+    $w_1$ = weight of distance parameter (here 70),\\
+    $w_2$ = weight of time parameter (here 30)
+\end{verse}
+
 \subsection{Menu Screen}
 \begin{itemize}
     \item The game has three levels to select from
+    \item Top 3 scores from all of game history are showed in the menu along with the time that game was played
+    \item There's a button to mute/unmute all of game's music and sound effects
 \end{itemize}
 \subsection{Game Screen}
 \begin{itemize}
     \item A reverse timer is show on the top of screen showing how much time is left with you to complete the game
-    \item Current score is shown below the timer, essentially based on the distance between the player and the end point, hence, as a hint, giving you an idea of where to move
+    \item Current score is shown below the timer
+    \item The number of lives remaining is shown on the top right corner of the screen
+    \item There are evil duckies chasing you blindly. A hit kills the ducky and you lose one life
     \item Background Music is being played to motivate the player to complete the game
     \item Collision detection is applied producing ducky-toy squash sound effect on hitting a wall (we have a pegion obsessed with ducks)
     \item Fading music when Game ends
@@ -141,13 +200,13 @@ A brief overview of my journey could be given by my commits and code frequency o
 
 \begin{figure}[h]
     \caption[1]{}
-    \begin{subfigure}[b]{0.5\textwidth}
+    \begin{subfigure}[b]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{screenshots/commits.png}
         \caption[(a)]{Commit history in git}
         \label{fig:commit}
     \end{subfigure}
-    \begin{subfigure}[b]{0.5\textwidth}
+    \begin{subfigure}[b]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{screenshots/code_freq.png}
         \caption[(a)]{Code frequency over history in git}
@@ -177,7 +236,7 @@ After making the menu I started to Research over the different Maze generation a
     \end{subfigure}
 \end{figure}
 
-Getting Inspiration from all these Algorithms and understanding how randomness is used in each algorithm, I created my own Algorithm here~\ref{my_alg}
+\noindent Getting Inspiration from all these Algorithms and understanding how randomness is used in each algorithm, I created my own Algorithm here~\ref{my_alg}
 Then I made the game dynamic by allowing the player to move and deploying the camera (while keeping the complete map layout as it is, so it can also be accessed by tweaking the code in settings)
 \subsection{The Map}
 Before the Camera class was created I was blitting object directly to the screen as a map, here are screenshots of that, Fig.~\ref{fig:map1} and Fig.~\ref{fig:map2}
@@ -197,7 +256,7 @@ Before the Camera class was created I was blitting object directly to the screen
     \end{subfigure}
 \end{figure}
 
-Final map view looked like this, Fig.~\ref{fig:map3}, Fig.~\ref{fig:map4} and Fig.~\ref{fig:map5}
+\noindent Final map view looked like this, Fig.~\ref{fig:map3}, Fig.~\ref{fig:map4} and Fig.~\ref{fig:map5}
 
 \begin{figure}[h]
     \caption[1]{}
@@ -221,7 +280,7 @@ Final map view looked like this, Fig.~\ref{fig:map3}, Fig.~\ref{fig:map4} and Fi
 \end{figure}
 
 \subsection{The Camera and The Pegion}
-For the Camera to function efficiently~\cite{camera_tutorial}, I needed the \textit{"things"}, i.e. the player and wall and path Rects to be Sprites (children of class pygame.sprite.Sprite) hence I redefined the classes a bit and learnt more about Sprites and Groups in pygame~\cite{sprite_reference}. I also used groups to create animation effect in End-Screen~\cite*{end-scren_animation}. After implementing the camera, the game looked like, Fig.~\ref{fig:camera1} and end-screen like Fig.~\ref{fig:camera2}.
+For the Camera to function efficiently~\cite{camera_tutorial}, I needed the \textit{\lq\lq things\rq\rq}, i.e. the player and wall and path Rects to be Sprites (children of class pygame.sprite.Sprite) hence I redefined the classes a bit and learnt more about Sprites and Groups in pygame~\cite{sprite_reference}. I also used groups to create animation effect in End-Screen~\cite*{end-scren_animation}. After implementing the camera, the game looked like, Fig.~\ref{fig:camera1} and end-screen like Fig.~\ref{fig:camera2}.
 
 \begin{figure}[h]
     \caption[1]{}
@@ -239,9 +298,161 @@ For the Camera to function efficiently~\cite{camera_tutorial}, I needed the \tex
     \end{subfigure}
 \end{figure}
 
+\noindent Then I improved the wall sprites to take on random block images as Surfaces. Then, I added comments and descriptions to functions and methods and organise references and report. Finally, I created a child class of Player, Enemy, which spawns randomly moving Evil Ducks on screen and you lose a life if you hit one. Here are the screenshots of the final Game, Figures \ref{fig:final1}, \ref{fig:final2}, \ref{fig:final3} and \ref{fig:final4}
+
+\begin{figure}[h]
+    \caption[1]{}
+    \begin{subfigure}[b]{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{screenshots/Screenshot (181).png}
+        \caption[(a)]{Menu Screen}
+        \label{fig:final1}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{screenshots/Screenshot (182).png}
+        \caption[(a)]{Game Screen}
+        \label{fig:final2}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{screenshots/Screenshot (183).png}
+        \caption[(a)]{End Screen}
+        \label{fig:final3}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{screenshots/Screenshot (184).png}
+        \caption[(a)]{Terminal Window}
+        \label{fig:final4}
+    \end{subfigure}
+\end{figure}
+
+\section{My Algorithm}
+\label{my_alg}
+Taking inspiration from the algorithms in~\ref{maze_algs}, I implemented my algorithm in this way:
+
+\begin{enumerate}
+    \item Make a random path from start-point to the end-point with a constraint on how much steps the path should consist of.
+    \item Choose two arbitrary points in this path and block the initial path we made between them and generate another random path.
+    \item Use Hunt and Kill algorithm~\ref{hunt_n_kill} to verify no cell is unvisited. Fine tune it to ensure that other paths are not broken down to points.
+\end{enumerate}
+
+\subsection*{Differentiator Between Game Levels}
+\begin{itemize}
+    \item First level has $9\times9$ Maze with 10s Timeout and no breaking up of initially made solution path. Start Point is Top Left corner and End Point is Bottom Right corner. It has 5 enemies.
+    \item Second level has $19\times19$ Maze with 20s Timeout and we modify the initially generated solution path by breaking it at random place and generating another random path to increase its complexity. Start Point is Top Left corner and End Point is any of other three corners. It has 10 enemies.
+    \item Third level has $39\times39$ Maze with 30s Timeout and we modify the initially generated solution path by breaking it at random place and generating another random path to increase its complexity. Start Point is Top Left corner and End Point is any random point not in the first quarter of maze. It has 15 enemies.
+\end{itemize}
+
+\section{Learning Outcomes}
+Of all I've learnt, the foremost should be that starting everything from scratch requires so much of patience and hardwork, also it consumes a lot of your time and you may not be able to implement all the features that you wanted and that you could in given time.\\
+However, building things from scratch cleared my concepts about Classes, Child Classes, how they're used to write code efficiently and perfom huge operations easily. This project introduced me to the Sprites class of pygame, which is it's inbuilt class which allowes users to automate tasks without writing explicit codes for every element in game.\\
+I learnt how innovating and implementing an algorithm can be so tough that it might exhaust you of all due to some side cases you missed and that single mistake messes up all of your game. And, anyways, you eventually end up in having some bugs in your game which you couldn't find and fix out. In my case, a freeze error where maybe the memory is all used up and some coordinates are printed in the terminal unexpectedly. The only option is to KeyboardInterrupt and run a new instance of game.\\
+In the end, it has been great fun to work for this project under deadline pressure and hectic Endsem schedule.
+
+\section{Maze Generation Algorithms Referred}
+\label{maze_algs}
+\subsection*{Kruskal's Algorithm}
+[\href{https://weblog.jamisbuck.org/2011/1/3/maze-generation-kruskal-s-algorithm}{Source}]\\
+Kruskal's algorithm is a method for producing a minimal spanning tree from a weighted graph. It works something like this:
+
+\begin{enumerate}
+    \item Throw all of the edges in the graph into a big burlap sack. (Or, you know, a set or something.)
+    \item Pull out the edge with the lowest weight. If the edge connects two disjoint trees, join the trees. Otherwise, throw that edge away.
+    \item Repeat until there are no more edges left.
+\end{enumerate}
+
+The {\it Randomized Kruskal's algorithm} just changes the second step, so that instead of pulling out the edge with the lowest weight, you remove an edge from the bag at random. Making that change, the algorithm now produces a fairly convincing maze.
+
+\subsection*{Prism's Algorithm}
+[\href{https://weblog.jamisbuck.org/2011/1/10/maze-generation-prim-s-algorithm}{Source}]\\
+The standard version of the algorithm works something like this:
+\begin{enumerate}
+    \item Choose an arbitrary vertex from G (the graph), and add it to some (initially empty) set V.
+    \item Choose the edge with the smallest weight from G, that connects a vertex in V with another vertex not in V.
+    \item Add that edge to the minimal spanning tree, and the edge's other vertex to V.
+    \item Repeat steps 2 and 3 until V includes every vertex in G.
+\end{enumerate}
+
+And the result is a minimal spanning tree of G. For maze generation, in the second step, we select a random edge instead of edge with lowest weight.
+
+\subsection*{Recursive Backtracing}
+[\href{https://weblog.jamisbuck.org/2010/12/27/maze-generation-recursive-backtracking}{Source}]\\
+Here's the mile-high view of recursive backtracking:
+\begin{enumerate}
+    \item Choose a starting point in the field.
+    \item Randomly choose a wall at that point and carve a passage through to the adjacent cell, but only if the adjacent cell has not been visited yet. This becomes the new current cell.
+    \item If all adjacent cells have been visited, back up to the last cell that has uncarved walls and repeat.
+    \item The algorithm ends when the process has backed all the way up to the starting point.
+\end{enumerate}
+
+Seems simple enough.
+
+\subsection*{Aldous-Broder Algorithm}
+[\href{https://weblog.jamisbuck.org/2011/1/17/maze-generation-aldous-broder-algorithm}{Source}]\\
+Aldous and Broder were researching these uniform spanning trees, and independently arrived at the following algorithm:
+\begin{enumerate}
+    \item Choose a vertex. Any vertex.
+    \item Choose a connected neighbor of the vertex and travel to it. If the neighbor has not yet been visited, add the traveled edge to the spanning tree.
+    \item Repeat step 2 until all vertexes have been visited.
+\end{enumerate}
+
+Note: this algorithm is notable in that it selects from all possible spanning trees (i.e. mazes) of a given graph (i.e. field) with equal probability. The other algorithms shown don't have this property.
+
+\subsection*{Wilson's Algorithm}
+[\href{https://weblog.jamisbuck.org/2011/1/20/maze-generation-wilson-s-algorithm}{Source}]\\
+Note: a spanning tree is a tree that connects all the vertices of a graph. A uniform spanning tree (UST) is any one of the possible spanning trees of a graph, selected randomly and with equal probability.
+The algorithm goes something like this:
+\begin{enumerate}
+    \item Choose any vertex at random and add it to the UST.
+    \item Select any vertex that is not already in the UST and perform a random walk until you encounter a vertex that is in the UST.
+    \item Add the vertices and edges touched in the random walk to the UST.
+    \item Repeat 2 and 3 until all vertices have been added to the UST.
+\end{enumerate}
+
+So, it's still doing the random walk, but this algorithm converges much more rapidly than Aldous-Broder.
+\subsection*{Hunt and Kill Algorithm}
+\label{hunt_n_kill}
+[\href{https://weblog.jamisbuck.org/2011/1/24/maze-generation-hunt-and-kill-algorithm}{Source}]\\
+Toda's algorithm is the “hunt-and-kill algorithm”. Sounds violent, doesn't it? It's actually quite tame. In a nutshell, it works like this:
+
+\begin{enumerate}
+    \item Choose a starting location.
+    \item Perform a random walk, carving passages to unvisited neighbors, until the current cell has no unvisited neighbors.
+    \item Enter “hunt” mode, where you scan the grid looking for an unvisited cell that is adjacent to a visited cell. If found, carve a passage between the two and let the formerly unvisited cell be the new starting location.
+    \item Repeat steps 2 and 3 until the hunt mode scans the entire grid and finds no unvisited cells.
+\end{enumerate}
+
+\subsection*{Growing Tree Algorithm}
+[\href{https://weblog.jamisbuck.org/2011/1/27/maze-generation-growing-tree-algorithm}{Source}]\\
+A slick algorithm. Here's how it works:
+
+\begin{enumerate}
+    \item Let C be a list of cells, initially empty. Add one cell to C, at random.
+    \item Choose a cell from C, and carve a passage to any unvisited neighbor of that cell, adding that neighbor to C as well. If there are no unvisited neighbors, remove the cell from C.
+    \item Repeat step 2 until C is empty.
+\end{enumerate}
+
+Pretty straight-forward, really. But the fun lies in how you choose the cells from C, in step 2. If you always choose the newest cell (the one most recently added), you'll get the recursive backtracker. If you always choose a cell at random, you get Prim's. It's remarkably fun to experiment with other ways to choose cells from C.
+
+\subsection*{Eller's Algorithm}
+[\href{https://weblog.jamisbuck.org/2010/12/29/maze-generation-eller-s-algorithm}{Source}]\\
+It does this by building the maze one row at a time, using sets to keep track of which columns are ultimately connected. But it never needs to look at more than a single row, and when it finishes, it always produces a perfect maze.
+
+Like the recursive backtracking algorithm, here's the “mile-high” overview of Eller's algorithm:
+\begin{enumerate}
+    \item Initialize the cells of the first row to each exist in their own set.
+    \item Now, randomly join adjacent cells, but only if they are not in the same set. When joining adjacent cells, merge the cells of both sets into a single set, indicating that all cells in both sets are now connected (there is a path that connects any two cells in the set).
+    \item For each set, randomly create vertical connections downward to the next row. Each remaining set must have at least one vertical connection. The cells in the next row thus connected must share the set of the cell above them.
+    \item Flesh out the next row by putting any remaining cells into their own sets.
+    \item Repeat until the last row is reached.
+    \item For the last row, join all adjacent cells that do not share a set, and omit the vertical connections, and you're done!
+
+\end{enumerate}
 
 
-\subsection{Git Log}
+\section{Git Log}
 Here's the output of command \texttt{git log --graph --oneline --stat --color} with changes to .pyc files and changes to the another Game project~\cite*{camera_reference} I referred to for building up camera in my game, removed.
 
 %%%%% WRITING git log --graph --oneline --color OUTPUT TO Document 
@@ -284,6 +495,94 @@ Here's the output of command \texttt{git log --graph --oneline --stat --color} w
 \
 
 \begin{verbatim}
+    * [33m552fbf3[m finalise game
+    [31m|[m  audio/ducky-toy-sound.mp3                    | Bin [31m17059[m -> [32m11258[m bytes
+    [31m|[m  audio/ducky-toy-sound2.mp3                   | Bin [31m0[m -> [32m17059[m bytes
+    [31m|[m  data/saved_data.csv                          |   6 [32m+[m[31m-[m
+    [31m|[m  game.py                                      |  25 [32m+++++[m[31m--[m
+    [31m|[m  images/WASTED.png                            | Bin [31m0[m -> [32m3248[m bytes
+    [31m|[m  ...395c5f90-17de-480f-b710-36c0ea1de012.jpeg | Bin [31m224957[m -> [32m0[m bytes
+    [31m|[m  ...c385f6fc-cfe2-4f33-ba2a-2552487c9500.jpeg | Bin [31m94816[m -> [32m0[m bytes
+    [31m|[m  images/mute.png                              | Bin [31m0[m -> [32m45358[m bytes
+    [31m|[m  images/player - Copy.bmp                     | Bin [31m7738[m -> [32m0[m bytes
+    [31m|[m  images/player.bmp                            | Bin [31m3942[m -> [32m0[m bytes
+    [31m|[m  images/player_old.png                        | Bin [31m3002[m -> [32m0[m bytes
+    [31m|[m  images/sound.png                             | Bin [31m0[m -> [32m37212[m bytes
+    [31m|[m  images/wall.jpeg                             | Bin [31m398914[m -> [32m0[m bytes
+    [31m|[m  last_maze.txt                                |  60 [32m++++++[m[31m-----------[m
+    [31m|[m  modules/button.py                            |  21 [32m+++++[m[31m-[m
+    [31m|[m  modules/end_screen.py                        |   4 [32m+[m[31m-[m
+    [31m|[m  modules/game_functions.py                    |  15 [32m+++[m[31m--[m
+    [31m|[m  modules/game_screen.py                       |  16 [32m+++[m[31m--[m
+    [31m|[m  modules/menu.py                              |  36 [32m++++++[m[31m----[m
+    [31m|[m  modules/settings.py                          |   2 [32m+[m
+    [31m|[m  path.txt                                     |   2 [32m+[m[31m-[m
+    [31m|[m  27 files changed, 110 insertions(+), 77 deletions(-)
+    * [33m511a3f7[m enemies ready
+    [31m|[m  data/saved_data.csv                          |  37 [32m+[m[31m---------[m
+    [31m|[m  fonts/Arcade.ttf                             | Bin [31m0[m -> [32m27700[m bytes
+    [31m|[m  fonts/Blox2.ttf                              | Bin [31m0[m -> [32m108460[m bytes
+    [31m|[m  fonts/led.ttf                                | Bin [31m0[m -> [32m367124[m bytes
+    [31m|[m  game.py                                      |  15 [32m+++[m[31m--[m
+    [31m|[m  images/ducky_left.png                        | Bin [31m0[m -> [32m797358[m bytes
+    [31m|[m  images/ducky_right.png                       | Bin [31m0[m -> [32m796872[m bytes
+    [31m|[m  images/heart.png                             | Bin [31m0[m -> [32m3093[m bytes
+    [31m|[m  last_maze.txt                                |  60 [32m+++++++++++[m[31m------[m
+    [31m|[m  modules/button.py                            |  13 [32m+++[m[31m-[m
+    [31m|[m  modules/end_screen.py                        |   8 [32m+[m[31m--[m
+    [31m|[m  modules/game_screen.py                       |  42 [32m+++++++[m[31m-----[m
+    [31m|[m  modules/menu.py                              |  26 [32m++++[m[31m---[m
+    [31m|[m  modules/player.py                            |  41 [32m+++++++++[m[31m--[m
+    [31m|[m  modules/settings.py                          |  31 [32m++++++[m[31m---[m
+    [31m|[m  path.txt                                     |   2 [32m+[m[31m-[m
+    [31m|[m  22 files changed, 167 insertions(+), 108 deletions(-)
+    * [33mdc5fbfb[m Add enemies #piecing into walls
+    [31m|[m  data/saved_data.csv                          |  79 [32m+++++[m[31m------------[m
+    [31m|[m  game.py                                      |  16 [32m+++[m[31m-[m
+    [31m|[m  images/player_left.png                       | Bin [31m0[m -> [32m12411[m bytes
+    [31m|[m  images/{player.png => player_right.png}      | Bin
+    [31m|[m  last_maze.txt                                |  38 [32m++++[m[31m----[m
+    [31m|[m  modules/end_screen.py                        |   7 [32m+[m[31m-[m
+    [31m|[m  modules/game_functions.py                    |  25 [32m+++++[m[31m-[m
+    [31m|[m  modules/game_screen.py                       |  45 [32m+++++++[m[31m---[m
+    [31m|[m  modules/menu.py                              |  15 [32m+++[m[31m-[m
+    [31m|[m  modules/player.py                            |  25 [32m+++++[m[31m-[m
+    [31m|[m  modules/settings.py                          |  14 [32m++[m[31m-[m
+    [31m|[m  path.txt                                     |   2 [32m+[m[31m-[m
+    [31m|[m  the_latex_project/report.tex                 |   4 [32m+[m[31m-[m
+    [31m|[m  19 files changed, 167 insertions(+), 103 deletions(-)
+    * [33m3bb7b5f[m Update report
+    [31m|[m  .../ltex.hiddenFalsePositives.en-US.txt      |   1 [32m+[m
+    [31m|[m  the_latex_project/log.txt                    | Bin [31m0[m -> [32m98050[m bytes
+    [31m|[m  the_latex_project/references.bib             |   8 [32m+[m[31m-[m
+    [31m|[m  the_latex_project/report.aux                 |  96 [32m++[m[31m-[m
+    [31m|[m  the_latex_project/report.bbl                 | 103 [32m+++[m
+    [31m|[m  the_latex_project/report.bbl-SAVE-ERROR      | 113 [32m++++[m
+    [31m|[m  the_latex_project/report.bcf                 |   8 [32m+[m
+    [31m|[m  the_latex_project/report.blg                 |  24 [32m+[m
+    [31m|[m  the_latex_project/report.fdb_latexmk         |  45 [32m+[m[31m-[m
+    [31m|[m  the_latex_project/report.fls                 | 107 [32m+++[m[31m-[m
+    [31m|[m  the_latex_project/report.log                 | 318 [32m+++++++[m[31m---[m
+    [31m|[m  the_latex_project/report.out                 |  38 [32m+[m[31m-[m
+    [31m|[m  the_latex_project/report.pdf                 | Bin [31m187644[m -> [32m4069284[m bytes
+    [31m|[m  the_latex_project/report.synctex.gz          | Bin [31m53120[m -> [32m129393[m bytes
+    [31m|[m  the_latex_project/report.tex                 | 559 [32m++++++++++++++++[m[31m-[m
+    [31m|[m  the_latex_project/report.toc                 |  38 [32m+[m[31m-[m
+    [31m|[m  .../screenshots/Screenshot (164).png         | Bin [31m0[m -> [32m360483[m bytes
+    [31m|[m  .../screenshots/Screenshot (166).png         | Bin [31m0[m -> [32m361422[m bytes
+    [31m|[m  .../screenshots/Screenshot (168).png         | Bin [31m0[m -> [32m355008[m bytes
+    [31m|[m  .../screenshots/Screenshot (169).png         | Bin [31m0[m -> [32m283114[m bytes
+    [31m|[m  .../screenshots/Screenshot (170).png         | Bin [31m0[m -> [32m474084[m bytes
+    [31m|[m  .../screenshots/Screenshot (171).png         | Bin [31m0[m -> [32m448526[m bytes
+    [31m|[m  .../screenshots/Screenshot (172).png         | Bin [31m0[m -> [32m661720[m bytes
+    [31m|[m  .../screenshots/Screenshot (174).png         | Bin [31m0[m -> [32m1145991[m bytes
+    [31m|[m  .../screenshots/Screenshot (175).png         | Bin [31m0[m -> [32m591723[m bytes
+    [31m|[m  .../screenshots/Screenshot (176).png         | Bin [31m0[m -> [32m1059786[m bytes
+    [31m|[m  .../screenshots/Screenshot (177).png         | Bin [31m0[m -> [32m476293[m bytes
+    [31m|[m  .../screenshots/Screenshot (178).png         | Bin [31m0[m -> [32m333411[m bytes
+    [31m|[m  the_latex_project/screenshots/code_freq.png  | Bin [31m0[m -> [32m97736[m bytes
+    [31m|[m  the_latex_project/screenshots/commits.png    | Bin [31m0[m -> [32m78707[m bytes
+    [31m|[m  30 files changed, 1292 insertions(+), 166 deletions(-)
     * [33m8c85451[m remove unwanted things, update problem statement, work on report
     [31m|[m  ...Spring 2023-24) _ Maze Game in Python.pdf |  Bin [31m3332129[m -> [32m3343895[m bytes
     [31m|[m  data/saved_data.csv                          |   12 [32m+[m[31m-[m
@@ -637,116 +936,7 @@ Here's the output of command \texttt{git log --graph --oneline --stat --color} w
     
 \end{verbatim}
 
-%%%%%%ALGORITHMS STUDIED%%%%%%
-\section{Maze Generation Algorithms}
-\label{maze_algs}
-\subsection{Kruskal's Algorithm}
-[\href{https://weblog.jamisbuck.org/2011/1/3/maze-generation-kruskal-s-algorithm}{Source}]\\
-Kruskal's algorithm is a method for producing a minimal spanning tree from a weighted graph. It works something like this:
-
-\begin{enumerate}
-    \item Throw all of the edges in the graph into a big burlap sack. (Or, you know, a set or something.)
-    \item Pull out the edge with the lowest weight. If the edge connects two disjoint trees, join the trees. Otherwise, throw that edge away.
-    \item Repeat until there are no more edges left.
-\end{enumerate}
-
-The {\it Randomized Kruskal's algorithm} just changes the second step, so that instead of pulling out the edge with the lowest weight, you remove an edge from the bag at random. Making that change, the algorithm now produces a fairly convincing maze.
-
-\subsection{Prism's Algorithm}
-%https://weblog.jamisbuck.org/2011/1/10/maze-generation-prim-s-algorithm
-The standard version of the algorithm works something like this:
-\begin{enumerate}
-    \item Choose an arbitrary vertex from G (the graph), and add it to some (initially empty) set V.
-    \item Choose the edge with the smallest weight from G, that connects a vertex in V with another vertex not in V.
-    \item Add that edge to the minimal spanning tree, and the edge's other vertex to V.
-    \item Repeat steps 2 and 3 until V includes every vertex in G.
-\end{enumerate}
-
-And the result is a minimal spanning tree of G. For maze generation, in the second step, we select a random edge instead of edge with lowest weight.
-
-\subsection{Recursive Backtracing}
-%https://weblog.jamisbuck.org/2010/12/27/maze-generation-recursive-backtracking
-Here's the mile-high view of recursive backtracking:
-\begin{enumerate}
-    \item Choose a starting point in the field.
-    \item Randomly choose a wall at that point and carve a passage through to the adjacent cell, but only if the adjacent cell has not been visited yet. This becomes the new current cell.
-    \item If all adjacent cells have been visited, back up to the last cell that has uncarved walls and repeat.
-    \item The algorithm ends when the process has backed all the way up to the starting point.
-\end{enumerate}
-
-Seems simple enough.
-
-\subsection{Aldous-Broder Algorithm}
-%https://weblog.jamisbuck.org/2011/1/17/maze-generation-aldous-broder-algorithm
-Aldous and Broder were researching these uniform spanning trees, and independently arrived at the following algorithm:
-\begin{enumerate}
-    \item Choose a vertex. Any vertex.
-    \item Choose a connected neighbor of the vertex and travel to it. If the neighbor has not yet been visited, add the traveled edge to the spanning tree.
-    \item Repeat step 2 until all vertexes have been visited.
-\end{enumerate}
-
-Note: this algorithm is notable in that it selects from all possible spanning trees (i.e. mazes) of a given graph (i.e. field) with equal probability. The other algorithms shown don't have this property.
-
-\subsection{Wilson's Algorithm}
-%https://weblog.jamisbuck.org/2011/1/20/maze-generation-wilson-s-algorithm
-Note: a spanning tree is a tree that connects all the vertices of a graph. A uniform spanning tree (UST) is any one of the possible spanning trees of a graph, selected randomly and with equal probability.
-The algorithm goes something like this:
-\begin{enumerate}
-    \item Choose any vertex at random and add it to the UST.
-    \item Select any vertex that is not already in the UST and perform a random walk until you encounter a vertex that is in the UST.
-    \item Add the vertices and edges touched in the random walk to the UST.
-    \item Repeat 2 and 3 until all vertices have been added to the UST.
-\end{enumerate}
-
-So, it's still doing the random walk, but this algorithm converges much more rapidly than Aldous-Broder.
-\subsection{Hunt and Kill Algorithm}
-%https://weblog.jamisbuck.org/2011/1/24/maze-generation-hunt-and-kill-algorithm
-Toda's algorithm is the “hunt-and-kill algorithm”. Sounds violent, doesn't it? It's actually quite tame. In a nutshell, it works like this:
-
-\begin{enumerate}
-    \item Choose a starting location.
-    \item Perform a random walk, carving passages to unvisited neighbors, until the current cell has no unvisited neighbors.
-    \item Enter “hunt” mode, where you scan the grid looking for an unvisited cell that is adjacent to a visited cell. If found, carve a passage between the two and let the formerly unvisited cell be the new starting location.
-    \item Repeat steps 2 and 3 until the hunt mode scans the entire grid and finds no unvisited cells.
-\end{enumerate}
-
-\subsection{Growing Tree Algorithm}
-%https://weblog.jamisbuck.org/2011/1/27/maze-generation-growing-tree-algorithm
-A slick algorithm. Here's how it works:
-
-\begin{enumerate}
-    \item Let C be a list of cells, initially empty. Add one cell to C, at random.
-    \item Choose a cell from C, and carve a passage to any unvisited neighbor of that cell, adding that neighbor to C as well. If there are no unvisited neighbors, remove the cell from C.
-    \item Repeat step 2 until C is empty.
-\end{enumerate}
-
-Pretty straight-forward, really. But the fun lies in how you choose the cells from C, in step 2. If you always choose the newest cell (the one most recently added), you'll get the recursive backtracker. If you always choose a cell at random, you get Prim's. It's remarkably fun to experiment with other ways to choose cells from C.
-
-\subsection{Eller's Algorithm}
-%https://weblog.jamisbuck.org/2010/12/29/maze-generation-eller-s-algorithm
-It does this by building the maze one row at a time, using sets to keep track of which columns are ultimately connected. But it never needs to look at more than a single row, and when it finishes, it always produces a perfect maze.
-
-Like the recursive backtracking algorithm, here's the “mile-high” overview of Eller's algorithm:
-\begin{enumerate}
-    \item Initialize the cells of the first row to each exist in their own set.
-    \item Now, randomly join adjacent cells, but only if they are not in the same set. When joining adjacent cells, merge the cells of both sets into a single set, indicating that all cells in both sets are now connected (there is a path that connects any two cells in the set).
-    \item For each set, randomly create vertical connections downward to the next row. Each remaining set must have at least one vertical connection. The cells in the next row thus connected must share the set of the cell above them.
-    \item Flesh out the next row by putting any remaining cells into their own sets.
-    \item Repeat until the last row is reached.
-    \item For the last row, join all adjacent cells that do not share a set, and omit the vertical connections, and you're done!
-\end{enumerate}
-
-\section{My Algorithm}
-\label{my_alg}
-Taking inspiration from the previous algorithms, I'm going to implement my algorithm in this way:
-
-\begin{enumerate}
-    \item Make a random path from start-point to the end-point.
-    \item Choose two arbitrary points in this path and block the initial path we made between them and generate another random path.
-    \item Repeat the previous step according to the complexity of maze.
-    \item Use Hunt and Kill algorithm to verify no cell is univisited.
-\end{enumerate}
-
+\nocite{pygame_docs,color-selection,heart-image,fonts,wasted-font,theme_site,audio-source,camera_reference2}
 \printbibliography
 
 \end{document}

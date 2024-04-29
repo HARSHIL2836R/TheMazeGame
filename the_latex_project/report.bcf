@@ -2371,6 +2371,14 @@
     <bcf:citekey order="8" intorder="1">sprite_reference</bcf:citekey>
     <bcf:citekey order="9" intorder="1">end-scren_animation</bcf:citekey>
     <bcf:citekey order="10" intorder="1">camera_reference</bcf:citekey>
+    <bcf:citekey order="11" intorder="1" nocite="1">pygame_docs</bcf:citekey>
+    <bcf:citekey order="12" intorder="2" nocite="1">color-selection</bcf:citekey>
+    <bcf:citekey order="13" intorder="3" nocite="1">heart-image</bcf:citekey>
+    <bcf:citekey order="14" intorder="4" nocite="1">fonts</bcf:citekey>
+    <bcf:citekey order="15" intorder="5" nocite="1">wasted-font</bcf:citekey>
+    <bcf:citekey order="16" intorder="6" nocite="1">theme_site</bcf:citekey>
+    <bcf:citekey order="17" intorder="7" nocite="1">audio-source</bcf:citekey>
+    <bcf:citekey order="18" intorder="8" nocite="1">camera_reference2</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nty">

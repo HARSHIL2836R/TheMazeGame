@@ -82,6 +82,7 @@ class Settings():
         def __init__(self) -> None:
             self.bt_color = (80, 49, 255)
             self.text_color = (228, 234, 140)
+            
     class End():
         def __init__(self) -> None:
             """End Screen Settings

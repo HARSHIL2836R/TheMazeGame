@@ -31,6 +31,32 @@
       \verb https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
       \endverb
     \endentry
+    \entry{color-selection}{online}{}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{labeltitlesource}{title}
+      \field{title}{Colors selection}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://webflow.com/blog/best-color-combinations
+      \endverb
+      \verb{url}
+      \verb https://webflow.com/blog/best-color-combinations
+      \endverb
+    \endentry
+    \entry{fonts}{online}{}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{labeltitlesource}{title}
+      \field{title}{Fonts downloaded from here}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://www.1001freefonts.com/bitmap-pixel-fonts.php
+      \endverb
+      \verb{url}
+      \verb https://www.1001freefonts.com/bitmap-pixel-fonts.php
+      \endverb
+    \endentry
     \entry{menu-geeksforgeeks}{online}{}
       \field{sortinit}{g}
       \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
@@ -83,6 +109,19 @@
       \endverb
       \warn{\item online entry 'camera_reference' (references.bib): Invalid format '23-04-2024' of date field 'date' - ignoring}
     \endentry
+    \entry{heart-image}{online}{}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labeltitlesource}{title}
+      \field{title}{Heart Image}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://www.onlygfx.com/wp-content/uploads/2021/02/6-pixel-heart-4.png
+      \endverb
+      \verb{url}
+      \verb https://www.onlygfx.com/wp-content/uploads/2021/02/6-pixel-heart-4.png
+      \endverb
+    \endentry
     \entry{thebook}{book}{}
       \name{author}{1}{}{%
         {{hash=003c2fe29c9abefca40063065bca1472}{%
@@ -106,6 +145,20 @@
       \field{labeltitlesource}{title}
       \field{title}{Python Crash Course}
       \field{year}{2016}
+    \endentry
+    \entry{pygame_docs}{online}{}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{labeltitlesource}{title}
+      \field{title}{Pygame Documentation}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://www.pygame.org/docs/
+      \endverb
+      \verb{url}
+      \verb https://www.pygame.org/docs/
+      \endverb
+      \warn{\item online entry 'pygame_docs' (references.bib): Invalid format '14-04-24' of date field 'date' - ignoring}
     \endentry
     \entry{end-scren_animation}{online}{}
       \field{sortinit}{P}
@@ -145,6 +198,61 @@
       \verb https://stackoverflow.com/questions/38502/whats-a-good-algorithm-to-generate-a-maze
       \endverb
       \warn{\item online entry 'stack-exchange-algorithms' (references.bib): Invalid format '18-04-2024' of date field 'date' - ignoring}
+    \endentry
+    \entry{wasted-font}{online}{}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{labeltitlesource}{title}
+      \field{title}{Wasted Font}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://textcraft.net/style/PedroBlocks24/gta-wasted
+      \endverb
+      \verb{url}
+      \verb https://textcraft.net/style/PedroBlocks24/gta-wasted
+      \endverb
+    \endentry
+    \entry{theme_site}{online}{}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{labeltitlesource}{title}
+      \field{title}{Website from which game theme(Caproni (An Aeronautical Designer's Dream)) is downloaded}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://downloads.khinsider.com/game-soundtracks/album/the-wind-rises/03%2520Caproni%2520%2528An%2520Aeronautical%2520Designer%2527s%2520Dream%2529.mp3
+      \endverb
+      \verb{url}
+      \verb https://downloads.khinsider.com/game-soundtracks/album/the-wind-rises/03%2520Caproni%2520%2528An%2520Aeronautical%2520Designer%2527s%2520Dream%2529.mp3
+      \endverb
+      \warn{\item online entry 'theme_site' (references.bib): Invalid format '26-04-2024' of date field 'date' - ignoring}
+    \endentry
+    \entry{audio-source}{online}{}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{labeltitlesource}{title}
+      \field{title}{Website used for adding sound effects to game}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://www.myinstants.com/en/categories/games/
+      \endverb
+      \verb{url}
+      \verb https://www.myinstants.com/en/categories/games/
+      \endverb
+      \warn{\item online entry 'audio-source' (references.bib): Invalid format '26-04-2024' of date field 'date' - ignoring}
+    \endentry
+    \entry{camera_reference2}{online}{}
+      \field{sortinit}{Y}
+      \field{sortinithash}{fd67ad5a9ef0f7456bdd9aab10fe1495}
+      \field{labeltitlesource}{title}
+      \field{title}{Youtube another camera tutorial}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://www.youtube.com/watch?v=u7LPRqrzry8&t=925s
+      \endverb
+      \verb{url}
+      \verb https://www.youtube.com/watch?v=u7LPRqrzry8&t=925s
+      \endverb
+      \warn{\item online entry 'camera_reference2' (references.bib): Invalid format '25-04-2024' of date field 'date' - ignoring}
     \endentry
     \entry{camera_tutorial}{online}{}
       \field{sortinit}{Y}
